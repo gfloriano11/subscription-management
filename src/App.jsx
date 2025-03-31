@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import SubscriptionCard from './components/subscription'
+import SubscriptionCard from './components/SubscriptionCard'
 
 function App() {
 
