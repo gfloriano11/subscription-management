@@ -16,7 +16,7 @@ function SubscriptionCard(){
                         <p className="text-white text-2xl">Netflix</p>
                     </div>
                     <div className="flex justify-baseline">
-                        <p>R$99.9</p>
+                        <p>R$99.90</p>
                     </div>
                 </div>
                 <a className="flex items-center">
