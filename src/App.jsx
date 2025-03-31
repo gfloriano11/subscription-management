@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import SubscriptionCard from './components/SubscriptionCard'
+import AddSubscription from './components/AddSubscription'
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
         <h1 className='text-white mt-5 text-2xl font-inter'>Your subscriptions:</h1>
       </div>
       <div className='flex justify-center'>
-        <button className='text-white'>Add Subscription</button>
+        <AddSubscription/>
       </div>
       <div className='flex justify-center'>
         <SubscriptionCard/>
