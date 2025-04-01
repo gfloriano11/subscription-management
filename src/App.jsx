@@ -16,7 +16,7 @@ function App() {
       <div className='flex justify-center'>
         <AddSubscription form={form} setForm={setForm}/>
       </div>
-      <div>
+      <div className='flex justify-center'>
         <Form form={form}/>
       </div>
       <div className='flex justify-center'>
