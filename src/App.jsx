@@ -4,7 +4,7 @@ function App() {
 
   return(
     <>
-    <div className='bg-slate-950 h-dvh gap-5 flex flex-col'>
+    <div className='bg-slate-950 h-dvh gap-5 flex justify-center'>
       <Outlet/>
     </div>
     </>
