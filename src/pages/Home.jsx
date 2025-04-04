@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import SubscriptionCard from '../components/SubscriptionCard'
-import AddSubscription from '../components/AddSubscription'
+import AddSubscription from '../components/AddSubscriptionButton'
 
 function Home(){
 
