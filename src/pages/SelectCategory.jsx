@@ -5,7 +5,7 @@ function SelectCategory(){
         
         <div className="flex flex-col gap-6">
             <div className="text-center">
-                <h1 className='text-white mt-5 text-2xl font-inter font-bold'>Choose Category:</h1>
+                <h1 className='text-white mt-5 text-2xl font-inter'>Choose Category:</h1>
             </div>
             <div>
                 <FixedSubscription/>
