@@ -1,4 +1,4 @@
-import Form from '../components/Form'
+import CreateSubscriptionForm from '../components/CreateSubscriptionForm'
 
 function AddSubscriptionForm(){
 
@@ -7,7 +7,7 @@ function AddSubscriptionForm(){
             <div>
                 <h1 className='text-white mt-5 text-2xl font-inter'>Add Your Subscription:</h1>
             </div>
-            <Form/>
+            <CreateSubscriptionForm/>
         </div>
     )
 }
