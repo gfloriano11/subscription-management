@@ -1,7 +1,7 @@
 import { Plus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-function AddSubscription(){
+function AddSubscriptionButton(){
     const navigate = useNavigate();
 
     return(
@@ -15,4 +15,4 @@ function AddSubscription(){
     );
 }
 
-export default AddSubscription;
+export default AddSubscriptionButton;
