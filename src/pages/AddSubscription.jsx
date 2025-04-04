@@ -1,6 +1,6 @@
 import CreateSubscriptionForm from '../components/CreateSubscriptionForm'
 
-function AddSubscriptionForm(){
+function AddSubscription(){
 
     return(
         <div className='flex flex-col items-center gap-6'>
@@ -12,4 +12,4 @@ function AddSubscriptionForm(){
     )
 }
 
-export default AddSubscriptionForm;
+export default AddSubscription;

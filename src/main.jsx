@@ -6,7 +6,6 @@ import './index.css'
 
 import App from './App.jsx'
 import Home from './pages/Home'
-import AddSubscriptionForm from './pages/AddSubscriptionForm'
 import SelectCategory from './pages/SelectCategory.jsx'
 
 const router = createBrowserRouter([
