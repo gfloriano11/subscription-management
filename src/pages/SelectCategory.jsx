@@ -4,15 +4,15 @@ function SelectCategory(){
 
     const category = [
         {
-            number: 1,
+            id: 1,
             category: 'Streaming'
         },
         {
-            number: 2,
+            id: 2,
             category: 'Jogos'
         },
         {
-            number: 3,
+            id: 3,
             category: 'Educação'
         }
     ];
@@ -25,7 +25,7 @@ function SelectCategory(){
             </div>
             <div>
                 {category.map((card) => (
-                    <Category text={card.category}/>
+                    <Category key={card.id} id={card.id} text={card.category}/>
                 ))}
             </div>
         </div>
