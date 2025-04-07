@@ -5,32 +5,39 @@ function SelectCategory(){
     const categories = [
         {
             id: 1,
-            name: 'Streaming📽️'
+            name: 'Streaming📽️',
+            path: 'streaming'
         },
         {
             id: 2,
-            name: 'Games🎮'
+            name: 'Games🎮',
+            path: 'games'
         },
         {
             id: 3,
-            name: 'Education🧑‍🎓'
+            name: 'Education🧑‍🎓',
+            path: 'education'
         },
         {
             id: 4,
-            name: 'Music🎸'
+            name: 'Music🎸',
+            path: 'music'
         },
         {
             id: 5,
-            name: 'HealthCare💪'
+            name: 'HealthCare💪',
+            path: 'healthcare'
         }
     ];
+
     
     const count = categories.length+1;
     categories.push({
         id: count,
-        name: 'Custom'
+        name: 'Custom',
+        path: 'custom'
     })
-
+    
     return(
         
         <div className="flex flex-col gap-6">
@@ -39,7 +46,7 @@ function SelectCategory(){
             </div>
             <div className="flex flex-col md:grid md:grid-cols-3 gap-2.5 md:gap-4">
                 {categories.map((category) => (
-                    <Category key={category.id} id={category.id} text={category.name}/>
+                    <Category key={category.id} id={category.id} text={category.name} path={category.path}/>
                 ))}
             </div>
         </div>
