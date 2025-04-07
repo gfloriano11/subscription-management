@@ -1,5 +1,6 @@
 import { useLocation, useParams } from 'react-router-dom';
 import CreateSubscriptionForm from '../components/CreateSubscriptionForm'
+import GoBackButton from '../components/GoBackButton';
 
 function AddSubscription(){
 
@@ -27,6 +28,9 @@ function AddSubscription(){
                 <h1 className='text-white mt-5 text-2xl font-inter'>Add Your Subscription:</h1>
             </div>
             <CreateSubscriptionForm/>
+            <div>
+                <GoBackButton/>
+            </div>
         </div>
     )
 }

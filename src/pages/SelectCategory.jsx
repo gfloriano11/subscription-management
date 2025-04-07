@@ -1,4 +1,5 @@
 import Category from "../components/Category";
+import GoBackButton from '../components/GoBackButton';
 
 function SelectCategory(){
 
@@ -48,6 +49,9 @@ function SelectCategory(){
                 {categories.map((category) => (
                     <Category key={category.id} id={category.id} text={category.name} path={category.path}/>
                 ))}
+            </div>
+            <div className="flex justify-center">
+                <GoBackButton/>
             </div>
         </div>
     );
