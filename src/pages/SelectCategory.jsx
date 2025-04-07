@@ -35,7 +35,7 @@ function SelectCategory(){
     const count = categories.length+1;
     categories.push({
         id: count,
-        name: 'Custom',
+        name: 'Custom❓',
         path: 'custom'
     })
     
