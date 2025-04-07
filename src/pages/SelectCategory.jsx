@@ -2,7 +2,7 @@ import Category from "../components/Category";
 
 function SelectCategory(){
 
-    const category = [
+    const categories = [
         {
             id: 1,
             category: 'Streaming📽️'
@@ -25,8 +25,8 @@ function SelectCategory(){
         }
     ];
     
-    const count = category.length+1;
-    category.push({
+    const count = categories.length+1;
+    categories.push({
         id: count,
         category: 'Custom'
     })
@@ -38,8 +38,8 @@ function SelectCategory(){
                 <h1 className='text-white mt-5 text-2xl font-inter'>Choose Category:</h1>
             </div>
             <div className="flex flex-col md:grid md:grid-cols-3 gap-2.5 md:gap-4">
-                {category.map((card) => (
-                    <Category key={card.id} id={card.id} text={card.category}/>
+                {categories.map((category) => (
+                    <Category key={category.id} id={category.id} text={category.category}/>
                 ))}
             </div>
         </div>
