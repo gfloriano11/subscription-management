@@ -9,7 +9,7 @@ function GoBackButton(){
         <button onClick={() => navigate(-1)}
         className="text-white border-2 border-slate-400 bg-zinc-900 p-2
         rounded-lg cursor-pointer select-none font-inter flex justify-center items-center
-        hover:scale-105 duration-300 transition-transform will-change-transform'">
+        hover:scale-105 hover:bg-zinc-950 duration-500 ease-in-out transition-all will-change-transform">
             <ArrowLeft color="white"/>
             <p className="text-white">Go Back</p>
         </button>
