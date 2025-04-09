@@ -15,4 +15,6 @@ function getCategory(){
     })
 }
 
-export default getCategory;
+export default {
+    getCategory
+}
