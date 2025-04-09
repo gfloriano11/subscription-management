@@ -1,6 +1,6 @@
-import getConnection from "../connection/connection";
+import getConnection from "../connection/connection.js";
 
-function getCategory(){
+function getCategory(req, res){
 
     const connection = getConnection();
 
@@ -9,7 +9,7 @@ function getCategory(){
     connection.query(query, (error, data) => {
 
         if(error){
-            return res.json(error);
+            return res.status(500).json(error);
         }
         return res.status(200).json(data);
     })
