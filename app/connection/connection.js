@@ -9,6 +9,19 @@ function getConnection(){
     });
 
     return connection;
+};
+
+function endConnection(connection){
+    connection.end((error) => {
+        if(error){
+            throw new Error('Can not end connection :(');
+        }
+
+        console.log('Connection ended succesfully');
+    })
 }
 
-export default getConnection;
+export default {
+    getConnection,
+    endConnection
+};
