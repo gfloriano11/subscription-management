@@ -1,35 +1,30 @@
+import { useEffect, useState } from "react";
 import Category from "../components/Category";
 import GoBackButton from '../components/GoBackButton';
 
-function SelectCategory(){
-
-    const categories = [
-        {
-            id: 1,
-            name: 'Streaming📽️',
-            path: 'streaming'
-        },
-        {
-            id: 2,
-            name: 'Games🎮',
-            path: 'games'
-        },
-        {
-            id: 3,
-            name: 'Education🧑‍🎓',
-            path: 'education'
-        },
-        {
-            id: 4,
-            name: 'Music🎸',
-            path: 'music'
-        },
-        {
-            id: 5,
-            name: 'HealthCare💪',
-            path: 'healthcare'
+async function getCategory(){
+    
+    const response = await fetch('localhost:8000/category', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
         }
-    ];
+    });
+
+    if(!response.ok){
+        throw new Error('Error to fetch categories');
+    }
+
+    const categories = await response.json();
+    return categories;
+}
+
+function SelectCategory(){
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        getCategory();
+    })
 
     
     const count = categories.length+1;
