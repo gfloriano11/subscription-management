@@ -2,42 +2,42 @@ import { useEffect, useState } from "react";
 import Category from "../components/Category";
 import GoBackButton from '../components/GoBackButton';
 
-async function getCategory(){
+function SelectCategory(){
+
+    const [categories, setCategories] = useState([]);
+
+    async function getCategory(){
     
-    try{
-        const response = await fetch('http://localhost:8000/category', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
+        try{
+            const response = await fetch('http://localhost:8000/category', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+                
+            if(!response.ok){
+                throw new Error('Error to fetch categories');
             }
-        });
+
+            let data = await response.json();
+
+            data = [...data, {
+                id: data.length+1,
+                category_name: 'Custom❓',
+                category_path: 'custom'
+            }];
             
-        if(!response.ok){
-            throw new Error('Error to fetch categories');
+            setCategories(data);
+            return data;
+        } catch (error){
+            console.error(error);
         }
         
-        const categories = await response.json();
-        return categories;
-    } catch (error){
-        console.error(error);
     }
     
-}
-
-function SelectCategory(){
-    
-    const [categories, setCategories] = useState([]);
-    
     useEffect(() => {
-        getCategory().then((data) => {
-            setCategories([...data,
-                {
-                    id: data.lenght+1,
-                    category_name: 'Custom❓',
-                    category_path: 'custom',
-                }
-            ]);
-        })
+        getCategory();
     }, []);
 
     return(
