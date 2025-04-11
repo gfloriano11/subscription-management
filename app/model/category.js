@@ -1,8 +1,8 @@
-import getConnection from "../connection/connection.js";
+import connect from "../connection/connection.js";
 
 function getCategory(req, res){
 
-    const connection = getConnection();
+    const connection = connect.getConnection();
 
     const query = 'SELECT * FROM category';
 
@@ -13,6 +13,8 @@ function getCategory(req, res){
         }
         return res.status(200).json(data);
     })
+
+    connect.endConnection(connection);
 }
 
 export default {
