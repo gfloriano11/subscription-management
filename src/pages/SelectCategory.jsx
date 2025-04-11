@@ -4,36 +4,42 @@ import GoBackButton from '../components/GoBackButton';
 
 async function getCategory(){
     
-    const response = await fetch('localhost:8000/category', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
+    try{
+        const response = await fetch('http://localhost:8000/category', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+            
+        if(!response.ok){
+            throw new Error('Error to fetch categories');
         }
-    });
-
-    if(!response.ok){
-        throw new Error('Error to fetch categories');
+        
+        const categories = await response.json();
+        return categories;
+    } catch (error){
+        console.error(error);
     }
-
-    const categories = await response.json();
-    return categories;
+    
 }
 
 function SelectCategory(){
+    
     const [categories, setCategories] = useState([]);
-
+    
     useEffect(() => {
-        getCategory();
-    })
+        getCategory().then((data) => {
+            setCategories([...data,
+                {
+                    id: data.lenght+1,
+                    category_name: 'Custom❓',
+                    category_path: 'custom',
+                }
+            ]);
+        })
+    }, []);
 
-    
-    const count = categories.length+1;
-    categories.push({
-        id: count,
-        name: 'Custom❓',
-        path: 'custom'
-    })
-    
     return(
         
         <div className="flex flex-col gap-6">
@@ -42,7 +48,7 @@ function SelectCategory(){
             </div>
             <div className="flex flex-col md:grid md:grid-cols-3 gap-2.5 md:gap-4">
                 {categories.map((category) => (
-                    <Category key={category.id} id={category.id} text={category.name} path={category.path}/>
+                    <Category key={category.id} id={category.id} text={category.category_name} path={category.category_path}/>
                 ))}
             </div>
             <div className="flex justify-center">
