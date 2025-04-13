@@ -48,7 +48,12 @@ function SelectCategory(){
             </div>
             <div className="flex flex-col md:grid md:grid-cols-3 gap-2.5 md:gap-4">
                 {categories.map((category) => (
-                    <Category key={category.id} id={category.id} text={category.category_name} path={category.category_path}/>
+                    <Category 
+                    key={category.id} 
+                    id={category.id} 
+                    text={category.category_name} 
+                    path={category.category_path}
+                    />
                 ))}
             </div>
             <div className="flex justify-center">
