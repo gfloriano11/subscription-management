@@ -10,16 +10,30 @@ function AddSubscription(){
     const category = uri[3];
 
     if(category !== 'custom'){
-        console.log('não é custom');
         if(category === 'streaming' || category === 'games' || category === 'education' || category === 'music' || category === 'healthcare'){
-            console.log('é fixo');
+
+            async function getSubscription(){
+
+                try{
+                    const response = await fetch(`http://localhost:8000/`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-type': 'application/json'
+                        },
+                        body: {
+                            categoryId: '1'
+                        }
+                    })
+
+                } catch (error){
+                    console.error(error);
+                }
+            }
         } else {
             return(
                 <p className='text-white'>erro</p>
             )
         }
-    } else {
-        console.log('é custom');
     }
 
     return(
