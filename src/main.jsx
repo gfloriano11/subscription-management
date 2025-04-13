@@ -8,11 +8,12 @@ import App from './App.jsx'
 import Home from './pages/Home'
 import SelectCategory from './pages/SelectCategory.jsx'
 import AddSubscription from './pages/AddSubscription.jsx'
+import Menu from './pages/Menu.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <p>Bem-vindo!</p>
+    element: <Menu/>
   },
   {
     path: '/home',
