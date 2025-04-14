@@ -38,4 +38,16 @@ VALUES
 INSERT INTO category
 (category_name, category_path)
 VALUES
-('HealthCare💪', 'healthcare'); */
+('HealthCare💪', 'healthcare'); 
+
+INSERT INTO subscription
+(subscription_name, category_id)
+VALUES
+('Netflix', 1);
+
+SELECT s.subscription_name AS 'Subscription', c.category_name AS 'Category' 
+FROM subscription AS s
+INNER JOIN category AS c
+ON s.category_id = c.id;
+
+*/
