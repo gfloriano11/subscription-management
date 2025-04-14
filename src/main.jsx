@@ -7,7 +7,7 @@ import './index.css'
 import App from './App.jsx'
 import Home from './pages/Home'
 import SelectCategory from './pages/SelectCategory.jsx'
-import AddSubscription from './pages/AddSubscription.jsx'
+import SelectSubscription from './pages/SelectSubscription.jsx'
 import Menu from './pages/Menu.jsx'
 
 const router = createBrowserRouter([
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home/> },
       { path: 'add', element: <SelectCategory/> },
-      { path: 'add/:category', element: <AddSubscription/> }
+      { path: 'add/:category', element: <SelectSubscription/> }
     ]
   }
 ])
