@@ -57,7 +57,14 @@ function AddSubscription(){
                 <h1 className='text-white mt-5 text-2xl font-inter'>Add Your Subscription:</h1>
             </div>
             <div>
-                <Subscription/>
+                {subscriptions.map((subscription) => (
+                    <Subscription
+                    key={subscription.id}
+                    id={subscription.id}
+                    text={subscription.subscription_name}
+                    path={subscription.subscription_path}
+                    />
+                ))}
             </div>
             <CreateSubscriptionForm/>
             <div>
