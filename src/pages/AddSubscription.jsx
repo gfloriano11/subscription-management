@@ -12,6 +12,8 @@ function AddSubscription(){
     const uri = pathname.split('/');
     const category = uri[3];
 
+    const categories = ['streaming', 'games', 'education', 'music', 'healthcare', 'custom'];
+
     async function getSubscription(){
 
         try{
@@ -35,19 +37,17 @@ function AddSubscription(){
         }
     }
 
-    if(category !== 'custom'){
-        if(category === 'streaming' || category === 'games' || category === 'education' || category === 'music' || category === 'healthcare'){
-
-        } else {
-            return(
-                <p className='text-white'>erro</p>
-            )
-        }
-    }
-
     useEffect(() => {
-        getSubscription();
-    }, []);
+        if(categories.includes(category)){
+            getSubscription();
+        }
+    }, [category]);
+
+    if(!categories.includes(category)){
+        return(
+            <p className='text-white'>erro</p>
+        )
+    }
 
     return(
         <div className='flex flex-col items-center gap-6'>
