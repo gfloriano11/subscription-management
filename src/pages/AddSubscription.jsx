@@ -1,5 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
+import Subscription from '../components/Subscription';
 import CreateSubscriptionForm from '../components/CreateSubscriptionForm'
 import GoBackButton from '../components/GoBackButton';
 
@@ -53,6 +55,9 @@ function AddSubscription(){
         <div className='flex flex-col items-center gap-6'>
             <div>
                 <h1 className='text-white mt-5 text-2xl font-inter'>Add Your Subscription:</h1>
+            </div>
+            <div>
+                <Subscription/>
             </div>
             <CreateSubscriptionForm/>
             <div>
