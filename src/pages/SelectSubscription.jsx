@@ -63,6 +63,7 @@ function AddSubscription(){
                     id={subscription.id}
                     text={subscription.subscription_name}
                     path={subscription.subscription_path}
+                    image={subscription.image}
                     />
                 ))}
             </div>
