@@ -12,7 +12,10 @@ CREATE TABLE category(
 
 CREATE TABLE subscription(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    subscription_name VARCHAR(255) NOT NULL
+    subscription_name VARCHAR(255) NOT NULL,
+    category_id INT NOT NULL,
+    image VARCHAR(255) NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES category (id)
 );
 
 /* INSERT INTO category
@@ -41,11 +44,12 @@ VALUES
 ('HealthCare💪', 'healthcare'); 
 
 INSERT INTO subscription
-(subscription_name, category_id)
+(subscription_name, image, category_id)
 VALUES
-('Netflix', 1);
+('Netflix', 'src/assets/subscription_image/netflix.png', 1);
 
-SELECT s.subscription_name AS 'Subscription', c.category_name AS 'Category' 
+SELECT s.subscription_name AS 'Subscription',
+c.category_name AS 'Category' 
 FROM subscription AS s
 INNER JOIN category AS c
 ON s.category_id = c.id;
