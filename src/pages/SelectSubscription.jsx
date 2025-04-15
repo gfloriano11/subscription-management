@@ -56,7 +56,7 @@ function AddSubscription(){
             <div>
                 <h1 className='text-white mt-5 text-2xl font-inter'>Add Your Subscription:</h1>
             </div>
-            <div>
+            <div className='grid grid-cols-3 gap-5'>
                 {subscriptions.map((subscription) => (
                     <Subscription
                     key={subscription.id}
