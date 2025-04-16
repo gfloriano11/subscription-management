@@ -7,7 +7,7 @@ function SubscriptionCard(){
         gap-2.5 text-white font-inter font-light">
             <div className="flex gap-5">
                 <div className="flex justify-left items-center p-2 select-none pointer-events-none w-fit border-2 rounded-lg border-gray-500">
-                    <img className="w-10" src="/src/assets/netflix-logo.svg"></img>
+                    <img className="w-10" src="/src/assets/logos/netflix-logo.svg"></img>
                 </div>
             </div>
             <div className="flex justify-between w-5/7">
