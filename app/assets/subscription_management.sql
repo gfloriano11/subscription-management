@@ -18,7 +18,7 @@ CREATE TABLE subscription(
     FOREIGN KEY (category_id) REFERENCES category (id)
 );
 
-/* INSERT INTO category
+INSERT INTO category
 (category_name, category_path)
 VALUES
 ('Streaming📽️', 'streaming');
@@ -41,12 +41,39 @@ VALUES
 INSERT INTO category
 (category_name, category_path)
 VALUES
-('HealthCare💪', 'healthcare'); 
+('HealthCare💪', 'healthcare');
 
 INSERT INTO subscription
 (subscription_name, image, category_id)
 VALUES
-('Netflix', 'src/assets/subscription_image/netflix.png', 1);
+('Netflix', '/src/assets/subscription_image/netflix.png', 1);
+
+INSERT INTO subscription
+(subscription_name, image, category_id)
+VALUES
+('Disney+', '/src/assets/subscription_image/disney+.jpg', 1);
+
+INSERT INTO subscription
+(subscription_name, image, category_id)
+VALUES
+('Prime Video', '/src/assets/subscription_image/primevideo.svg', 1);
+
+INSERT INTO subscription
+(subscription_name, image, category_id)
+VALUES
+('Max', '/src/assets/subscription_image/max.jpg', 1);
+
+INSERT INTO subscription
+(subscription_name, image, category_id)
+VALUES
+('Crunchyroll', '/src/assets/subscription_image/crunchyroll.jpg', 1);
+
+INSERT INTO subscription
+(subscription_name, image, category_id)
+VALUES
+('Paramount+', '/src/assets/subscription_image/paramount+.svg', 1);
+
+/*
 
 SELECT s.subscription_name AS 'Subscription',
 c.category_name AS 'Category' 
