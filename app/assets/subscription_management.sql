@@ -13,6 +13,7 @@ CREATE TABLE category(
 CREATE TABLE subscription(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     subscription_name VARCHAR(255) NOT NULL,
+    subscription_path VARCHAR(255) NOT NULL,
     category_id INT NOT NULL,
     image VARCHAR(255) NOT NULL,
     FOREIGN KEY (category_id) REFERENCES category (id)
@@ -44,41 +45,37 @@ VALUES
 ('HealthCare💪', 'healthcare');
 
 INSERT INTO subscription
-(subscription_name, image, category_id)
+(subscription_name, subscription_path, image, category_id)
 VALUES
-('Netflix', '/src/assets/subscription_image/netflix.png', 1);
+('Netflix', 'netflix', '/src/assets/subscription_image/netflix.png', 1);
 
 INSERT INTO subscription
-(subscription_name, image, category_id)
+(subscription_name, subscription_path, image, category_id)
 VALUES
-('Disney+', '/src/assets/subscription_image/disney+.jpg', 1);
+('Disney+', 'disney-plus', '/src/assets/subscription_image/disney+.jpg', 1);
 
 INSERT INTO subscription
-(subscription_name, image, category_id)
+(subscription_name, subscription_path, image, category_id)
 VALUES
-('Prime Video', '/src/assets/subscription_image/primevideo.svg', 1);
+('Prime Video', 'prime-video', '/src/assets/subscription_image/primevideo.svg', 1);
 
 INSERT INTO subscription
-(subscription_name, image, category_id)
+(subscription_name, subscription_path, image, category_id)
 VALUES
-('Max', '/src/assets/subscription_image/max.jpg', 1);
+('Max', 'max', '/src/assets/subscription_image/max.jpg', 1);
 
 INSERT INTO subscription
-(subscription_name, image, category_id)
+(subscription_name, subscription_path, image, category_id)
 VALUES
-('Crunchyroll', '/src/assets/subscription_image/crunchyroll.jpg', 1);
+('Crunchyroll', 'crunchyroll', '/src/assets/subscription_image/crunchyroll.jpg', 1);
 
 INSERT INTO subscription
-(subscription_name, image, category_id)
+(subscription_name, subscription_path, image, category_id)
 VALUES
-('Paramount+', '/src/assets/subscription_image/paramount+.svg', 1);
+('Paramount+', 'paramount-plus', '/src/assets/subscription_image/paramount+.svg', 1);
 
-/*
-
-SELECT s.subscription_name AS 'Subscription',
+/* SELECT s.subscription_name AS 'Subscription',
 c.category_name AS 'Category' 
 FROM subscription AS s
 INNER JOIN category AS c
-ON s.category_id = c.id;
-
-*/
+ON s.category_id = c.id; */
