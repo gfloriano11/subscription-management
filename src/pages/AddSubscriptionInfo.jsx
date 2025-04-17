@@ -1,7 +1,15 @@
+import { useLocation } from "react-router-dom";
+
 function AddSubscriptionInfo(){
+
+    const location = useLocation();
+    const { pathname } = location;
+    const url = pathname.split('/');
+    const subscription = url[4];
+
     return(
-        <div>
-            <p>add *subscription name* information:</p>
+        <div className="text-white">
+            <p>add {subscription} information:</p>
         </div>
     );
 }
