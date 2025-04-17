@@ -67,7 +67,6 @@ function AddSubscription(){
                     />
                 ))}
             </div>
-            <CreateSubscriptionForm/>
             <div>
                 <GoBackButton/>
             </div>
