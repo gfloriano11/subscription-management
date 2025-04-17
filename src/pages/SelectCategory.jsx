@@ -52,7 +52,7 @@ function SelectCategory(){
                     key={category.id} 
                     id={category.id} 
                     text={category.category_name} 
-                    path={category.category_path}
+                    path={category.subscription_path}
                     />
                 ))}
             </div>
