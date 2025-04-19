@@ -6,7 +6,7 @@ function Subscription({id, text, path, image}){
         <Link
         id={id}
         to={path}
-        state={{subscription: text}} 
+        state={{id: id}} 
         className="group relative border-2 border-gray-700 bg-white 
         rounded-3xl flex flex-col cursor-pointer overflow-hidden transition-all duration-300 
         h-36 w-65 hover:scale-101 will-change-transform">
