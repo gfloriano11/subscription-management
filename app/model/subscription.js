@@ -6,7 +6,14 @@ function getSubscription(req, res){
     
     const category = req.params.category
     
-    const query = `SELECT * FROM subscription AS s 
+    const query = `SELECT s.id AS id,
+    s.subscription_name,
+    s.subscription_path,
+    s.image,
+    c.id as category_id,
+    c.category_name,
+    c.category_path
+    FROM subscription AS s 
     INNER JOIN category AS c 
     ON s.category_id = c.id 
     WHERE c.category_path = ?`;
