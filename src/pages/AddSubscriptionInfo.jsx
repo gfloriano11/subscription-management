@@ -3,9 +3,7 @@ import { useLocation } from "react-router-dom";
 function AddSubscriptionInfo(){
 
     const location = useLocation();
-    const { pathname } = location;
-    const url = pathname.split('/');
-    const subscription = url[4];
+    const subscription = location.state.subscription;
 
     return(
         <div className="text-white">
