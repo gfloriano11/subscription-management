@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import SubscriptionForm from "../components/SubscriptionForm";
 
 function AddSubscriptionInfo(){
 
@@ -41,11 +42,9 @@ function AddSubscriptionInfo(){
                 <div>
                     <img></img>
                 </div>
-                <form>
-                    <div>
-
-                    </div>
-                </form>
+                <div>
+                    <SubscriptionForm/>
+                </div>
             </div>
         </div>
     );
