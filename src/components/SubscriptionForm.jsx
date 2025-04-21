@@ -1,3 +1,5 @@
+import Input from "./Input";
+
 function SubscriptionForm(){
 
     return(
@@ -5,12 +7,10 @@ function SubscriptionForm(){
             <form className="p-3">
                 <div className="flex flex-col">
                     <label htmlFor="subscription-name">Subscription:</label>
-                    <input 
-                    type="text" 
-                    name="subscription-name" 
-                    value="Netflix"
-                    className="bg-white p-1.5 flex items-center text-black
-                    rounded-xl"/>
+                    <Input
+                    type="text"
+                    name="subscription-name"
+                    value="Netflix"/>
                 </div>
                 <div>
                     <label htmlFor="subscription-value">Price:</label>
