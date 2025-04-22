@@ -2,6 +2,7 @@
 
 @theme{
     --font-inter: 'Inter'; 
+    --breakpoint-xmd: 51.25rem;
 }
 
 @import 'tailwindcss';
