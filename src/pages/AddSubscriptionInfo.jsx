@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import SubscriptionForm from "../components/SubscriptionForm";
+import GoBackButton from "../components/GoBackButton";
 
 function AddSubscriptionInfo(){
 
@@ -44,6 +45,9 @@ function AddSubscriptionInfo(){
                 </div>
                 <div>
                     <SubscriptionForm/>
+                </div>
+                <div>
+                    <GoBackButton/>
                 </div>
             </div>
         </div>
