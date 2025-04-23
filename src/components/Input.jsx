@@ -5,7 +5,7 @@ function Input({type, name, value, custom, onChange}){
         type={type} 
         name={name} 
         value={value}
-        readOnly={custom}
+        readOnly={!custom}
         onChange={onChange}
         className="bg-white p-1.5 flex items-center text-black
         rounded-xl"/>
