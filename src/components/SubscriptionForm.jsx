@@ -1,6 +1,8 @@
 import Input from "./Input";
 
-function SubscriptionForm(){
+function SubscriptionForm({subscription}){
+
+    const isCustom = (subscription.is_custom);
 
     return(
         <div className="bg-slate-800 border-1 border-gray-700 rounded-lg">
@@ -8,9 +10,10 @@ function SubscriptionForm(){
                 <div className="flex flex-col">
                     <label htmlFor="subscription-name">Subscription:</label>
                     <Input
+                    custom={isCustom}
                     type="text"
                     name="subscription-name"
-                    value="Netflix"/>
+                    value={null}/>
                 </div>
                 <div>
                     <label htmlFor="subscription-value">Price:</label>
