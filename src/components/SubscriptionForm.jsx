@@ -1,8 +1,17 @@
+import { useEffect, useState } from "react";
 import Input from "./Input";
 
 function SubscriptionForm({subscription}){
 
-    const isCustom = (subscription.is_custom);
+    const [name, setName] = useState('');
+    const [isCustom, setIsCustom] = useState(0);
+
+    useEffect(() => {
+        if (subscription) {
+            setName(subscription.subscription_name);
+            setIsCustom(subscription.is_custom);
+        }
+    }, [subscription]);
 
     return(
         <div className="bg-slate-800 border-1 border-gray-700 rounded-lg">
@@ -10,10 +19,11 @@ function SubscriptionForm({subscription}){
                 <div className="flex flex-col">
                     <label htmlFor="subscription-name">Subscription:</label>
                     <Input
-                    custom={isCustom}
                     type="text"
                     name="subscription-name"
-                    value={null}/>
+                    custom={isCustom}
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}/>
                 </div>
                 <div>
                     <label htmlFor="subscription-value">Price:</label>
