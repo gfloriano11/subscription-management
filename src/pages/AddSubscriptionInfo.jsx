@@ -25,7 +25,6 @@ function AddSubscriptionInfo(){
         }
 
         const data = await response.json();
-        // console.log(data);
         setSubscription(data[0]);
     }
 
@@ -44,7 +43,8 @@ function AddSubscriptionInfo(){
                     <img></img>
                 </div>
                 <div>
-                    <SubscriptionForm/>
+                    <SubscriptionForm
+                    subscription={subscription}/>
                 </div>
                 <div>
                     <GoBackButton/>
