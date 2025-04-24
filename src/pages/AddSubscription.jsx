@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Subscription from '../components/Subscription';
 import CreateSubscriptionForm from '../components/CreateSubscriptionForm'
 import GoBackButton from '../components/GoBackButton';
+import SubscriptionForm from '../components/SubscriptionForm';
 
 function AddSubscription(){
 
@@ -57,7 +58,7 @@ function AddSubscription(){
             <div>
                 <h1 className='text-white mt-5 text-2xl font-inter'>Add Your Subscription:</h1>
             </div>
-            <CreateSubscriptionForm/>
+            <SubscriptionForm/>
             <div>
                 <GoBackButton/>
             </div>
