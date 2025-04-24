@@ -8,7 +8,7 @@ function Input({type, name, value, custom, onChange}){
         readOnly={!custom}
         onChange={onChange}
         className="bg-white p-1.5 flex items-center text-black
-        rounded-xl"/>
+        rounded-xl outline-none"/>
     )
 }
 
