@@ -33,12 +33,8 @@ function AddSubscriptionInfo(){
     }, []);
 
     return(
-        <div className="text-white">
-            <div>
-                <p>add {subscription.subscription_name} information:</p>
-            </div>
-            <div className="text-white">
-                <p>{subscription.subscription_name}</p>
+        <div className="text-white flex flex-col">
+            <div className="text-white flex flex-col items-center gap-6">
                 <div>
                     <img></img>
                 </div>
@@ -46,7 +42,7 @@ function AddSubscriptionInfo(){
                     <SubscriptionForm
                     subscription={subscription}/>
                 </div>
-                <div>
+                <div className="">
                     <GoBackButton/>
                 </div>
             </div>
