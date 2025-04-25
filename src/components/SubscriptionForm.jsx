@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Input from "./Input";
 
 function SubscriptionForm({subscription}){
 
     const [name, setName] = useState('');
+    const [price, setPrice] = useState('');
     const [isCustom, setIsCustom] = useState(1);
 
     useEffect(() => {
@@ -29,10 +30,14 @@ function SubscriptionForm({subscription}){
                     value={name}
                     onChange={(event) => setName(event.target.value)}/>
                 </div>
-                
                 <div>
                     <label htmlFor="subscription-value">Price:</label>
-                    <input type="text" name="subscription-value" value="USD 12"/>
+                    <Input
+                    type="text"
+                    name="subscription-value"
+                    custom={!isCustom}
+                    value={price}
+                    onChange={(event) => setPrice(event.target.value)}/>
                 </div>
             </form>
         </div>
