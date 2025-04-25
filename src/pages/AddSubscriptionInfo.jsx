@@ -33,16 +33,16 @@ function AddSubscriptionInfo(){
     }, []);
 
     return(
-        <div className="text-white flex flex-col">
+        <div className="text-white flex flex-col items-center">
             <div className="text-white flex flex-col items-center gap-6">
                 <div>
                     <img></img>
                 </div>
-                <div>
+                <div className="flex justify-center">
                     <SubscriptionForm
                     subscription={subscription}/>
                 </div>
-                <div className="">
+                <div>
                     <GoBackButton/>
                 </div>
             </div>
