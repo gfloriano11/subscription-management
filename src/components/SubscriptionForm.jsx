@@ -1,5 +1,6 @@
 import { use, useEffect, useState } from "react";
 import Input from "./Input";
+import SubmitButton from "./SubmitButton";
 
 function SubscriptionForm({subscription}){
 
@@ -102,8 +103,7 @@ function SubscriptionForm({subscription}){
                         name="payment-method"
                         custom={true}
                         value={paymentMethod}
-                        onChange={(event) => setPaymentMethod(event.target.value)}
-                        >
+                        onChange={(event) => setPaymentMethod(event.target.value)}>
                             <option>Credit Card</option>
                             <option>Debit Card</option>
                             <option>PayPal</option>
@@ -121,6 +121,7 @@ function SubscriptionForm({subscription}){
                         onChange={(event) => setDueDate(event.target.value)}/>
                     </div>
                 </div>
+                <SubmitButton/>
             </form>
         </div>
     );
