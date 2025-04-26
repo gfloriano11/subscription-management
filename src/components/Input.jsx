@@ -2,7 +2,7 @@ function Input({type, name, value, custom, onChange, children}){
     
     let permission = "bg-slate-400 cursor-not-allowed"
     if(custom === true){
-        permission = 'bg-slate-200'
+        permission = 'bg-slate-200 focus:h-10'
     }
 
     if (type === "select") {
@@ -25,8 +25,8 @@ function Input({type, name, value, custom, onChange, children}){
         value={value}
         readOnly={!custom}
         onChange={onChange}
-        className={`${permission} p-1.5 flex items-center text-black
-        rounded-lg outline-none w-full`}/>
+        className={`${permission} p-1.5 h-9 items-center text-black
+        rounded-lg outline-none w-full duration-500 ease-in-out transition-all`}/>
     )
 }
 
