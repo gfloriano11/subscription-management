@@ -5,8 +5,14 @@ function SubscriptionForm({subscription}){
 
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
+    const [priceError, setPriceError] = useState('');
+    const [user, setUser] = useState('');
+    const [userError, setUserError] = useState('');
+    const [startDate, setstartDate] = useState('');
+    const [dueDate, setDueDate] = useState('');
+    const [paymentMethod, setPaymentMethod] = useState('');
+
     const [isCustom, setIsCustom] = useState(1);
-    const [error, setError] = useState('');
 
     function verifyPrice(price){
         const value = price.target.value;
@@ -14,9 +20,21 @@ function SubscriptionForm({subscription}){
         setPrice(value)
 
         if(isNaN(value) || value < 0){
-            setError('Please, write a valid number.');
+            setPriceError('Please, write a valid number.');
         } else {
-            setError('');
+            setPriceError('');
+        }
+    }
+
+    function verifyUsers(user){
+        const value = user.target.value;
+
+        setUser(value)
+
+        if(isNaN(value) || value < 0){
+            setUserError('Please, write a valid number.');
+        } else {
+            setUserError('');
         }
     }
 
@@ -50,8 +68,11 @@ function SubscriptionForm({subscription}){
                         type="text"
                         name="users-number"
                         custom={true}
-                        value={price}
-                        onChange={(event) => setPrice(event.target.value)}/>
+                        value={user}
+                        onChange={verifyUsers}/>
+                        {userError && (
+                            <p className="text-red-600">{userError}</p>
+                        )}
                     </div>
                     <div>
                         <label htmlFor="subscription-value">Price:</label>
@@ -61,8 +82,8 @@ function SubscriptionForm({subscription}){
                         custom={true}
                         value={price}
                         onChange={verifyPrice}/>
-                        {error && (
-                            <p className="text-red-600">{error}</p>
+                        {priceError && (
+                            <p className="text-red-600">{priceError}</p>
                         )}
                     </div>
                     <div>
@@ -71,17 +92,8 @@ function SubscriptionForm({subscription}){
                         type="date"
                         name="start-date"
                         custom={true}
-                        value={price}
-                        onChange={(event) => {event.target.value}}/>
-                    </div>
-                    <div>
-                        <label htmlFor="due-date">Due Date:</label>
-                        <Input
-                        type="date"
-                        name="due-date"
-                        custom={true}
-                        value={price}
-                        onChange={(event) => {event.target.value}}/>
+                        value={startDate}
+                        onChange={(event) => setstartDate(event.target.value)}/>
                     </div>
                     <div>
                         <label htmlFor="payment-method">Payment Method:</label>
@@ -89,8 +101,8 @@ function SubscriptionForm({subscription}){
                         type="select"
                         name="payment-method"
                         custom={true}
-                        value={price}
-                        onChange={(event) => setPrice(event.target.value)}
+                        value={paymentMethod}
+                        onChange={(event) => setPaymentMethod(event.target.value)}
                         >
                             <option>Credit Card</option>
                             <option>Debit Card</option>
@@ -98,6 +110,15 @@ function SubscriptionForm({subscription}){
                             <option>Apple Pay</option>
                             <option>Google Pay</option>
                         </Input>
+                    </div>
+                    <div>
+                        <label htmlFor="due-date">Due Date:</label>
+                        <Input
+                        type="date"
+                        name="due-date"
+                        custom={true}
+                        value={dueDate}
+                        onChange={(event) => setDueDate(event.target.value)}/>
                     </div>
                 </div>
             </form>
