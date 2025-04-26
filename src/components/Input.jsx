@@ -1,5 +1,9 @@
 function Input({type, name, value, custom, onChange}){
-
+    
+    let permission = "bg-slate-400 cursor-not-allowed"
+    if(custom === true){
+        permission = 'bg-slate-200'
+    }
     return(
         <input 
         type={type} 
@@ -7,8 +11,8 @@ function Input({type, name, value, custom, onChange}){
         value={value}
         readOnly={!custom}
         onChange={onChange}
-        className="bg-white p-1.5 flex items-center text-black
-        rounded-xl outline-none"/>
+        className={`${permission} p-1.5 flex items-center text-black
+        rounded-lg outline-none`}/>
     )
 }
 
