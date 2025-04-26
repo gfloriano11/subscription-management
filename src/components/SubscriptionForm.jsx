@@ -9,8 +9,8 @@ function SubscriptionForm({subscription}){
 
     useEffect(() => {
         if (subscription) {
-            setName(subscription.subscription_name);
-            setIsCustom(subscription.is_custom);
+            setName(subscription.subscription_name || '');
+            setIsCustom(subscription.is_custom || 1);
         }
     }, [subscription]);
 
