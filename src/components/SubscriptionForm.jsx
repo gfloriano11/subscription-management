@@ -35,7 +35,7 @@ function SubscriptionForm({subscription}){
                     <Input
                     type="text"
                     name="subscription-value"
-                    custom={!isCustom}
+                    custom={true}
                     value={price}
                     onChange={(event) => setPrice(event.target.value)}/>
                 </div>
