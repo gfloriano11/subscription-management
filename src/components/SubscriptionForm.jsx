@@ -57,8 +57,8 @@ function SubscriptionForm({subscription}){
     return(
         <div className="flex bg-slate-800 border-1 border-gray-700 rounded-lg
         w-3/4">
-            <div className="w-1/2 select-none pointer-events-none">
-                <img className="rounded-lg" src="\src\assets\subscription_image\netflix.png"></img>
+            <div className="w-1/2 select-none pointer-events-none bg-white rounded-lg">
+                <img className="rounded-lg" src={subscription.image}></img>
             </div>
             <form className="p-3 text-white">
                 <div className="grid grid-cols-2 gap-x-5 gap-y-3">
