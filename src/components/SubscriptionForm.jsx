@@ -40,8 +40,8 @@ function SubscriptionForm({subscription}){
             setUserError('');
         }
 
-        if(isNaN(value) || value < 0){
-            setUserError('Please, write a valid number.');
+        if (isNaN(value) || value < 0 || Number.isInteger(Number(value)) === false) {
+            setUserError('Please, write a valid integer.');
         } else {
             setUserError('');
         }
