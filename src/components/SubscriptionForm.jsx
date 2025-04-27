@@ -54,8 +54,6 @@ function SubscriptionForm({subscription}){
         }
     }, [subscription]);
 
-    console.log(isCustom);
-
     return(
         <div className="flex bg-slate-800 border-1 border-gray-700 rounded-lg
         w-3/4">
