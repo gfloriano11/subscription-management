@@ -1,7 +1,7 @@
 function Input({type, name, value, custom, onChange, children}){
     
     let permission = "bg-slate-400 cursor-not-allowed"
-    if(custom === true){
+    if(custom === 1){
         permission = 'bg-slate-200 focus:h-10'
     }
 
