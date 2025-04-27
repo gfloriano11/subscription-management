@@ -20,6 +20,10 @@ function SubscriptionForm({subscription}){
 
         setPrice(value)
 
+        if(value === ''){
+            setPriceError('');
+        }
+
         if(isNaN(value) || value < 0){
             setPriceError('Please, write a valid number.');
         } else {
@@ -32,6 +36,10 @@ function SubscriptionForm({subscription}){
 
         setUser(value)
 
+        if(value === ''){
+            setUserError('');
+        }
+
         if(isNaN(value) || value < 0){
             setUserError('Please, write a valid number.');
         } else {
@@ -42,9 +50,11 @@ function SubscriptionForm({subscription}){
     useEffect(() => {
         if (subscription) {
             setName(subscription.subscription_name || '');
-            setIsCustom(subscription.is_custom || 1);
+            setIsCustom(subscription.is_custom ?? 1);
         }
     }, [subscription]);
+
+    console.log(isCustom);
 
     return(
         <div className="flex bg-slate-800 border-1 border-gray-700 rounded-lg
@@ -59,7 +69,7 @@ function SubscriptionForm({subscription}){
                         <Input
                         type="text"
                         name="subscription-name"
-                        custom={!isCustom}
+                        custom={isCustom}
                         value={name}
                         onChange={(event) => setName(event.target.value)}/>
                     </div>
@@ -68,7 +78,7 @@ function SubscriptionForm({subscription}){
                         <Input
                         type="text"
                         name="users-number"
-                        custom={true}
+                        custom={1}
                         value={user}
                         onChange={verifyUsers}/>
                         {userError && (
@@ -80,7 +90,7 @@ function SubscriptionForm({subscription}){
                         <Input
                         type="text"
                         name="subscription-value"
-                        custom={true}
+                        custom={1}
                         value={price}
                         onChange={verifyPrice}/>
                         {priceError && (
@@ -92,7 +102,7 @@ function SubscriptionForm({subscription}){
                         <Input
                         type="date"
                         name="start-date"
-                        custom={true}
+                        custom={1}
                         value={startDate}
                         onChange={(event) => setstartDate(event.target.value)}/>
                     </div>
@@ -101,7 +111,7 @@ function SubscriptionForm({subscription}){
                         <Input
                         type="select"
                         name="payment-method"
-                        custom={true}
+                        custom={1}
                         value={paymentMethod}
                         onChange={(event) => setPaymentMethod(event.target.value)}>
                             <option>Credit Card</option>
@@ -116,7 +126,7 @@ function SubscriptionForm({subscription}){
                         <Input
                         type="date"
                         name="due-date"
-                        custom={true}
+                        custom={1}
                         value={dueDate}
                         onChange={(event) => setDueDate(event.target.value)}/>
                     </div>
