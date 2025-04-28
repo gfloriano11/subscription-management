@@ -11,9 +11,11 @@ function SubscriptionForm({subscription}){
     const [userError, setUserError] = useState('');
     const [startDate, setstartDate] = useState('');
     const [dueDate, setDueDate] = useState('');
-    const [paymentMethod, setPaymentMethod] = useState('');
+    const [paymentMethod, setPaymentMethod] = useState(null);
 
     const [isCustom, setIsCustom] = useState(1);
+
+    const [image, setImage] = useState('');
 
     function verifyPrice(price){
         const value = price.target.value;
@@ -51,15 +53,18 @@ function SubscriptionForm({subscription}){
         if (subscription) {
             setName(subscription.subscription_name || '');
             setIsCustom(subscription.is_custom ?? 1);
+            setImage(subscription.image);
         }
     }, [subscription]);
 
     return(
         <div className="flex bg-slate-800 border-1 border-gray-700 rounded-lg
         w-3/4">
+        {image && (
             <div className="w-1/2 select-none pointer-events-none bg-white rounded-lg">
-                <img className="rounded-lg" src={subscription.image}></img>
+                <img className="rounded-lg" src={image}></img>
             </div>
+        )}
             <form className="p-3 text-white">
                 <div className="grid grid-cols-2 gap-x-5 gap-y-3">
                     <div className="flex flex-col">
