@@ -58,84 +58,85 @@ function SubscriptionForm({subscription}){
     }, [subscription]);
 
     return(
-        <div className="flex bg-slate-800 border-1 border-gray-700 rounded-lg
-        w-3/4">
-        {image && (
-            <div className="w-1/2 select-none pointer-events-none bg-white rounded-lg">
-                <img className="rounded-lg" src={image}></img>
-            </div>
-        )}
-            <form className="p-3 text-white">
-                <div className="grid grid-cols-2 gap-x-5 gap-y-3">
-                    <div className="flex flex-col">
-                        <label htmlFor="subscription-name">Subscription Name:</label>
-                        <Input
-                        type="text"
-                        name="subscription-name"
-                        custom={isCustom}
-                        value={name}
-                        onChange={(event) => setName(event.target.value)}/>
-                    </div>
-                    <div>
-                        <label htmlFor="users-number">Users:</label>
-                        <Input
-                        type="text"
-                        name="users-number"
-                        custom={1}
-                        value={user}
-                        onChange={verifyUsers}/>
-                        {userError && (
-                            <p className="text-red-600">{userError}</p>
-                        )}
-                    </div>
-                    <div>
-                        <label htmlFor="subscription-value">Price:</label>
-                        <Input
-                        type="text"
-                        name="subscription-value"
-                        custom={1}
-                        value={price}
-                        onChange={verifyPrice}/>
-                        {priceError && (
-                            <p className="text-red-600">{priceError}</p>
-                        )}
-                    </div>
-                    <div>
-                        <label htmlFor="start-date">Start Date:</label>
-                        <Input
-                        type="date"
-                        name="start-date"
-                        custom={1}
-                        value={startDate}
-                        onChange={(event) => setstartDate(event.target.value)}/>
-                    </div>
-                    <div>
-                        <label htmlFor="payment-method">Payment Method:</label>
-                        <Input
-                        type="select"
-                        name="payment-method"
-                        custom={1}
-                        value={paymentMethod}
-                        onChange={(event) => setPaymentMethod(event.target.value)}>
-                            <option>Credit Card</option>
-                            <option>Debit Card</option>
-                            <option>PayPal</option>
-                            <option>Apple Pay</option>
-                            <option>Google Pay</option>
-                        </Input>
-                    </div>
-                    <div>
-                        <label htmlFor="due-date">Due Date:</label>
-                        <Input
-                        type="date"
-                        name="due-date"
-                        custom={1}
-                        value={dueDate}
-                        onChange={(event) => setDueDate(event.target.value)}/>
-                    </div>
+        <div className="flex justify-center">
+            <div className="flex w-3/4 justify-center bg-slate-800 border-1 border-gray-700 rounded-lg">
+                {image && (
+                <div className="flex-1 select-none pointer-events-none bg-white rounded-lg">
+                    <img className="rounded-lg w-full" src={image}></img>
                 </div>
-                <SubmitButton/>
-            </form>
+                )}
+                <form className="flex-1 p-3 text-white flex flex-col justify-around">
+                    <div className="grid grid-cols-2 gap-x-5 gap-y-3">
+                        <div className="flex flex-col">
+                            <label htmlFor="subscription-name">Subscription Name:</label>
+                            <Input
+                            type="text"
+                            name="subscription-name"
+                            custom={isCustom}
+                            value={name}
+                            onChange={(event) => setName(event.target.value)}/>
+                        </div>
+                        <div>
+                            <label htmlFor="users-number">Users:</label>
+                            <Input
+                            type="text"
+                            name="users-number"
+                            custom={1}
+                            value={user}
+                            onChange={verifyUsers}/>
+                            {userError && (
+                                <p className="text-red-600">{userError}</p>
+                            )}
+                        </div>
+                        <div>
+                            <label htmlFor="subscription-value">Price:</label>
+                            <Input
+                            type="text"
+                            name="subscription-value"
+                            custom={1}
+                            value={price}
+                            onChange={verifyPrice}/>
+                            {priceError && (
+                                <p className="text-red-600">{priceError}</p>
+                            )}
+                        </div>
+                        <div>
+                            <label htmlFor="start-date">Start Date:</label>
+                            <Input
+                            type="date"
+                            name="start-date"
+                            custom={1}
+                            value={startDate}
+                            onChange={(event) => setstartDate(event.target.value)}/>
+                        </div>
+                        <div>
+                            <label htmlFor="payment-method">Payment Method:</label>
+                            <Input
+                            type="select"
+                            name="payment-method"
+                            custom={1}
+                            value={paymentMethod}
+                            onChange={(event) => setPaymentMethod(event.target.value)}>
+                                <option>Credit Card</option>
+                                <option>Debit Card</option>
+                                <option>PayPal</option>
+                                <option>Apple Pay</option>
+                                <option>Google Pay</option>
+                            </Input>
+                        </div>
+                        <div>
+                            <label htmlFor="due-date">Due Date:</label>
+                            <Input
+                            type="date"
+                            name="due-date"
+                            custom={1}
+                            value={dueDate}
+                            onChange={(event) => setDueDate(event.target.value)}/>
+                        </div>
+                    </div>
+                    <SubmitButton/>
+                </form>
+            </div>
         </div>
     );
 }
