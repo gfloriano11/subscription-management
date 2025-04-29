@@ -1,12 +1,11 @@
 function SubmitButton(){
 
     return(
-        <div className="flex justify-center">
-            <button type="button"
-            className="w-1/5 p-2 bg-purple-950 border-white border-1 rounded-xl cursor-pointer">
-                <p>Save</p>
-            </button>
-        </div>
+        <button type="button"
+        className="w-40 p-2 h-10 bg-purple-700 hover:bg-purple-800 hover:text-[17px] hover:scale-105 transition-all 
+        duration-300 ease-in-out text-white rounded-xl cursor-pointer will-change-transform">
+            <p>Add Subscription</p>
+        </button>
     );
 }
 
