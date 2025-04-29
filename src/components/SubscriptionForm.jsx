@@ -65,7 +65,7 @@ function SubscriptionForm({subscription}){
                     <img className="rounded-lg w-full" src={image}></img>
                 </div>
                 )}
-                <form className="flex-1 p-3 text-white flex flex-col justify-around">
+                <form className="flex-1 p-3 text-white flex flex-col gap-3 justify-around">
                     <div className="grid grid-cols-2 gap-x-5 gap-y-3">
                         <div className="flex flex-col">
                             <label htmlFor="subscription-name">Subscription Name:</label>
@@ -134,7 +134,9 @@ function SubscriptionForm({subscription}){
                             onChange={(event) => setDueDate(event.target.value)}/>
                         </div>
                     </div>
-                    <SubmitButton/>
+                    <div className="flex justify-center">
+                        <SubmitButton/>
+                    </div>
                 </form>
             </div>
         </div>
