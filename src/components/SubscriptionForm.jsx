@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "./Input";
 import SubmitButton from "./SubmitButton";
 
@@ -49,6 +49,21 @@ function SubscriptionForm({subscription}){
         }
     }
 
+    function submitForm(submit){
+
+        submit.preventDefault();
+
+        const subscriptionData = {
+            name,
+            price, 
+            users,
+            dueDate,
+            startDate,
+            paymentMethod,
+            categoryId
+        }
+    }
+
     useEffect(() => {
         if (subscription) {
             setName(subscription.subscription_name || '');
@@ -65,7 +80,8 @@ function SubscriptionForm({subscription}){
                     <img className="rounded-lg w-full" src={image}></img>
                 </div>
                 )}
-                <form className="flex-1 p-3 text-white flex flex-col gap-3 justify-around">
+                <form onSubmit={submitForm} 
+                className="flex-1 p-3 text-white flex flex-col gap-3 justify-around">
                     <div className="grid grid-cols-2 gap-x-5 gap-y-3">
                         <div className="flex flex-col">
                             <label htmlFor="subscription-name">Subscription Name:</label>
