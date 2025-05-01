@@ -12,6 +12,7 @@ function SubscriptionForm({subscription}){
     const [startDate, setstartDate] = useState('');
     const [dueDate, setDueDate] = useState('');
     const [paymentMethod, setPaymentMethod] = useState(null);
+    const [categoryId, setCategoryId] = useState(0);
 
     const [isCustom, setIsCustom] = useState(1);
 
@@ -55,10 +56,12 @@ function SubscriptionForm({subscription}){
 
         submit.preventDefault();
 
+        console.log(formRef);
+
         const subscriptionData = {
             name,
             price, 
-            users,
+            user,
             dueDate,
             startDate,
             paymentMethod,
@@ -71,6 +74,7 @@ function SubscriptionForm({subscription}){
             setName(subscription.subscription_name || '');
             setIsCustom(subscription.is_custom ?? 1);
             setImage(subscription.image);
+            setCategoryId(subscription.category_id);
         }
     }, [subscription]);
 
