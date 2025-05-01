@@ -78,16 +78,16 @@ function SubscriptionForm({subscription}){
 
     return(
         <div className="flex justify-center">
-            <div className="flex w-3/4 justify-center bg-slate-800 border-1 border-gray-700 rounded-lg">
+            <div className="flex flex-col md:flex-row w-3/4 justify-center bg-slate-800 border-1 border-gray-700 rounded-lg">
                 {image && (
-                <div className="flex-1 select-none pointer-events-none bg-white rounded-lg">
+                <div className="flex-1 w-full max-w-lg md:max-w-full select-none pointer-events-none bg-white rounded-lg">
                     <img className="rounded-lg w-full" src={image}></img>
                 </div>
                 )}
                 <form onSubmit={submitForm} 
-                className="flex-1 p-3 text-white flex flex-col gap-3 justify-around">
-                    <div className="grid grid-cols-2 gap-x-5 gap-y-3">
-                        <div className="flex flex-col">
+                className="flex-1 p-3 text-white md:w-full flex flex-col items-center gap-3 justify-around">
+                    <div className="flex flex-col items-center md:w-full md:grid grid-cols-2 gap-x-5 gap-y-3">
+                        <div className="flex flex-col w-full">
                             <label htmlFor="subscription-name">Subscription Name:</label>
                             <Input
                             type="text"
@@ -121,7 +121,7 @@ function SubscriptionForm({subscription}){
                                 <p className="text-red-600">{priceError}</p>
                             )}
                         </div>
-                        <div>
+                        <div className="flex flex-col w-full">
                             <label htmlFor="start-date">Start Date:</label>
                             <Input
                             type="date"
@@ -130,7 +130,7 @@ function SubscriptionForm({subscription}){
                             value={startDate}
                             onChange={(event) => setstartDate(event.target.value)}/>
                         </div>
-                        <div>
+                        <div className="flex flex-col w-full">
                             <label htmlFor="payment-method">Payment Method:</label>
                             <Input
                             type="select"
@@ -144,7 +144,7 @@ function SubscriptionForm({subscription}){
                                 <option value="Google Pay">Google Pay</option>
                             </Input>
                         </div>
-                        <div>
+                        <div className="flex flex-col w-full">
                             <label htmlFor="due-date">Due Date:</label>
                             <Input
                             type="date"
