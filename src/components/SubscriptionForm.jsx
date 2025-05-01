@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Input from "./Input";
 import SubmitButton from "./SubmitButton";
 
@@ -16,6 +16,8 @@ function SubscriptionForm({subscription}){
     const [isCustom, setIsCustom] = useState(1);
 
     const [image, setImage] = useState('');
+
+    const formRef = useRef({});
 
     function verifyPrice(price){
         const value = price.target.value;
@@ -90,7 +92,9 @@ function SubscriptionForm({subscription}){
                             name="subscription-name"
                             custom={isCustom}
                             value={name}
-                            onChange={(event) => setName(event.target.value)}/>
+                            onChange={(event) => setName(event.target.value)}
+                            ref={(element) => formRef.current.name = element}
+                            />
                         </div>
                         <div>
                             <label htmlFor="users-number">Users:</label>
@@ -99,7 +103,8 @@ function SubscriptionForm({subscription}){
                             name="users-number"
                             custom={1}
                             value={user}
-                            onChange={verifyUsers}/>
+                            onChange={verifyUsers}
+                            ref={(element) => formRef.current.users = element}/>
                             {userError && (
                                 <p className="text-red-600">{userError}</p>
                             )}
@@ -111,7 +116,8 @@ function SubscriptionForm({subscription}){
                             name="subscription-value"
                             custom={1}
                             value={price}
-                            onChange={verifyPrice}/>
+                            onChange={verifyPrice}
+                            ref={(element) => formRef.current.price = element}/>
                             {priceError && (
                                 <p className="text-red-600">{priceError}</p>
                             )}
@@ -123,7 +129,8 @@ function SubscriptionForm({subscription}){
                             name="start-date"
                             custom={1}
                             value={startDate}
-                            onChange={(event) => setstartDate(event.target.value)}/>
+                            onChange={(event) => setstartDate(event.target.value)}
+                            ref={(element) => formRef.current.startDate = element}/>
                         </div>
                         <div>
                             <label htmlFor="payment-method">Payment Method:</label>
@@ -132,6 +139,7 @@ function SubscriptionForm({subscription}){
                             name="payment-method"
                             custom={1}
                             value={paymentMethod}
+                            ref={(element) => formRef.current.paymentMethod = element}
                             onChange={(event) => setPaymentMethod(event.target.value)}>
                                 <option>Credit Card</option>
                                 <option>Debit Card</option>
@@ -147,7 +155,8 @@ function SubscriptionForm({subscription}){
                             name="due-date"
                             custom={1}
                             value={dueDate}
-                            onChange={(event) => setDueDate(event.target.value)}/>
+                            onChange={(event) => setDueDate(event.target.value)}
+                            ref={(element) => formRef.current.dueDate = element}/>
                         </div>
                     </div>
                     <div className="flex justify-center">
