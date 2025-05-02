@@ -71,9 +71,9 @@ function SubscriptionForm({subscription}){
             headers: {
                 'Content-type': 'application/json'
             },
-            body: {
+            body: JSON.stringify({
                 subscriptionData: subscriptionData
-            }
+            })
         });
 
         if(!response.ok){
