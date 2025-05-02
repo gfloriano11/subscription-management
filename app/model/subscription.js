@@ -1,3 +1,4 @@
+import { data } from "react-router-dom";
 import connect from "../connection/connection.js";
 
 function getSubscription(req, res){
@@ -49,7 +50,32 @@ function getSubscriptionById(req, res){
     connect.endConnection(connection);
 }
 
+function addSubscription(req, res){
+    const connection = connect.getConnection();
+
+    const name = req.body.name;
+    const path = req.body.path;
+    const id = req.body.categoryId
+
+    console.log(name);
+
+    const query = `INSERT INTO my_subscriptions
+    (subscription_name, subscription_path, category_id, is_custom)
+    VALUES
+    (?, ?, ?, ?)`;
+
+    connection.query(query, [name, path, id, custom], (error, data) => {
+
+        if(error){
+            return res.status(500).json(data);
+        }
+
+        return res.status(200).json(data);
+    })
+}
+
 export default {
     getSubscription,
-    getSubscriptionById
+    getSubscriptionById,
+    addSubscription
 }
