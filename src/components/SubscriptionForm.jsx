@@ -66,7 +66,7 @@ function SubscriptionForm({subscription}){
 
         console.log(subscriptionData);
 
-        const response = await fetch(`http://localhost:8000/add/subscription`, {
+        const response = await fetch(`http://localhost:8000/subscription/add`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
