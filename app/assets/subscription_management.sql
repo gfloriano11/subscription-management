@@ -15,7 +15,7 @@ CREATE TABLE subscription(
     subscription_name VARCHAR(255) NOT NULL,
     subscription_path VARCHAR(255) NOT NULL,
     category_id INT NOT NULL,
-    image VARCHAR(255) NOT NULL,
+    image VARCHAR(255) NULL,
     is_custom BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (category_id) REFERENCES category (id)
 );
