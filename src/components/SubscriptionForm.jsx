@@ -50,21 +50,40 @@ function SubscriptionForm({subscription}){
         }
     }
 
-    function submitForm(submit){
+    async function submitForm(submit){
 
         submit.preventDefault();
 
         const subscriptionData = {
-            name,
-            price, 
-            user,
-            dueDate,
-            startDate,
-            paymentMethod,
-            categoryId
+            name: name,
+            price: price, 
+            user: user,
+            dueDate: dueDate,
+            startDate: startDate,
+            paymentMethod: paymentMethod,
+            categoryId: categoryId
         }
 
         console.log(subscriptionData);
+
+        const response = await fetch(`http://localhost:8000/add/subscription`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: {
+                subscriptionData: subscriptionData
+            }
+        });
+
+        if(!response.ok){
+            throw new Error('Error to add new subscription');
+        }
+
+        let data = await response.json();
+
+        console.log(data);
+
     }
 
     useEffect(() => {
