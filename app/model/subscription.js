@@ -57,8 +57,6 @@ function addSubscription(req, res){
     const path = req.body.path;
     const id = req.body.categoryId
 
-    console.log(name);
-
     const query = `INSERT INTO my_subscriptions
     (subscription_name, subscription_path, category_id, is_custom)
     VALUES

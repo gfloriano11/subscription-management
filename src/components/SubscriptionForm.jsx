@@ -99,7 +99,7 @@ function SubscriptionForm({subscription}){
         <div className="flex justify-center">
             <div className="flex flex-col md:flex-row w-3/4 justify-center bg-slate-800 border-1 border-gray-700 rounded-lg">
                 {image && (
-                <div className="flex-1 w-full max-w-lg md:max-w-full select-none pointer-events-none bg-white rounded-lg">
+                <div className="w-full h-fit max-w-lg md:max-w-full select-none pointer-events-none bg-white rounded-lg">
                     <img className="rounded-lg w-full" src={image}></img>
                 </div>
                 )}
