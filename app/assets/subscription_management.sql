@@ -20,6 +20,20 @@ CREATE TABLE subscription(
     FOREIGN KEY (category_id) REFERENCES category (id)
 );
 
+CREATE TABLE my_subscriptions(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    subscription_name VARCHAR(255) NOT NULL,
+    subscription_path VARCHAR(255) NOT NULL,
+    users INT NOT NULL,
+    due_date DATE NOT NULL,
+    start_date DATE NOT NULL,
+    payment_method VARCHAR(255) NOT NULL,
+    category_id INT NOT NULL,
+    image VARCHAR(255) NULL,
+    is_custom BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (category_id) REFERENCES category (id)
+);
+
 INSERT INTO category (category_name, category_path)
 VALUES
 ('Streaming📽️', 'streaming'),
@@ -38,7 +52,7 @@ VALUES
 ('Paramount+', 'paramount-plus', '/src/assets/subscription_image/paramount+.svg', 1, FALSE);
 #('My Custom Service', 'my-custom-service', '/src/assets/subscription_image/custom.png', 1, TRUE);
 
--- Caso queira fazer um SELECT
+-- If you want to do a select by category
 -- SELECT s.subscription_name AS 'Subscription', c.category_name AS 'Category', s.is_custom 
 -- FROM subscription AS s
 -- INNER JOIN category AS c ON s.category_id = c.id;
