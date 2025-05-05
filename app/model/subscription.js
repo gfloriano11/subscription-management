@@ -53,9 +53,15 @@ function getSubscriptionById(req, res){
 function addSubscription(req, res){
     const connection = connect.getConnection();
 
+    console.log(req.body);
+
     const name = req.body.name;
-    const path = req.body.path;
-    const id = req.body.categoryId
+    const price = req.body.price;
+    const user = req.body.user;
+    const dueDate = req.body.dueDate;
+    const startDate = req.body.startDate;
+    const paymentMethod = req.body.paymentMethod;
+    const categoryId = req.body.categoryId;
 
     const query = `INSERT INTO my_subscriptions
     (subscription_name, subscription_path, category_id, is_custom)
