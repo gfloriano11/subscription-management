@@ -24,7 +24,7 @@ CREATE TABLE my_subscriptions(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     subscription_name VARCHAR(255) NOT NULL,
     subscription_path VARCHAR(255) NOT NULL,
-    price FLOAT NOT NULL, 
+    price DECIMAL(10,2) NOT NULL, 
     users INT NOT NULL,
     due_date DATE NOT NULL,
     start_date DATE NOT NULL,
