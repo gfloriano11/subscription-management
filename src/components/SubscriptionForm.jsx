@@ -61,7 +61,8 @@ function SubscriptionForm({subscription}){
             dueDate: dueDate,
             startDate: startDate,
             paymentMethod: paymentMethod,
-            categoryId: categoryId
+            categoryId: categoryId,
+            isCustom: isCustom
         }
 
         console.log(subscriptionData);
