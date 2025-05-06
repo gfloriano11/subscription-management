@@ -55,18 +55,24 @@ function addSubscription(req, res){
 
     console.log(req.body);
 
-    const name = req.body.subscriptionData.name;
-    const price = req.body.subscriptionData.price;
-    const user = req.body.subscriptionData.user;
-    const dueDate = req.body.subscriptionData.dueDate;
-    const startDate = req.body.subscriptionData.startDate;
-    const paymentMethod = req.body.subscriptionData.paymentMethod;
-    const categoryId = req.body.subscriptionData.categoryId;
-    const isCustom = req.body.subscriptionData.isCustom;
+    const name = req.body.name;
 
     let path = name.toLowerCase();
 
     path = path.replace(/\s/g, '-');
+
+    const values = [
+        req.body.name,
+        path,
+        req.body.price,
+        req.body.user,
+        req.body.dueDate,
+        req.body.startDate,
+        req.body.paymentMethod,
+        req.body.categoryId,
+        req.body.isCustom,
+    ];
+
 
     const query = `INSERT INTO my_subscriptions
     (subscription_name, subscription_path, price, 
@@ -74,7 +80,7 @@ function addSubscription(req, res){
     VALUES
     (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-    connection.query(query, [name, path, price, user, dueDate, startDate, paymentMethod, categoryId, isCustom], (error, data) => {
+    connection.query(query, values, (error, data) => {
 
         if(error){
             return res.status(500).json(error);
