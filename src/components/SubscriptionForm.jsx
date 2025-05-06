@@ -54,18 +54,7 @@ function SubscriptionForm({subscription}){
 
         submit.preventDefault();
 
-        const subscriptionData = {
-            name: name,
-            price: price, 
-            user: user,
-            dueDate: dueDate,
-            startDate: startDate,
-            paymentMethod: paymentMethod,
-            categoryId: categoryId,
-            isCustom: isCustom
-        }
-
-        console.log(subscriptionData);
+        // console.log(subscriptionData);
 
         const response = await fetch(`http://localhost:8000/subscription/add`, {
             method: 'POST',
@@ -73,7 +62,14 @@ function SubscriptionForm({subscription}){
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                subscriptionData: subscriptionData
+                name: name,
+                price: price, 
+                user: user,
+                dueDate: dueDate,
+                startDate: startDate,
+                paymentMethod: paymentMethod,
+                categoryId: categoryId,
+                isCustom: isCustom
             })
         });
 
