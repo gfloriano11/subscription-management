@@ -62,18 +62,20 @@ function addSubscription(req, res){
     const startDate = req.body.startDate;
     const paymentMethod = req.body.paymentMethod;
     const categoryId = req.body.categoryId;
+    const isCustom = req.body.isCustom;
 
     const query = `INSERT INTO my_subscriptions
-    (subscription_name, subscription_path, category_id, is_custom)
+    (subscription_name, subscription_path, price, users, due_date, start_date, payment_method, category_id, is_custom)
     VALUES
-    (?, ?, ?, ?)`;
+    (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-    connection.query(query, [name, path, id, custom], (error, data) => {
+    connection.query(query, [name, name, price, user, dueDate, startDate, paymentMethod, categoryId, isCustom], (error, data) => {
 
         if(error){
             return res.status(500).json(data);
         }
 
+        console.log("Added subscription with success!");
         return res.status(200).json(data);
     })
 }
