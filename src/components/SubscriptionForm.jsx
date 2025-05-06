@@ -54,8 +54,6 @@ function SubscriptionForm({subscription}){
 
         submit.preventDefault();
 
-        // console.log(subscriptionData);
-
         const response = await fetch(`http://localhost:8000/subscription/add`, {
             method: 'POST',
             headers: {
