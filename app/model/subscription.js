@@ -65,7 +65,8 @@ function addSubscription(req, res){
     const isCustom = req.body.isCustom;
 
     const query = `INSERT INTO my_subscriptions
-    (subscription_name, subscription_path, price, users, due_date, start_date, payment_method, category_id, is_custom)
+    (subscription_name, subscription_path, price, 
+    users, due_date, start_date, payment_method, category_id, is_custom)
     VALUES
     (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
