@@ -31,6 +31,7 @@ CREATE TABLE my_subscriptions(
     payment_method VARCHAR(255) NOT NULL,
     category_id INT NOT NULL,
     image VARCHAR(255) NULL,
+    logo VARCHAR(255) NULL,
     is_custom BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (category_id) REFERENCES category (id)
 );
@@ -53,7 +54,18 @@ VALUES
 ('Paramount+', 'paramount-plus', '/src/assets/subscription_image/paramount+.svg', 1, FALSE);
 #('My Custom Service', 'my-custom-service', '/src/assets/subscription_image/custom.png', 1, TRUE);
 
+SELECT * FROM my_subscriptions;
+
+DESCRIBE my_subscriptions;
+
 -- If you want to do a select by category
+
 -- SELECT s.subscription_name AS 'Subscription', c.category_name AS 'Category', s.is_custom 
 -- FROM subscription AS s
 -- INNER JOIN category AS c ON s.category_id = c.id;
+
+-- If you want to do a select from your account's subscriptions
+
+/* SELECT m.id, m.subscription_name, m.subscription_path,
+m.price, m.users, m.due_date, m.start_date, m.payment_method, m.category_id, m.image
+FROM my_subscriptions AS m; */
