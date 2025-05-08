@@ -3,6 +3,7 @@ import cors from 'cors';
 import router from '../router/home.js';
 import categoryRouter from '../router/category.js';
 import subscriptionRouter from '../router/subscription.js';
+import mySubscriptionsRouter from '../router/mySubscriptions.js';
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(cors());
 app.get('/', router);
 app.use('/category', categoryRouter);
 app.use('/subscription', subscriptionRouter);
+app.use('/my-subscriptions', mySubscriptionsRouter)
 
 app.listen(8000, () => {
     console.log('server running at http://localhost:8000')
