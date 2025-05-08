@@ -46,7 +46,8 @@ function Home(){
                     key={subscription.id}
                     id={subscription.id}
                     subscriptionName={subscription.subscription_name}
-                    subscriptionPrice={subscription.price}/>
+                    subscriptionPrice={subscription.price}
+                    path={subscription.subscription_path}/>
                 ))}
             </div>
         </div>
