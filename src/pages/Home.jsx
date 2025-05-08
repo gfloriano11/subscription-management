@@ -5,6 +5,20 @@ import AddSubscription from '../components/AddSubscriptionButton'
 
 function Home(){
 
+    async function getSubscriptions(){
+
+        const response = await fetch(`http://localhost:8000/my-subscriptions`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application-json'
+            }
+        })
+
+        if(!response.ok){
+            throw new Error('Can not get your account subscriptions');
+        }
+    }
+
     return(
         <div className='flex flex-col items-center gap-6'>
             <div className='flex justify-center items-center'>
