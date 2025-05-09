@@ -48,15 +48,11 @@ INSERT INTO subscription (subscription_name, subscription_path, image, category_
 VALUES
 ('Netflix', 'netflix', '/src/assets/subscription_image/netflix.png', 1, FALSE),
 ('Disney+', 'disney-plus', '/src/assets/subscription_image/disney+.jpg', 1, FALSE),
-('Prime Video', 'prime-video', '/src/assets/subscription_image/primevideo.svg', 1, FALSE),
+('Prime Video', 'prime-video', '/src/assets/subscription_image/prime-video.svg', 1, FALSE),
 ('Max', 'max', '/src/assets/subscription_image/max.jpg', 1, FALSE),
 ('Crunchyroll', 'crunchyroll', '/src/assets/subscription_image/crunchyroll.jpg', 1, FALSE),
 ('Paramount+', 'paramount-plus', '/src/assets/subscription_image/paramount+.svg', 1, FALSE);
 #('My Custom Service', 'my-custom-service', '/src/assets/subscription_image/custom.png', 1, TRUE);
-
-SELECT * FROM my_subscriptions;
-
-DESCRIBE my_subscriptions;
 
 -- If you want to do a select by category
 
