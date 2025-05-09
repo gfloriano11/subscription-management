@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-function SubscriptionCard({id, subscriptionName, subscriptionPrice}){
+function SubscriptionCard({id, subscriptionName, subscriptionPrice, path}){
     return(
         <div
         subscriptionId={id}
@@ -21,9 +22,10 @@ function SubscriptionCard({id, subscriptionName, subscriptionPrice}){
                         <p>{subscriptionPrice}</p>
                     </div>
                 </div>
-                <a className="flex items-center">
+                <Link to={path} 
+                className="flex items-center">
                     <ArrowUpRight size={32} className="cursor-pointer "/>
-                </a>
+                </Link>
             </div>
         </div>
     );
