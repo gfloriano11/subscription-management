@@ -55,10 +55,23 @@ function addSubscription(req, res){
     console.log(req.body);
 
     const name = req.body.name;
-
+    
     let path = name.toLowerCase();
-
+    
     path = path.replace(/\s/g, '-');
+
+
+    let image = '/src/assets/subscription_image/'+path+'.png';
+
+    if(path === 'paramount' || path === 'prime-video'){
+        image = '/src/assets/subscription_image/'+path+'.svg';
+    }
+
+    let logo = '/src/assets/logos/'+path+'-logo.png';
+
+    if(path === 'netflix'){
+        logo = '/src/assets/logos/'+path+'-logo.svg';
+    }
 
     const values = [
         req.body.name,
@@ -68,6 +81,8 @@ function addSubscription(req, res){
         req.body.dueDate,
         req.body.startDate,
         req.body.paymentMethod,
+        image,
+        logo,
         req.body.categoryId,
         req.body.isCustom,
     ];
@@ -75,9 +90,9 @@ function addSubscription(req, res){
 
     const query = `INSERT INTO my_subscriptions
     (subscription_name, subscription_path, price, 
-    users, due_date, start_date, payment_method, category_id, is_custom)
+    users, due_date, start_date, payment_method, image, logo, category_id, is_custom)
     VALUES
-    (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
     connection.query(query, values, (error, data) => {
 
