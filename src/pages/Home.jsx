@@ -40,13 +40,14 @@ function Home(){
             <div className='flex justify-center'>
                 <AddSubscription/>
             </div>
-            <div className='flex flex-col gap-5 md:grid md:grid-cols-3 justify-center'>
+            <div className='flex flex-col gap-5 md:grid xmd:grid-cols-3 md:grid-cols-2 justify-center'>
                 {subscriptions.map((subscription) => (
                     <SubscriptionCard
                     key={subscription.id}
                     id={subscription.id}
                     subscriptionName={subscription.subscription_name}
                     subscriptionPrice={subscription.price}
+                    logo={subscription.logo}
                     path={subscription.subscription_path}/>
                 ))}
             </div>
