@@ -12,6 +12,7 @@ function SubscriptionForm({subscription}){
     const [startDate, setstartDate] = useState('');
     const [dueDate, setDueDate] = useState('');
     const [paymentMethod, setPaymentMethod] = useState(null);
+    const [currency, setCurrency] = useState('')
     const [categoryId, setCategoryId] = useState(0);
 
     const [isCustom, setIsCustom] = useState(1);
@@ -146,17 +147,29 @@ function SubscriptionForm({subscription}){
                         </div>
                         <div className="flex flex-col w-full">
                             <label htmlFor="payment-method">Payment Method:</label>
-                            <Input
-                            type="select"
-                            name="payment-method"
-                            custom={1}
-                            onChange={(event) => setPaymentMethod(event.target.value)}>
-                                <option value="credit-card">Credit Card</option>
-                                <option value="debit-card">Debit Card</option>
-                                <option value="Paypal">PayPal</option>
-                                <option value="Apple Pay">Apple Pay</option>
-                                <option value="Google Pay">Google Pay</option>
-                            </Input>
+                            <div className="flex gap-1">
+                                <div className="w-1/3">
+                                    <Input
+                                    type='select'
+                                    name="currency"
+                                    custom={1}
+                                    onChange={(event) => setCurrency(event.target.value)}>
+                                        <option value="USD">USD</option>
+                                        <option value="BRL">BRL</option>
+                                    </Input>
+                                </div>
+                                <Input
+                                type="select"
+                                name="payment-method"
+                                custom={1}
+                                onChange={(event) => setPaymentMethod(event.target.value)}>
+                                    <option value="credit-card">Credit Card</option>
+                                    <option value="debit-card">Debit Card</option>
+                                    <option value="Paypal">PayPal</option>
+                                    <option value="Apple Pay">Apple Pay</option>
+                                    <option value="Google Pay">Google Pay</option>
+                                </Input>
+                            </div>
                         </div>
                         <div className="flex flex-col w-full">
                             <label htmlFor="due-date">Due Date:</label>
