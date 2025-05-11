@@ -47,6 +47,7 @@ function Home(){
                     id={subscription.id}
                     subscriptionName={subscription.subscription_name}
                     subscriptionPrice={subscription.price}
+                    currency={subscription.currency}
                     logo={subscription.logo}
                     path={subscription.subscription_path}/>
                 ))}
