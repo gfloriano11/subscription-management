@@ -81,6 +81,7 @@ function addSubscription(req, res){
         req.body.dueDate,
         req.body.startDate,
         req.body.paymentMethod,
+        req.body.currency,
         image,
         logo,
         req.body.categoryId,
@@ -90,9 +91,10 @@ function addSubscription(req, res){
 
     const query = `INSERT INTO my_subscriptions
     (subscription_name, subscription_path, price, 
-    users, due_date, start_date, payment_method, image, logo, category_id, is_custom)
+    users, due_date, start_date, payment_method, 
+    currency, image, logo, category_id, is_custom)
     VALUES
-    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
     connection.query(query, values, (error, data) => {
 
