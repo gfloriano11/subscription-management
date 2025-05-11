@@ -19,6 +19,10 @@ function SubscriptionForm({subscription}){
 
     const [image, setImage] = useState('');
 
+    if(currency === '' || !currency){
+        setCurrency('USD');
+    }
+
     function verifyPrice(price){
         const value = price.target.value;
 
@@ -67,11 +71,13 @@ function SubscriptionForm({subscription}){
                 dueDate: dueDate,
                 startDate: startDate,
                 paymentMethod: paymentMethod,
+                currency: currency,
                 categoryId: categoryId,
                 isCustom: isCustom
             })
         });
 
+        
         if(!response.ok){
             throw new Error('Error to add new subscription');
         }
@@ -112,7 +118,7 @@ function SubscriptionForm({subscription}){
                             onChange={(event) => setName(event.target.value)}
                             />
                         </div>
-                        <div>
+                        <div className="w-full">
                             <label htmlFor="users-number">Users:</label>
                             <Input
                             type="text"
@@ -124,8 +130,19 @@ function SubscriptionForm({subscription}){
                                 <p className="text-red-600">{userError}</p>
                             )}
                         </div>
-                        <div>
+                        <div className="w-full">
                             <label htmlFor="subscription-value">Price:</label>
+                            <div className="flex gap-1">
+                                <div className="w-2/5 md:w-5/5 lg:w-2/5">
+                                    <Input
+                                    type='select'
+                                    name="currency"
+                                    custom={1}
+                                    onChange={(event) => setCurrency(event.target.value)}>
+                                        <option value="USD">USD</option>
+                                        <option value="BRL">BRL</option>
+                                    </Input>
+                                </div>
                             <Input
                             type="text"
                             name="subscription-value"
@@ -135,6 +152,7 @@ function SubscriptionForm({subscription}){
                             {priceError && (
                                 <p className="text-red-600">{priceError}</p>
                             )}
+                            </div>
                         </div>
                         <div className="flex flex-col w-full">
                             <label htmlFor="start-date">Start Date:</label>
@@ -148,16 +166,6 @@ function SubscriptionForm({subscription}){
                         <div className="flex flex-col w-full">
                             <label htmlFor="payment-method">Payment Method:</label>
                             <div className="flex gap-1">
-                                <div className="w-1/3">
-                                    <Input
-                                    type='select'
-                                    name="currency"
-                                    custom={1}
-                                    onChange={(event) => setCurrency(event.target.value)}>
-                                        <option value="USD">USD</option>
-                                        <option value="BRL">BRL</option>
-                                    </Input>
-                                </div>
                                 <Input
                                 type="select"
                                 name="payment-method"
