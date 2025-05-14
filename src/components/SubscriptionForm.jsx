@@ -14,6 +14,8 @@ function SubscriptionForm({subscription}){
     const [userError, setUserError] = useState('');
     const [startDate, setstartDate] = useState('');
     const [dueDate, setDueDate] = useState('');
+    const [dueDateError, setdueDateError] = useState('');
+    const [startDateError, setstartDateError] = useState('');
     const [paymentMethod, setPaymentMethod] = useState(null);
     const [currency, setCurrency] = useState('')
     const [categoryId, setCategoryId] = useState(0);
@@ -24,6 +26,10 @@ function SubscriptionForm({subscription}){
 
     if(currency === '' || !currency){
         setCurrency('USD');
+    }
+
+    if(paymentMethod === '' || !paymentMethod){
+        setPaymentMethod('Credit Card');
     }
 
     function verifyPrice(price){
@@ -58,7 +64,28 @@ function SubscriptionForm({subscription}){
         }
     }
 
+    function verifyStartDate(date){
+
+        if(date === '' || !date){
+            setstartDateError('preencha uma data');
+        }
+
+        setstartDate(date)
+    }
+
+    function verifyDueDate(date){
+        
+        if(date === '' || !date){
+            setdueDateError('preencha uma data');
+        }
+
+        setDueDate(date)
+    }
+
     async function submitForm(submit){
+
+        console.log(startDate);
+        console.log(paymentMethod);
 
         submit.preventDefault();
 
@@ -85,7 +112,7 @@ function SubscriptionForm({subscription}){
             throw new Error('Error to add new subscription');
         }
 
-        navigate('/home')
+        // navigate('/home')
 
     }
 
@@ -134,7 +161,7 @@ function SubscriptionForm({subscription}){
                         <div className="w-full">
                             <label htmlFor="subscription-value">Price:</label>
                             <div className="flex gap-1">
-                                <div className="w-2/5 md:w-5/5 lg:w-2/5">
+                                <div className="w-2/5 md:w-5/5 lg:w-3/5">
                                     <Input
                                     type='select'
                                     name="currency"
@@ -162,7 +189,7 @@ function SubscriptionForm({subscription}){
                             name="start-date"
                             custom={1}
                             value={startDate}
-                            onChange={(event) => setstartDate(event.target.value)}/>
+                            onChange={(event) => verifyStartDate(event.target.value)}/>
                         </div>
                         <div className="flex flex-col w-full">
                             <label htmlFor="payment-method">Payment Method:</label>
@@ -187,7 +214,7 @@ function SubscriptionForm({subscription}){
                             name="due-date"
                             custom={1}
                             value={dueDate}
-                            onChange={(event) => setDueDate(event.target.value)}/>
+                            onChange={(event) => verifyDueDate(event.target.value)}/>
                         </div>
                     </div>
                     <div className="flex justify-center">
