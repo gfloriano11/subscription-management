@@ -29,6 +29,7 @@ CREATE TABLE my_subscriptions(
     due_date DATE NOT NULL,
     start_date DATE NOT NULL,
     payment_method VARCHAR(255) NOT NULL,
+    currency ENUM('USD', 'BRL') DEFAULT 'USD',
     category_id INT NOT NULL,
     image VARCHAR(255) NULL,
     logo VARCHAR(255) NULL,
