@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import Input from "./Input";
 import SubmitButton from "./SubmitButton";
+import { useNavigate } from "react-router-dom";
 
 function SubscriptionForm({subscription}){
+
+    const navigate = useNavigate();
 
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
@@ -84,7 +87,7 @@ function SubscriptionForm({subscription}){
 
         let data = await response.json();
 
-        console.log(data);
+        navigate('/home')
 
     }
 
