@@ -85,8 +85,6 @@ function SubscriptionForm({subscription}){
             throw new Error('Error to add new subscription');
         }
 
-        let data = await response.json();
-
         navigate('/home')
 
     }
