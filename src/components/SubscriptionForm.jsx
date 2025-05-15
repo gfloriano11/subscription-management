@@ -24,6 +24,8 @@ function SubscriptionForm({subscription}){
 
     const [image, setImage] = useState('');
 
+    const [submit, setSubmit] = useState('');
+
     if(currency === '' || !currency){
         setCurrency('USD');
     }
@@ -100,6 +102,8 @@ function SubscriptionForm({subscription}){
 
         if(!price || !currency || !paymentMethod || !user || !startDate || !dueDate){
             console.log('n pode submitar, preencher todos os campos');
+
+            setSubmit('Complete all fields to create your subscription.')
         } else {
             const response = await fetch(`http://localhost:8000/subscription/add`, {
                 method: 'POST',
@@ -242,6 +246,12 @@ function SubscriptionForm({subscription}){
                     </div>
                 </form>
             </div>
+            {submit && (
+                <div className="absolute top-1/2 z-20 bg-zinc-900 p-4 rounded-lg 
+                shadow-[0px_10px_20px] shadow-purple-950 border-2 border-gray-800">
+                    <p className="text-white">{submit}</p>
+                </div>
+            )}
         </div>
     );
 }
