@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Input from "./Input";
+import PopUp from './PopUp';
 import SubmitButton from "./SubmitButton";
 import { useNavigate } from "react-router-dom";
 
@@ -247,10 +248,8 @@ function SubscriptionForm({subscription}){
                 </form>
             </div>
             {submit && (
-                <div className="absolute top-1/2 z-20 bg-zinc-900 p-4 rounded-lg 
-                shadow-[0px_10px_20px] shadow-purple-950 border-2 border-gray-800">
-                    <p className="text-white">{submit}</p>
-                </div>
+                <PopUp
+                error={submit}/>
             )}
         </div>
     );
