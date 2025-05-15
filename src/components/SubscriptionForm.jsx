@@ -66,17 +66,29 @@ function SubscriptionForm({subscription}){
 
     function verifyStartDate(date){
 
-        if(date === '' || !date){
-            setstartDateError('preencha uma data');
+        if(date === ''){
+            setdueDateError('');
         }
 
-        setstartDate(date)
+        if(!date){
+            setdueDateError('Insert a valid date');
+        } else {
+            setdueDateError('')
+        }
+
+        setDueDate(date)
     }
 
     function verifyDueDate(date){
         
-        if(date === '' || !date){
-            setdueDateError('preencha uma data');
+        if(date === ''){
+            setdueDateError('');
+        }
+
+        if(!date){
+            setdueDateError('Insert a valid date');
+        } else {
+            setdueDateError('')
         }
 
         setDueDate(date)
@@ -84,35 +96,37 @@ function SubscriptionForm({subscription}){
 
     async function submitForm(submit){
 
-        console.log(startDate);
-        console.log(paymentMethod);
-
         submit.preventDefault();
 
-        const response = await fetch(`http://localhost:8000/subscription/add`, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name,
-                price: price, 
-                user: user,
-                dueDate: dueDate,
-                startDate: startDate,
-                paymentMethod: paymentMethod,
-                currency: currency,
-                categoryId: categoryId,
-                isCustom: isCustom
-            })
-        });
-
-        
-        if(!response.ok){
-            throw new Error('Error to add new subscription');
+        if(!price || !currency || !paymentMethod || !user || !startDate || !dueDate){
+            console.log('n pode submitar, preencher todos os campos');
+        } else {
+            const response = await fetch(`http://localhost:8000/subscription/add`, {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    price: price, 
+                    user: user,
+                    dueDate: dueDate,
+                    startDate: startDate,
+                    paymentMethod: paymentMethod,
+                    currency: currency,
+                    categoryId: categoryId,
+                    isCustom: isCustom
+                })
+            });
+    
+            
+            if(!response.ok){
+                throw new Error('Error to add new subscription');
+            }
+    
+    
+            navigate('/home');
         }
-
-        // navigate('/home')
 
     }
 
@@ -190,6 +204,9 @@ function SubscriptionForm({subscription}){
                             custom={1}
                             value={startDate}
                             onChange={(event) => verifyStartDate(event.target.value)}/>
+                            {startDateError && (
+                                <p className="text-red-600">{startDateError}</p>
+                            )}
                         </div>
                         <div className="flex flex-col w-full">
                             <label htmlFor="payment-method">Payment Method:</label>
@@ -215,6 +232,9 @@ function SubscriptionForm({subscription}){
                             custom={1}
                             value={dueDate}
                             onChange={(event) => verifyDueDate(event.target.value)}/>
+                            {dueDateError && (
+                                <p className="text-red-600">{dueDateError}</p>
+                            )}
                         </div>
                     </div>
                     <div className="flex justify-center">
