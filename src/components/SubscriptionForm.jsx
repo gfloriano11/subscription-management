@@ -97,12 +97,16 @@ function SubscriptionForm({subscription}){
         setDueDate(date)
     }
 
+    function closePopUp(){
+
+        setSubmit('');
+    }
+
     async function submitForm(submit){
 
         submit.preventDefault();
 
         if(!price || !currency || !paymentMethod || !user || !startDate || !dueDate){
-            console.log('n pode submitar, preencher todos os campos');
 
             setSubmit('Complete all fields to create your subscription.')
         } else {
@@ -249,7 +253,8 @@ function SubscriptionForm({subscription}){
             </div>
             {submit && (
                 <PopUp
-                error={submit}/>
+                error={submit}
+                onClick={() => closePopUp()}/>
             )}
         </div>
     );
