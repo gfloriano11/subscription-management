@@ -8,8 +8,13 @@ function PopUp({error, onClick}){
             <div className="absolute right-2 top-2 flex justify-end cursor-pointer">
                 <X onClick={onClick}/>
             </div>
-            <div className="pt-2 p-2">
-                <p className="text-white">{error}</p>
+            <div className="p-3 text-white">
+                <div>
+                    <p className="text-2xl">Ouch! Something went wrong :(</p>
+                </div>
+                <div className="text-center">
+                    <p>{error}</p>
+                </div>
             </div>
         </div>
     );
