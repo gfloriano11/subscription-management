@@ -1,5 +1,11 @@
 function Subscription(){
 
+    async function getSubscription(id){
+
+        const response = await fetch(`http://localhost:8000/`)
+
+    }
+
     return(
         <div>
             <div className="bg-zinc-900 p-4 rounded-lg 
