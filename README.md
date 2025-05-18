@@ -4,15 +4,20 @@ Gerencie todas os seus gastos mensais (como Netflix, Spotify, Game Pass e outros
 
 > Projeto pessoal fullstack em desenvolvimento contínuo, com foco em aprendizado prático de tecnologias modernas.
 
-Por enquanto, o projeto conta somente com a categoria de streaming, sendo eles:
-- Netflix;
-- Disney+,
-- Prime Video,
-- Max,
-- Paramount+,
-- Crunchyroll.
+---
 
-As demais categorias existem, mas não estão cadastradas no banco! Futuramente estarão.
+## 🎯 Sobre o Projeto
+
+Por enquanto, o projeto conta com a **categoria de Streaming**, com os seguintes serviços cadastrados:
+
+- Netflix
+- Disney+
+- Prime Video
+- Max
+- Paramount+
+- Crunchyroll
+
+As demais categorias (Games, Música, Educação, etc.) já existem no sistema, mas ainda **não estão populadas no banco de dados** — isso será adicionado em versões futuras!
 
 ---
 
