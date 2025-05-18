@@ -43,4 +43,24 @@ As demais categorias existem, mas não estão cadastradas no banco! Futuramente 
 
 ```bash
 git clone https://github.com/gfloriano11/subscription-management.git
+```
+
+### 2. Navegue até o diretório
+```bash
 cd subscription-management
+```
+
+### 3. Inicialize o frontend
+```bash
+npm run dev
+```
+
+### 4. Inicialize o backend
+```bash
+node app/server/server.js
+```
+OU
+```bash
+cd app/server/
+node server.js
+```
