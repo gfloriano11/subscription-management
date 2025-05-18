@@ -64,3 +64,5 @@ OU
 cd app/server/
 node server.js
 ```
+
+> Não esqueca deve verificar as configurações do arquivo de conexão (connection.js) e rodar o script!
