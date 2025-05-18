@@ -70,16 +70,16 @@ function SubscriptionForm({subscription}){
     function verifyStartDate(date){
 
         if(date === ''){
-            setdueDateError('');
+            setstartDateError('');
         }
 
         if(!date){
-            setdueDateError('Insert a valid date');
+            setstartDateError('Insert a valid date');
         } else {
-            setdueDateError('')
+            setstartDateError('')
         }
 
-        setDueDate(date)
+        setstartDate(date)
     }
 
     function verifyDueDate(date){
