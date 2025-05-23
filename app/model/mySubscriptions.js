@@ -21,6 +21,27 @@ function getSubscriptions(req, res){
     connect.endConnection(connection);
 }
 
+function getSubscriptionById(req, res){
+
+    console.log(req.params);
+
+    const id = req.params.id;
+
+    const connection = connect.getConnection();
+
+    const query = `SELECT * FROM my_subscriptions WHERE id = ?`;
+
+    connection.query(query, [id], (error, data) => {
+
+        if(error){
+            return res.status(500).json(error);
+        }
+
+        return res.status(200).json(data);
+    })
+}
+
 export default {
-    getSubscriptions
+    getSubscriptions,
+    getSubscriptionById
 }
