@@ -39,6 +39,8 @@ function getSubscriptionById(req, res){
 
         return res.status(200).json(data);
     })
+
+    connect.endConnection(connection);
 }
 
 export default {
