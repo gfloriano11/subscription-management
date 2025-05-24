@@ -24,7 +24,8 @@ function SubscriptionCard({id, subscriptionName, subscriptionPrice, currency, pa
                         <p>{subscriptionPrice}</p>
                     </div>
                 </div>
-                <Link to={`${path}/${id}`}
+                <Link to={path}
+                state={{id: id}}
                 className="flex items-center">
                     <ArrowUpRight size={32} className="cursor-pointer "/>
                 </Link>
