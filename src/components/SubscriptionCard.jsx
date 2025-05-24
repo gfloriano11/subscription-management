@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 function SubscriptionCard({id, subscriptionName, subscriptionPrice, currency, path, logo}){
-
+    
     return(
         <div
         id={id}
@@ -24,7 +24,7 @@ function SubscriptionCard({id, subscriptionName, subscriptionPrice, currency, pa
                         <p>{subscriptionPrice}</p>
                     </div>
                 </div>
-                <Link to={path} 
+                <Link to={`${path}/${id}`}
                 className="flex items-center">
                     <ArrowUpRight size={32} className="cursor-pointer "/>
                 </Link>
