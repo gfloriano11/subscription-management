@@ -5,8 +5,10 @@ function Subscription(){
 
     const [subscription, setSubscription] = useState([]);
 
-    const location = useLocation();
-    const id = location.state.id;
+    const { pathname } = useLocation()
+
+    const path = pathname.split('/');
+    const id = path[3];
 
     async function getSubscription(id){
 
