@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       { path: 'add', element: <SelectCategory/> },
       { path: 'add/:category', element: <AddSubscription/> },
       { path: 'add/:category/:subscription', element: <AddSubscriptionInfo/> },
-      { path: ':subscription/:id', element: <Subscription/>}
+      { path: ':subscription', element: <Subscription/>}
     ]
   }
 ])
