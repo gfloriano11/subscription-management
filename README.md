@@ -55,12 +55,17 @@ git clone https://github.com/gfloriano11/subscription-management.git
 cd subscription-management
 ```
 
-### 3. Inicialize o frontend
+### 3. Instale as dependências
+```bash
+npm install
+```
+
+### 4. Inicialize o frontend
 ```bash
 npm run dev
 ```
 
-### 4. Inicialize o backend
+### 5. Inicialize o backend
 ```bash
 node app/server/server.js
 ```
