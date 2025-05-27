@@ -42,13 +42,15 @@ function Subscription(){
                 <div className="text-center font-medium text-2xl tracking-wide">
                     <p>{subscription.subscription_name}</p>
                 </div>
-                <div className="flex justify-between">
-                    <div>
-                        <p>Stats:</p>
+                <div className="flex flex-col justify-between gap-3">
+                    <div className="flex flex-col items-center">
+                        <p>Stats: Active</p>
+                        <p>Day for Payment: 06/27/2025</p>
+                        <p>Payment Method: Credit Card</p>
                     </div>
-                    <div className="flex bg-gray-700 w-px"></div>
-                    <div>
-                        <p>oiiiiiiii</p>
+                    <div className="pr-2 flex flex-col items-center">
+                        <button>Editar</button>
+                        <button>Excluir</button>
                     </div>
                 </div>
             </div>
