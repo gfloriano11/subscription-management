@@ -35,8 +35,22 @@ function Subscription(){
         <div>
             <div className="bg-zinc-900 p-4 rounded-lg 
             shadow-[0px_10px_20px] shadow-purple-950 border-2 border-gray-800 
-            text-white font-inter">
-                <p>{subscription.subscription_name}</p>
+            text-white font-inter flex flex-col gap-3">
+                <div className="max-w-xs md:max-w-xl select-none pointer-events-none">
+                    <img className="rounded-xl" src="\src\assets\subscription_image\netflix.png"></img>
+                </div>
+                <div className="text-center font-medium text-2xl tracking-wide">
+                    <p>{subscription.subscription_name}</p>
+                </div>
+                <div className="flex justify-between">
+                    <div>
+                        <p>Stats:</p>
+                    </div>
+                    <div className="flex bg-gray-700 w-px"></div>
+                    <div>
+                        <p>oiiiiiiii</p>
+                    </div>
+                </div>
             </div>
         </div>
     );
