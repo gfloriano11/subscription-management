@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import ActionButton from "../components/ActionButton";
 
 function Subscription(){
 
@@ -41,15 +42,15 @@ function Subscription(){
                     <p className="absolute bottom-4 left-4 text-3xl font-bold tracking-wide">{subscription.subscription_name}</p>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-3">
-                    <div className="grid grid-cols-2 text-center md:text-start md:gap-x-3 gap-y-1">
+                    <div className="grid grid-cols-2 md:text-start gap-x-3 gap-y-1">
                         <p>📊 Status: Active</p>
                         <p>📅 06/27/2025</p>
                         <p>💳 Credit Card</p>
                         <p>💵 R$39,99</p>
                     </div>
-                    <div className="pr-2 flex flex-col items-center">
-                        <button>Editar</button>
-                        <button>Excluir</button>
+                    <div className="pr-2 flex justify-around w-full">
+                        <ActionButton text="Edit" color="bg-green-600"/>
+                        <ActionButton text="Delete" color="bg-red-600"/>
                     </div>
                 </div>
             </div>
