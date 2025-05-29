@@ -23,8 +23,6 @@ function getSubscriptions(req, res){
 
 function getSubscriptionById(req, res){
 
-    console.log(req.params);
-
     const id = req.params.id;
 
     const connection = connect.getConnection();
