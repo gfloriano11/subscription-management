@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import ActionButton from "../components/ActionButton";
 import { Pencil, Trash2 } from "lucide-react";
+import GoBackButton from "../components/GoBackButton";
 
 function Subscription(){
 
@@ -34,7 +35,7 @@ function Subscription(){
     }, [])
 
     return(
-        <section>
+        <section className="flex flex-col gap-5 mt-5">
             <div className="bg-zinc-900 p-4 pr-0 rounded-lg 
             shadow-[0px_10px_20px] shadow-purple-950 border-2 border-gray-800 
             text-white font-inter flex flex-col md:flex-row gap-3">
@@ -54,6 +55,9 @@ function Subscription(){
                         <ActionButton text="Delete" color="bg-red-600" Icon={Trash2}/>
                     </div>
                 </div>
+            </div>
+            <div className="flex justify-center">
+                <GoBackButton/>
             </div>
         </section>
     );
