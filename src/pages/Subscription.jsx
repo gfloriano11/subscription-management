@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import ActionButton from "../components/ActionButton";
+import { Pencil, Trash2 } from "lucide-react";
 
 function Subscription(){
 
@@ -49,8 +50,8 @@ function Subscription(){
                         <p>💵 R$39,99</p>
                     </div>
                     <div className="pr-2 flex justify-around w-full">
-                        <ActionButton text="Edit" color="bg-green-600"/>
-                        <ActionButton text="Delete" color="bg-red-600"/>
+                        <ActionButton text="Edit" color="bg-green-600" Icon={Pencil}/>
+                        <ActionButton text="Delete" color="bg-red-600" Icon={Trash2}/>
                     </div>
                 </div>
             </div>
