@@ -28,7 +28,7 @@ function SubscriptionForm({subscription}){
     const [submit, setSubmit] = useState('');
 
     if(currency === '' || !currency){
-        setCurrency('USD');
+        setCurrency('1');
     }
 
     if(paymentMethod === '' || !paymentMethod){
@@ -190,8 +190,8 @@ function SubscriptionForm({subscription}){
                                     name="currency"
                                     custom={1}
                                     onChange={(event) => setCurrency(event.target.value)}>
-                                        <option value="USD">USD</option>
-                                        <option value="BRL">BRL</option>
+                                        <option value="1">R$</option>
+                                        <option value="2">$</option>
                                     </Input>
                                 </div>
                             <Input
