@@ -25,12 +25,8 @@ function Subscription(){
 
         let data = await response.json();
 
-        console.log(data);
-
         let categoryNameClean = removeEmojis(data[0].category_name);
         data[0].category_name = categoryNameClean;
-
-        console.log(data[0].category_name)
 
         setSubscription(data[0]);
     }
