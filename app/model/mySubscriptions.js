@@ -27,7 +27,21 @@ function getSubscriptionById(req, res){
 
     const connection = connect.getConnection();
 
-    const query = `SELECT * FROM my_subscriptions WHERE id = ?`;
+    const query = `SELECT 
+        ms.id, ms.subscription_name, ms.subscription_path, ms.price, 
+        ms.payment_method, ms.users, ms.due_date, ms.start_date, ms.is_active, 
+        ms.is_custom, ms.notes, ms.image, ms.logo, ct.category_name, cr.symbol
+    FROM 
+        my_subscriptions AS ms 
+    INNER JOIN 
+        category AS ct
+    ON 
+        ms.category_id = ct.id 
+    INNER JOIN 
+        currency AS cr
+    ON ms.currency_id = cr.id
+    WHERE 
+        ms.id = ?`;
 
     connection.query(query, [id], (error, data) => {
 
