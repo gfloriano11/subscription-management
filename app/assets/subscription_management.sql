@@ -28,12 +28,14 @@ CREATE TABLE my_subscriptions(
     users INT NOT NULL,
     due_date DATE NOT NULL,
     start_date DATE NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE,
+    description_info TEXT,
     payment_method VARCHAR(255) NOT NULL,
     currency ENUM('USD', 'BRL') DEFAULT 'USD',
     category_id INT NOT NULL,
     image VARCHAR(255) NULL,
     logo VARCHAR(255) NULL,
-    is_custom BOOLEAN DEFAULT FALSE,
+    is_custom BOOLEAN DEFAULT FALSE NOT NULL,
     FOREIGN KEY (category_id) REFERENCES category (id)
 );
 
@@ -48,10 +50,10 @@ VALUES
 INSERT INTO subscription (subscription_name, subscription_path, image, category_id, is_custom)
 VALUES
 ('Netflix', 'netflix', '/src/assets/subscription_image/netflix.png', 1, FALSE),
-('Disney+', 'disney-plus', '/src/assets/subscription_image/disney+.jpg', 1, FALSE),
+('Disney+', 'disney-plus', '/src/assets/subscription_image/disney+.png', 1, FALSE),
 ('Prime Video', 'prime-video', '/src/assets/subscription_image/prime-video.svg', 1, FALSE),
 ('Max', 'max', '/src/assets/subscription_image/max.jpg', 1, FALSE),
-('Crunchyroll', 'crunchyroll', '/src/assets/subscription_image/crunchyroll.jpg', 1, FALSE),
+('Crunchyroll', 'crunchyroll', '/src/assets/subscription_image/crunchyroll.png', 1, FALSE),
 ('Paramount+', 'paramount-plus', '/src/assets/subscription_image/paramount+.svg', 1, FALSE);
 #('My Custom Service', 'my-custom-service', '/src/assets/subscription_image/custom.png', 1, TRUE);
 
