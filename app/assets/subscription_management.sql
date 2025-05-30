@@ -4,6 +4,13 @@ CREATE DATABASE subscription_management;
 
 USE subscription_management;
 
+CREATE TABLE currency(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    currency_code CHAR(2) NOT NULL,
+    currency_name VARCHAR(255) NOT NULL,
+    symbol VARCHAR(3) NOT NULL
+);
+
 CREATE TABLE category(
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     category_name VARCHAR(255) NOT NULL,
@@ -24,19 +31,20 @@ CREATE TABLE my_subscriptions(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     subscription_name VARCHAR(255) NOT NULL,
     subscription_path VARCHAR(255) NOT NULL,
-    price DECIMAL(10,2) NOT NULL, 
+    price DECIMAL(10,2) NOT NULL,
+	payment_method VARCHAR(255) NOT NULL,
     users INT NOT NULL,
     due_date DATE NOT NULL,
     start_date DATE NOT NULL,
-    is_active BOOLEAN DEFAULT TRUE,
-    description_info TEXT,
-    payment_method VARCHAR(255) NOT NULL,
-    currency ENUM('USD', 'BRL') DEFAULT 'USD',
-    category_id INT NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE NOT NULL,
+	is_custom BOOLEAN DEFAULT FALSE NOT NULL,
+    notes TEXT,
     image VARCHAR(255) NULL,
     logo VARCHAR(255) NULL,
-    is_custom BOOLEAN DEFAULT FALSE NOT NULL,
-    FOREIGN KEY (category_id) REFERENCES category (id)
+	category_id INT NOT NULL,
+    currency_id INT NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES category (id),
+    FOREIGN KEY (currency_id) REFERENCES currency (id)
 );
 
 INSERT INTO category (category_name, category_path)
