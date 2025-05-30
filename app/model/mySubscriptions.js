@@ -1,4 +1,5 @@
 import connect from "../connection/connection.js";
+import subscription from "./subscription.js";
 
 function getSubscriptions(req, res){
 
@@ -57,6 +58,30 @@ function getSubscriptionById(req, res){
         if(error){
             return res.status(500).json(error);
         }
+
+        console.log(data);
+
+        let start_date = new Date(data[0].start_date).toISOString().split('T')[0];
+        let due_date = new Date(data[0].due_date).toISOString().split('T')[0];
+
+        data[0].start_date = start_date
+        data[0].due_date = due_date
+
+        data[0].start_date = data[0].start_date.replace(/-/g, '/');
+        data[0].due_date = data[0].due_date.replace(/-/g, '/');
+
+        const language = 'portuguese';
+
+        if(language === 'portuguese'){
+            let [year, month, day] = start_date.split('-');
+            start_date = `${day}/${month}/${year}`;
+            [year, month, day] = due_date.split('-');
+            due_date = `${day}/${month}/${year}`;
+
+            data[0].start_date = start_date;
+            data[0].due_date = due_date;
+        }
+
 
         return res.status(200).json(data);
     })
