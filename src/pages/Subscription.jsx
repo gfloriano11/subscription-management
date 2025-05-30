@@ -65,8 +65,8 @@ function Subscription(){
                             <p>💳 Method: {subscription.payment_method}</p>
                         </div>
                         <div>
-                            <p>📅 Start: 06/27/2025</p>
-                            <p>📅 End: 06/27/2026</p>
+                            <p>📅 Start: {subscription.start_date}</p>
+                            <p>📅 End: {subscription.due_date}</p>
                         </div>
                         <div>
                             <p>🙍 Users: {subscription.users} user(s)</p>
