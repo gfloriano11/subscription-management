@@ -225,8 +225,8 @@ function SubscriptionForm({subscription}){
                                 name="payment-method"
                                 custom={1}
                                 onChange={(event) => setPaymentMethod(event.target.value)}>
-                                    <option value="credit-card">Credit Card</option>
-                                    <option value="debit-card">Debit Card</option>
+                                    <option value="Credit Card">Credit Card</option>
+                                    <option value="Debit Card">Debit Card</option>
                                     <option value="Paypal">PayPal</option>
                                     <option value="Apple Pay">Apple Pay</option>
                                     <option value="Google Pay">Google Pay</option>
