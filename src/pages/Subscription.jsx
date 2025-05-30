@@ -27,7 +27,16 @@ function Subscription(){
 
         console.log(data);
 
+        let categoryNameClean = removeEmojis(data[0].category_name);
+        data[0].category_name = categoryNameClean;
+
+        console.log(data[0].category_name)
+
         setSubscription(data[0]);
+    }
+
+    function removeEmojis(str) {
+        return str.replace(/[\p{Emoji_Presentation}\p{Emoji}\uFE0F]/gu, '').trim();
     }
 
     useEffect(() => {
@@ -52,7 +61,7 @@ function Subscription(){
                             <p>⏰ Plan: 6 months</p>
                         </div>
                         <div>
-                            <p>💵 Price: R$ {subscription.price}</p>
+                            <p>💵 Price: {subscription.symbol} {subscription.price}</p>
                             <p>💳 Method: {subscription.payment_method}</p>
                         </div>
                         <div>
@@ -61,7 +70,7 @@ function Subscription(){
                         </div>
                         <div>
                             <p>🙍 Users: {subscription.users} user(s)</p>
-                            <p>📁 Category: {subscription.category_id}</p>
+                            <p>📁 Category: {subscription.category_name}</p>
                         </div>
                     </div>
                     <div className="mt-4 p-3 bg-gray-800 rounded-md text-gray-300 italic max-w-md">
