@@ -40,15 +40,15 @@ function Subscription(){
             shadow-[0px_10px_20px] shadow-purple-950 border-2 border-gray-800 
             text-white font-inter flex flex-col md:flex-row gap-3">
                 <div className="relative">
-                    <img className="rounded-xl max-w-xs md:max-w-md select-none pointer-events-none " src="\src\assets\subscription_image\netflix.png"></img>
+                    <img className="rounded-xl max-w-xs max-h-64 md:max-w-md select-none pointer-events-none" src={subscription.image}></img>
                     <p className="absolute bottom-4 left-4 text-3xl font-bold tracking-wide">{subscription.subscription_name}</p>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-3">
                     <div className="grid grid-cols-2 md:text-start gap-x-3 gap-y-1">
                         <p>📊 Status: Active</p>
                         <p>📅 06/27/2025</p>
-                        <p>💳 Credit Card</p>
-                        <p>💵 R$39,99</p>
+                        <p>💳 {subscription.payment_method}</p>
+                        <p>💵 {subscription.currency} {subscription.price}</p>
                     </div>
                     <div className="pr-2 flex justify-around w-full">
                         <ActionButton text="Edit" color="bg-green-600" Icon={Pencil}/>
