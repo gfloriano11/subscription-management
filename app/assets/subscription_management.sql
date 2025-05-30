@@ -76,3 +76,21 @@ VALUES
 /* SELECT m.id, m.subscription_name, m.subscription_path,
 m.price, m.users, m.due_date, m.start_date, m.payment_method, m.category_id, m.image
 FROM my_subscriptions AS m; */
+
+-- if you want to do a query to get a subscription by id
+
+/* SELECT 
+    ms.id, ms.subscription_name, ms.subscription_path, ms.price, 
+    ms.payment_method, ms.users, ms.due_date, ms.start_date, ms.is_active, 
+    ms.is_custom, ms.notes, ms.image, ms.logo, ct.category_name, cr.symbol
+FROM 
+    my_subscriptions AS ms 
+INNER JOIN 
+    category AS ct
+ON 
+    ms.category_id = ct.id 
+INNER JOIN 
+    currency AS cr
+ON ms.currency_id = cr.id
+WHERE 
+    ms.id = 1;
