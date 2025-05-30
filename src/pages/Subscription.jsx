@@ -36,7 +36,7 @@ function Subscription(){
 
     return(
         <section className="flex flex-col gap-5 mt-5">
-            <div className="bg-zinc-900 p-4 pr-0 rounded-lg 
+            <div className="bg-zinc-900 p-4 rounded-lg 
             shadow-[0px_10px_20px] shadow-purple-950 border-2 border-gray-800 
             text-white font-inter flex flex-col md:flex-row gap-3">
                 <div className="relative">
@@ -44,11 +44,26 @@ function Subscription(){
                     <p className="absolute bottom-4 left-4 text-3xl font-bold tracking-wide">{subscription.subscription_name}</p>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-3">
-                    <div className="grid grid-cols-2 md:text-start gap-x-3 gap-y-1">
-                        <p>📊 Status: Active</p>
-                        <p>📅 06/27/2025</p>
-                        <p>💳 {subscription.payment_method}</p>
-                        <p>💵 {subscription.currency} {subscription.price}</p>
+                    <div className="grid grid-cols-2 md:text-start gap-x-3 gap-y-3">
+                        <div>
+                            <p>📊 Status: Active</p>
+                            <p>⏰ Plan: 6 months</p>
+                        </div>
+                        <div>
+                            <p>💵 Price: R$ {subscription.price}</p>
+                            <p>💳 Method: {subscription.payment_method}</p>
+                        </div>
+                        <div>
+                            <p>📅 Start: 06/27/2025</p>
+                            <p>📅 End: 06/27/2026</p>
+                        </div>
+                        <div>
+                            <p>🙍 Users: {subscription.users} user(s)</p>
+                            <p>📁 Category: {subscription.category_id}</p>
+                        </div>
+                    </div>
+                    <div className="mt-4 p-3 bg-gray-800 rounded-md text-gray-300 italic max-w-md">
+                        {subscription.description || "Sem descrição."}
                     </div>
                     <div className="pr-2 flex justify-around w-full">
                         <ActionButton text="Edit" color="bg-green-600" Icon={Pencil}/>
