@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-function SubscriptionCard({id, subscriptionName, subscriptionPrice, currency, path, logo}){
+function SubscriptionCard({id, subscriptionName, subscriptionPrice, symbol, path, logo}){
     
     return(
         <div
@@ -20,7 +20,7 @@ function SubscriptionCard({id, subscriptionName, subscriptionPrice, currency, pa
                         <p className="text-white text-2xl">{subscriptionName}</p>
                     </div>
                     <div className="flex gap-1 justify-baseline">
-                        <p>{currency}</p>
+                        <p>{symbol}</p>
                         <p>{subscriptionPrice}</p>
                     </div>
                 </div>
