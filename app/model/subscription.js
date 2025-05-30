@@ -55,6 +55,7 @@ function addSubscription(req, res){
     console.log(req.body);
 
     const name = req.body.name;
+    const currency = Number(req.body.currency);
     
     let path = name.toLowerCase();
     
@@ -81,7 +82,7 @@ function addSubscription(req, res){
         req.body.dueDate,
         req.body.startDate,
         req.body.paymentMethod,
-        req.body.currency,
+        currency,
         image,
         logo,
         req.body.categoryId,
@@ -92,7 +93,7 @@ function addSubscription(req, res){
     const query = `INSERT INTO my_subscriptions
     (subscription_name, subscription_path, price, 
     users, due_date, start_date, payment_method, 
-    currency, image, logo, category_id, is_custom)
+    currency_id, image, logo, category_id, is_custom)
     VALUES
     (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
