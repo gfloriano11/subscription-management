@@ -34,6 +34,8 @@ function Subscription(){
         getSubscription(id);
     }, [])
 
+    const teste = 'teste'
+
     return(
         <section className="flex flex-col gap-5 mt-5">
             <div className="bg-zinc-900 p-4 rounded-lg 
@@ -63,7 +65,7 @@ function Subscription(){
                         </div>
                     </div>
                     <div className="mt-4 p-3 bg-gray-800 rounded-md text-gray-300 italic max-w-md">
-                        {subscription.description || "Sem descrição."}
+                        {teste || "Sem descrição."}
                     </div>
                     <div className="pr-2 flex justify-around w-full">
                         <ActionButton text="Edit" color="bg-green-600" Icon={Pencil}/>
