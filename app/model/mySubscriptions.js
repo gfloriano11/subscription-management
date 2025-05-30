@@ -1,13 +1,23 @@
 import connect from "../connection/connection.js";
+import subscription from "./subscription.js";
 
 function getSubscriptions(req, res){
 
     const connection = connect.getConnection();
     
-    const query = `SELECT m.id, m.subscription_name, m.subscription_path,
-        m.price, m.users, m.due_date, m.start_date, m.payment_method, m.currency,
-        m.logo, m.image, m.category_id, m.image
-        FROM my_subscriptions AS m;`
+    const query = `SELECT 
+        ms.id, ms.subscription_name, ms.subscription_path, ms.price, 
+        ms.payment_method, ms.users, ms.due_date, ms.start_date, ms.is_active, 
+        ms.is_custom, ms.notes, ms.image, ms.logo, ct.category_name, cr.symbol
+    FROM 
+        my_subscriptions AS ms 
+    INNER JOIN 
+        category AS ct
+    ON 
+        ms.category_id = ct.id 
+    INNER JOIN 
+        currency AS cr
+    ON ms.currency_id = cr.id`;
 
     connection.query(query, (error, data) => {
 
@@ -27,13 +37,51 @@ function getSubscriptionById(req, res){
 
     const connection = connect.getConnection();
 
-    const query = `SELECT * FROM my_subscriptions WHERE id = ?`;
+    const query = `SELECT 
+        ms.id, ms.subscription_name, ms.subscription_path, ms.price, 
+        ms.payment_method, ms.users, ms.due_date, ms.start_date, ms.is_active, 
+        ms.is_custom, ms.notes, ms.image, ms.logo, ct.category_name, cr.symbol
+    FROM 
+        my_subscriptions AS ms 
+    INNER JOIN 
+        category AS ct
+    ON 
+        ms.category_id = ct.id 
+    INNER JOIN 
+        currency AS cr
+    ON ms.currency_id = cr.id
+    WHERE 
+        ms.id = ?`;
 
     connection.query(query, [id], (error, data) => {
 
         if(error){
             return res.status(500).json(error);
         }
+
+        console.log(data);
+
+        let start_date = new Date(data[0].start_date).toISOString().split('T')[0];
+        let due_date = new Date(data[0].due_date).toISOString().split('T')[0];
+
+        data[0].start_date = start_date
+        data[0].due_date = due_date
+
+        data[0].start_date = data[0].start_date.replace(/-/g, '/');
+        data[0].due_date = data[0].due_date.replace(/-/g, '/');
+
+        const language = 'portuguese';
+
+        if(language === 'portuguese'){
+            let [year, month, day] = start_date.split('-');
+            start_date = `${day}/${month}/${year}`;
+            [year, month, day] = due_date.split('-');
+            due_date = `${day}/${month}/${year}`;
+
+            data[0].start_date = start_date;
+            data[0].due_date = due_date;
+        }
+
 
         return res.status(200).json(data);
     })

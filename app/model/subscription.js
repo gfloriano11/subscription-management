@@ -55,6 +55,17 @@ function addSubscription(req, res){
     console.log(req.body);
 
     const name = req.body.name;
+    const currency = Number(req.body.currency);
+    const plan = Number(req.body.plan);
+    let startDate = new Date(req.body.startDate)
+    let dueDate = new Date(startDate);
+
+    dueDate.setMonth(dueDate.getMonth() + plan);
+
+    startDate = startDate.toISOString().split('T')[0];
+    dueDate = dueDate.toISOString().split('T')[0];
+
+    console.log(dueDate);
     
     let path = name.toLowerCase();
     
@@ -78,10 +89,11 @@ function addSubscription(req, res){
         path,
         req.body.price,
         req.body.user,
-        req.body.dueDate,
-        req.body.startDate,
+        dueDate,
+        startDate,
+        plan,
         req.body.paymentMethod,
-        req.body.currency,
+        currency,
         image,
         logo,
         req.body.categoryId,
@@ -91,10 +103,10 @@ function addSubscription(req, res){
 
     const query = `INSERT INTO my_subscriptions
     (subscription_name, subscription_path, price, 
-    users, due_date, start_date, payment_method, 
-    currency, image, logo, category_id, is_custom)
+    users, due_date, start_date, plan, payment_method, 
+    currency_id, image, logo, category_id, is_custom)
     VALUES
-    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
     connection.query(query, values, (error, data) => {
 

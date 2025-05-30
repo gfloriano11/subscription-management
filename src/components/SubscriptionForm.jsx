@@ -14,8 +14,7 @@ function SubscriptionForm({subscription}){
     const [user, setUser] = useState('');
     const [userError, setUserError] = useState('');
     const [startDate, setstartDate] = useState('');
-    const [dueDate, setDueDate] = useState('');
-    const [dueDateError, setdueDateError] = useState('');
+    const [plan, setPlan] = useState(null);
     const [startDateError, setstartDateError] = useState('');
     const [paymentMethod, setPaymentMethod] = useState(null);
     const [currency, setCurrency] = useState('')
@@ -28,11 +27,15 @@ function SubscriptionForm({subscription}){
     const [submit, setSubmit] = useState('');
 
     if(currency === '' || !currency){
-        setCurrency('USD');
+        setCurrency('1');
     }
 
     if(paymentMethod === '' || !paymentMethod){
         setPaymentMethod('Credit Card');
+    }
+
+    if(plan === '' || !plan){
+        setPlan('1');
     }
 
     function verifyPrice(price){
@@ -82,21 +85,6 @@ function SubscriptionForm({subscription}){
         setstartDate(date)
     }
 
-    function verifyDueDate(date){
-        
-        if(date === ''){
-            setdueDateError('');
-        }
-
-        if(!date){
-            setdueDateError('Insert a valid date');
-        } else {
-            setdueDateError('')
-        }
-
-        setDueDate(date)
-    }
-
     function closePopUp(){
 
         setSubmit('');
@@ -106,7 +94,7 @@ function SubscriptionForm({subscription}){
 
         submit.preventDefault();
 
-        if(!price || !currency || !paymentMethod || !user || !startDate || !dueDate){
+        if(!price || !currency || !paymentMethod || !user || !startDate || !plan){
 
             setSubmit('Complete all fields to create your subscription.')
         } else {
@@ -119,8 +107,8 @@ function SubscriptionForm({subscription}){
                     name: name,
                     price: price, 
                     user: user,
-                    dueDate: dueDate,
                     startDate: startDate,
+                    plan: plan,
                     paymentMethod: paymentMethod,
                     currency: currency,
                     categoryId: categoryId,
@@ -190,8 +178,8 @@ function SubscriptionForm({subscription}){
                                     name="currency"
                                     custom={1}
                                     onChange={(event) => setCurrency(event.target.value)}>
-                                        <option value="USD">USD</option>
-                                        <option value="BRL">BRL</option>
+                                        <option value="1">R$</option>
+                                        <option value="2">$</option>
                                     </Input>
                                 </div>
                             <Input
@@ -234,16 +222,17 @@ function SubscriptionForm({subscription}){
                             </div>
                         </div>
                         <div className="flex flex-col w-full">
-                            <label htmlFor="due-date">Due Date:</label>
+                            <label htmlFor="plan">Plan:</label>
                             <Input
-                            type="date"
-                            name="due-date"
+                            type="select"
+                            name="plan"
                             custom={1}
-                            value={dueDate}
-                            onChange={(event) => verifyDueDate(event.target.value)}/>
-                            {dueDateError && (
-                                <p className="text-red-600">{dueDateError}</p>
-                            )}
+                            onChange={(event) => setPlan(event.target.value)}>
+                                <option value="1">1 month</option>
+                                <option value="3">3 months</option>
+                                <option value="6">6 months</option>
+                                <option value="12">1 year</option>
+                            </Input>
                         </div>
                     </div>
                     <div className="flex justify-center">
