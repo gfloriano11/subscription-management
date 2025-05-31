@@ -188,10 +188,10 @@ function SubscriptionForm({subscription}){
                             custom={1}
                             value={price}
                             onChange={verifyPrice}/>
+                            </div>
                             {priceError && (
                                 <p className="text-red-600">{priceError}</p>
                             )}
-                            </div>
                         </div>
                         <div className="flex flex-col w-full">
                             <label htmlFor="start-date">Start Date:</label>
