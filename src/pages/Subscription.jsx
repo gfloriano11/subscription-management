@@ -6,6 +6,8 @@ import GoBackButton from "../components/GoBackButton";
 
 function Subscription(){
 
+    const [edit, setEdit] = useState(false);
+
     const [subscription, setSubscription] = useState([]);
 
     const { pathname } = useLocation()
@@ -73,7 +75,7 @@ function Subscription(){
                         {teste || "Sem descrição."}
                     </div>
                     <div className="pr-2 flex justify-around w-full">
-                        <ActionButton text="Edit" color="bg-green-600" Icon={Pencil}/>
+                        <ActionButton text="Edit" color="bg-green-600" Icon={Pencil} onClick={() => (setEdit(true))}/>
                         <ActionButton text="Delete" color="bg-red-600" Icon={Trash2}/>
                     </div>
                 </div>
