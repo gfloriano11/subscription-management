@@ -51,7 +51,7 @@ function Subscription(){
                     <p className="absolute bottom-4 left-4 text-3xl font-bold tracking-wide">{subscription.subscription_name}</p>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-3">
-                    <div className="grid grid-cols-2 md:text-start gap-x-3 gap-y-3">
+                    <div className="grid grid-cols-2 text-center md:text-start gap-x-3 gap-y-3">
                         <div>
                             <p>📊 Status: Active</p>
                             <p>⏰ Plan: 6 months</p>
