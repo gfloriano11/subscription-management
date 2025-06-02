@@ -6,6 +6,8 @@ import GoBackButton from "../components/GoBackButton";
 
 function Subscription(){
 
+    const [edit, setEdit] = useState(false);
+
     const [subscription, setSubscription] = useState([]);
 
     const { pathname } = useLocation()
@@ -51,7 +53,7 @@ function Subscription(){
                     <p className="absolute bottom-4 left-4 text-3xl font-bold tracking-wide">{subscription.subscription_name}</p>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-3">
-                    <div className="grid grid-cols-2 md:text-start gap-x-3 gap-y-3">
+                    <div className="grid grid-cols-2 text-center md:text-start gap-x-3 gap-y-3">
                         <div>
                             <p>📊 Status: Active</p>
                             <p>⏰ Plan: 6 months</p>
@@ -73,7 +75,7 @@ function Subscription(){
                         {teste || "Sem descrição."}
                     </div>
                     <div className="pr-2 flex justify-around w-full">
-                        <ActionButton text="Edit" color="bg-green-600" Icon={Pencil}/>
+                        <ActionButton text="Edit" color="bg-green-600" Icon={Pencil} onClick={() => (setEdit(true))}/>
                         <ActionButton text="Delete" color="bg-red-600" Icon={Trash2}/>
                     </div>
                 </div>
