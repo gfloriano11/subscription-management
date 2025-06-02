@@ -79,8 +79,8 @@ function Subscription(){
                     :                     
                     <div className="grid grid-cols-2 text-center md:text-start gap-x-3 gap-y-3">
                         <div>
-                            <p>📊 Status: Active</p>
-                            <p>⏰ Plan: 6 months</p>
+                            <p>📊 Status: {subscription.is_active ? ('Active') : ('Inactive')}</p>
+                            <p>⏰ Plan: {subscription.plan}</p>
                         </div>
                         <div>
                             <p>💵 Price: {subscription.symbol} {subscription.price}</p>
