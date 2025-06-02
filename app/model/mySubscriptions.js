@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import connect from "../connection/connection.js";
 import subscription from "./subscription.js";
 
@@ -59,7 +60,21 @@ function getSubscriptionById(req, res){
             return res.status(500).json(error);
         }
 
-        console.log(data);
+        if(data[0].plan === 12){
+            data[0].plan = '1 Year'
+        }
+
+        if(data[0].plan === 6){
+            data[0].plan = '6 Months'
+        }
+
+        if(data[0].plan === 3){
+            data[0].plan = '3 Months'
+        }
+
+        if(data[0].plan === 1){
+            data[0].plan = '1 Month'
+        }
 
         let start_date = new Date(data[0].start_date).toISOString().split('T')[0];
         let due_date = new Date(data[0].due_date).toISOString().split('T')[0];
