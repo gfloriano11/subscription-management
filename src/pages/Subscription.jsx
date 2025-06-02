@@ -29,10 +29,6 @@ function Subscription(){
         let data = await response.json();
 
         let categoryNameClean = removeEmojis(data[0].category_name);
-
-        if(data[0].plan === 12){
-            data[0].plan = '1 Year'
-        }
         data[0].category_name = categoryNameClean;
 
         setSubscription(data[0]);
