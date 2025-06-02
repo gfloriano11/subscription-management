@@ -40,7 +40,7 @@ function getSubscriptionById(req, res){
     const query = `SELECT 
         ms.id, ms.subscription_name, ms.subscription_path, ms.price, 
         ms.payment_method, ms.users, ms.due_date, ms.start_date, ms.is_active, 
-        ms.is_custom, ms.notes, ms.image, ms.logo, ct.category_name, cr.symbol
+        ms.plan, ms.is_custom, ms.notes, ms.image, ms.logo, ct.category_name, cr.symbol
     FROM 
         my_subscriptions AS ms 
     INNER JOIN 

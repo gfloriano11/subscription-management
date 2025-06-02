@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import ActionButton from "../components/ActionButton";
 import { Pencil, Trash2 } from "lucide-react";
 import GoBackButton from "../components/GoBackButton";
+import Input from "../components/Input";
 
 function Subscription(){
 
@@ -30,6 +31,8 @@ function Subscription(){
         let categoryNameClean = removeEmojis(data[0].category_name);
         data[0].category_name = categoryNameClean;
 
+        console.log(data[0])
+
         setSubscription(data[0]);
     }
 
@@ -53,6 +56,29 @@ function Subscription(){
                     <p className="absolute bottom-4 left-4 text-3xl font-bold tracking-wide">{subscription.subscription_name}</p>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-3">
+                    {edit 
+                    ? 
+                    <form className="grid grid-cols-2 text-center md:text-start gap-x-3 gap-y-3">
+                        <div>
+                            <div className="flex">
+                                <p>📊 Status:</p> <Input value={subscription.is_active ? ('Active') : ('Inactive')}/>
+                            </div>
+                            <p>⏰ Plan:</p> <Input value={subscription.plan}/>
+                        </div>
+                        <div>
+                            <p>💵 Price: {subscription.symbol} {subscription.price}</p>
+                            <p>💳 Method: {subscription.payment_method}</p>
+                        </div>
+                        <div>
+                            <p>📅 Start: {subscription.start_date}</p>
+                            <p>📅 End: {subscription.due_date}</p>
+                        </div>
+                        <div>
+                            <p>🙍 Users: {subscription.users} user(s)</p>
+                            <p>📁 Category: {subscription.category_name}</p>
+                        </div>
+                    </form>
+                    :                     
                     <div className="grid grid-cols-2 text-center md:text-start gap-x-3 gap-y-3">
                         <div>
                             <p>📊 Status: Active</p>
@@ -70,7 +96,7 @@ function Subscription(){
                             <p>🙍 Users: {subscription.users} user(s)</p>
                             <p>📁 Category: {subscription.category_name}</p>
                         </div>
-                    </div>
+                    </div>}
                     <div className="mt-4 p-3 bg-gray-800 rounded-md text-gray-300 italic max-w-md">
                         {teste || "Sem descrição."}
                     </div>
