@@ -6,7 +6,7 @@ USE subscription_management;
 
 CREATE TABLE currency(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    currency_code CHAR(2) NOT NULL,
+    currency_code VARCHAR(2) NOT NULL,
     currency_name VARCHAR(255) NOT NULL,
     symbol VARCHAR(3) NOT NULL
 );
@@ -36,6 +36,7 @@ CREATE TABLE my_subscriptions(
     users INT NOT NULL,
     due_date DATE NOT NULL,
     start_date DATE NOT NULL,
+    plan INT NOT NULL,
     is_active BOOLEAN DEFAULT TRUE NOT NULL,
 	is_custom BOOLEAN DEFAULT FALSE NOT NULL,
     notes TEXT,
@@ -46,6 +47,11 @@ CREATE TABLE my_subscriptions(
     FOREIGN KEY (category_id) REFERENCES category (id),
     FOREIGN KEY (currency_id) REFERENCES currency (id)
 );
+
+INSERT INTO currency (currency_code, currency_name, symbol)
+VALUES
+('BRL', 'Real Brasileiro', 'R$'),
+('USD', 'United States Dollar', '$');
 
 INSERT INTO category (category_name, category_path)
 VALUES
@@ -75,14 +81,14 @@ VALUES
 
 /* SELECT m.id, m.subscription_name, m.subscription_path,
 m.price, m.users, m.due_date, m.start_date, m.payment_method, m.category_id, m.image
-FROM my_subscriptions AS m; */
+FROM my_subscriptions AS m;
 
--- if you want to do a query to get a subscription by id
+SELECT * FROM my_subscriptions; */
 
-/* SELECT 
+SELECT 
     ms.id, ms.subscription_name, ms.subscription_path, ms.price, 
-    ms.payment_method, ms.users, ms.due_date, ms.start_date, ms.is_active, 
-    ms.is_custom, ms.notes, ms.image, ms.logo, ct.category_name, cr.symbol
+    ms.payment_method, ms.users, ms.due_date, ms.start_date, ms.is_active,
+    ms.plan, ms.is_custom, ms.notes, ms.image, ms.logo, ct.category_name, cr.symbol
 FROM 
     my_subscriptions AS ms 
 INNER JOIN 
@@ -92,5 +98,5 @@ ON
 INNER JOIN 
     currency AS cr
 ON ms.currency_id = cr.id
-WHERE 
-    ms.id = 1;
+WHERE
+	ms.id = ?;
