@@ -49,23 +49,46 @@ function Subscription(){
             <div className="bg-zinc-900 p-4 rounded-lg 
             shadow-[0px_10px_20px] shadow-purple-950 border-2 border-gray-800 
             text-white font-inter flex flex-col md:flex-row gap-3">
-                <div className="relative">
+                <div className="relative md:h-64">
                     <img className="rounded-xl w-full max-h-64 md:max-w-md select-none pointer-events-none" src={subscription.image}></img>
                     <p className="absolute bottom-4 left-4 text-3xl font-bold tracking-wide">{subscription.subscription_name}</p>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-3">
                     {edit 
                     ? 
-                    <form className="grid grid-cols-2 text-center md:text-start gap-x-3 gap-y-3">
-                        <div>
-                            <div className="flex">
-                                <p>📊 Status:</p> <Input value={subscription.is_active ? ('Active') : ('Inactive')}/>
+                    <form className="grid grid-cols-2 text-center md:text-start gap-x-3 gap-y-3 max-w-2xs">
+                        <div className="flex flex-col gap-3">
+                            <div className="flex flex-col">
+                                <p>📊 Status:</p>
+                                <Input value={subscription.is_active ? ('Active') : ('Inactive')}/>
                             </div>
-                            <p>⏰ Plan:</p> <Input value={subscription.plan}/>
+                            <div className="flex flex-col">
+                                <p>⏰ Plan:</p>
+                                <Input value={subscription.plan}/>
+                            </div>
                         </div>
-                        <div>
-                            <p>💵 Price: {subscription.symbol} {subscription.price}</p>
-                            <p>💳 Method: {subscription.payment_method}</p>
+                        <div className="flex flex-col h-full gap-3">
+                            <div className="flex flex-col">
+                                <p>💵 Price:</p>
+                                <div className="flex gap-1 w-full">
+                                    <div className="flex w-5/5 md:w-5/5 lg:w-4/5">
+                                        <Input type="select" value={subscription.symbol}>
+                                            <option>R$</option>
+                                            <option>U$</option>
+                                        </Input>
+                                    </div>
+                                    <Input value={subscription.price}/>
+                                </div>
+                            </div>
+                            <div className="flex flex-col">
+                                <p>💳 Method:</p>
+                                <div className="w-full">
+                                    <Input type="select" value={subscription.payment_method}>
+                                        <option>Credit Card</option>
+                                        <option>Debit Card</option>
+                                    </Input>
+                                </div>
+                            </div>
                         </div>
                         <div>
                             <p>📅 Start: {subscription.start_date}</p>
