@@ -80,9 +80,9 @@ function Subscription(){
                                     <Input value={subscription.price}/>
                                 </div>
                             </div>
-                            <div className="flex flex-col">
+                            <div className="flex flex-col h-full">
                                 <p>💳 Method:</p>
-                                <div className="w-full">
+                                <div className="flex h-full">
                                     <Input type="select" value={subscription.payment_method}>
                                         <option>Credit Card</option>
                                         <option>Debit Card</option>
