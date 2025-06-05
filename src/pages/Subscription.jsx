@@ -90,13 +90,27 @@ function Subscription(){
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <p>📅 Start: {subscription.start_date}</p>
-                            <p>📅 End: {subscription.due_date}</p>
+                        <div className="flex flex-col gap-3">
+                            <div className="flex flex-col">
+                                <p>📅 Start:</p>
+                                <Input type="date" value={subscription.start_date}/>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <p>📅 End:</p>
+                                <p>{subscription.due_date}</p>
+                            </div>
                         </div>
-                        <div>
-                            <p>🙍 Users: {subscription.users} user(s)</p>
-                            <p>📁 Category: {subscription.category_name}</p>
+                        <div className="flex flex-col gap-3">
+                            <div className="flex flex-col">
+                                <p>🙍 Users:</p>
+                                <Input type="text" value={subscription.users}/>
+                            </div>
+                            <div className="flex flex-col">
+                                <p>📁 Category:</p>
+                                <Input type="select" value={subscription.category_name}>
+                                    <option>Streaming</option>
+                                </Input>
+                            </div>
                         </div>
                     </form>
                     :                     
