@@ -114,8 +114,8 @@ function Subscription(){
                                 </div>
                             </div>
                         </form>
-                        <div className="flex justify-center p-3 bg-gray-800 rounded-md text-gray-300 italic max-w-2xs max-h-20 overflow-y-scroll">
-                            {<Input type="text" value={teste}/> || "Sem descrição."}
+                        <div className="flex justify-center p-3 bg-gray-800 rounded-md text-gray-300 italic max-w-2xs max-h-32">
+                            {<Input type="textarea" value={teste}/> || "Sem descrição."}
                         </div>
                         <div className="pr-2 flex justify-around w-full">
                             <ActionButton text="Save" color="bg-green-600" Icon={Pencil} onClick={() => (setEdit(true))}/>
