@@ -8,9 +8,11 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
     const [isCustom, setIsCustom] = useState(1);
 
     const [status, setStatus] = useState('')
+    const [plan, setPlan] = useState('');
 
     useEffect(() => {
         setStatus(subscription.is_active);
+        setPlan(subscription.plan)
         
     }, [])
 
@@ -31,7 +33,15 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
                     </div>
                     <div className="flex flex-col">
                         <p>⏰ Plan:</p>
-                        <Input value={subscription.plan}/>
+                        <Input type="select"
+                        value={plan}
+                        custom={isCustom}
+                        onChange={(event) => setPlan(event.target.value)}>
+                            <option value="1">1 Month</option>
+                            <option value="3">3 Months</option>
+                            <option value="6">6 Months</option>
+                            <option value="12">1 Year</option>
+                        </Input>
                     </div>
                 </div>
                 <div className="flex flex-col h-full gap-3">
