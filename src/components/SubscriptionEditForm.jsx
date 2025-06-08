@@ -1,15 +1,33 @@
+import { useEffect, useState } from "react";
 import ActionButton from "../components/ActionButton";
 import Input from "../components/Input";
 import { Pencil, Trash2 } from "lucide-react";
 
 function SubscriptionEditForm({subscription, setEdit, saveData}){
+    
+    const [isCustom, setIsCustom] = useState(1);
+
+    const [status, setStatus] = useState('')
+
+    useEffect(() => {
+        setStatus(subscription.is_active);
+        
+    }, [])
+
     return(
         <div className="flex flex-col gap-3">
             <form className="grid grid-cols-2 text-center md:text-start gap-x-3 gap-y-3 max-w-2xs">
                 <div className="flex flex-col gap-3">
                     <div className="flex flex-col">
                         <p>📊 Status:</p>
-                        <Input value={subscription.is_active ? ('Active') : ('Inactive')}/>
+                        <Input
+                        type="select"
+                        value={status}
+                        custom={isCustom}
+                        onChange={(event) => setStatus(event.target.value)}>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </Input>
                     </div>
                     <div className="flex flex-col">
                         <p>⏰ Plan:</p>
