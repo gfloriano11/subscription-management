@@ -10,6 +10,11 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
     const [status, setStatus] = useState('')
     const [plan, setPlan] = useState('');
     const [startDate, setStartDate] = useState('');
+    const [users, setUsers] = useState('');
+    const [paymentMethod, setPaymentMethod] = useState('');
+    const [currency, setCurrency] = useState('');
+    const [price, setPrice] = useState('');
+    const [category, setCategory] = useState('');
 
     useEffect(() => {
         setStatus(subscription.is_active);
@@ -21,6 +26,15 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
             const inputDate = `${year}-${month}-${days}`
 
             setStartDate(inputDate);
+        }
+
+        setCurrency(subscription.symbol);
+        setUsers(subscription.users);
+        setCategory(subscription.category_name);
+
+        
+        if(category !== 'Custom'){
+            setIsCustom(0);
         }
         
     }, [])
@@ -34,7 +48,7 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
                         <Input
                         type="select"
                         value={status}
-                        custom={isCustom}
+                        custom={1}
                         onChange={(event) => setStatus(event.target.value)}>
                             <option value="Active">Active</option>
                             <option value="Inactive">Inactive</option>
@@ -44,7 +58,7 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
                         <p>⏰ Plan:</p>
                         <Input type="select"
                         value={plan}
-                        custom={isCustom}
+                        custom={1}
                         onChange={(event) => setPlan(event.target.value)}>
                             <option value="1">1 Month</option>
                             <option value="3">3 Months</option>
@@ -58,18 +72,27 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
                         <p>💵 Price:</p>
                         <div className="flex gap-1 w-full">
                             <div className="flex w-5/5 md:w-5/5 lg:w-4/5">
-                                <Input type="select" value={subscription.symbol}>
+                                <Input type="select" 
+                                value={currency}
+                                custom={1}
+                                onChange={(event) => setCurrency(event.target.value)}>
                                     <option>R$</option>
-                                    <option>U$</option>
+                                    <option>$</option>
                                 </Input>
                             </div>
-                            <Input value={subscription.price}/>
+                            <Input type="text" 
+                            value={price}
+                            custom={1}
+                            onChange={(event) => setPrice(event.target.value)}/>
                         </div>
                     </div>
                     <div className="flex flex-col h-full">
                         <p>💳 Method:</p>
                         <div className="flex h-full">
-                            <Input type="select" value={subscription.payment_method}>
+                            <Input type="select" 
+                            value={paymentMethod}
+                            custom={1}
+                            onChange={(event) => setPaymentMethod(event.target.value)}>
                                 <option>Credit Card</option>
                                 <option>Debit Card</option>
                             </Input>
@@ -83,7 +106,7 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
                         type="date"
                         value={startDate}
                         onChange={(event) => setStartDate(event.target.value)}
-                        custom={isCustom}/>
+                        custom={1}/>
                     </div>
                     <div className="flex flex-col gap-2">
                         <p>📅 End:</p>
@@ -93,12 +116,22 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
                 <div className="flex flex-col gap-3">
                     <div className="flex flex-col">
                         <p>🙍 Users:</p>
-                        <Input type="text" value={subscription.users}/>
+                        <Input type="text"
+                        value={users}
+                        onChange={(event) => setUsers(event.target.value)}
+                        custom={1}/>
                     </div>
                     <div className="flex flex-col">
                         <p>📁 Category:</p>
-                        <Input type="select" value={subscription.category_name}>
+                        <Input type="select"
+                        value={category}
+                        onChange={(event) => setCategory(event.target.value)}
+                        custom={isCustom}>
                             <option>Streaming</option>
+                            <option>Games</option>
+                            <option>Education</option>
+                            <option>Music</option>
+                            <option>Healthcare</option>
                         </Input>
                     </div>
                 </div>
