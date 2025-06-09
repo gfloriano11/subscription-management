@@ -11,6 +11,7 @@ function Input({type, name, value, custom, onChange, children}){
             name={name}
             value={value}
             onChange={onChange}
+            disabled={!custom}
             className={`${permission} p-1.5 flex items-center text-black rounded-lg outline-none w-full`}
           >
             {children}
