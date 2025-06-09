@@ -79,12 +79,11 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
                 <div className="flex flex-col gap-3">
                     <div className="flex flex-col">
                         <p>📅 Start:</p>
-                        {/* <Input type="date" value='2006-03-12'/> */}
                         <Input
                         type="date"
                         value={startDate}
                         onChange={(event) => setStartDate(event.target.value)}
-                        isCustom={isCustom}/>
+                        custom={isCustom}/>
                     </div>
                     <div className="flex flex-col gap-2">
                         <p>📅 End:</p>
