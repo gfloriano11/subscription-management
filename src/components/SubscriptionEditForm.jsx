@@ -9,10 +9,19 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
 
     const [status, setStatus] = useState('')
     const [plan, setPlan] = useState('');
+    const [startDate, setStartDate] = useState('');
 
     useEffect(() => {
         setStatus(subscription.is_active);
-        setPlan(subscription.plan)
+        setPlan(subscription.plan);
+
+        if(subscription.start_date){
+            const [days, month, year] = subscription.start_date.split('/');
+
+            const inputDate = `${year}-${month}-${days}`
+
+            setStartDate(inputDate);
+        }
         
     }, [])
 
@@ -70,7 +79,12 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
                 <div className="flex flex-col gap-3">
                     <div className="flex flex-col">
                         <p>📅 Start:</p>
-                        <Input type="date" value='2006-03-12'/>
+                        {/* <Input type="date" value='2006-03-12'/> */}
+                        <Input
+                        type="date"
+                        value={startDate}
+                        onChange={(event) => setStartDate(event.target.value)}
+                        isCustom={isCustom}/>
                     </div>
                     <div className="flex flex-col gap-2">
                         <p>📅 End:</p>
