@@ -18,7 +18,7 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
 
     useEffect(() => {
         setStatus(subscription.is_active);
-        setPlan(subscription.plan);
+        setPlan(subscription.plan)
         setPaymentMethod(subscription.payment_method);
         setPrice(subscription.price)
 
