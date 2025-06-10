@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ActionButton from "../components/ActionButton";
 import Input from "../components/Input";
-import { Pencil, Trash2 } from "lucide-react";
+import { Pencil, Save, Trash2, X } from "lucide-react";
 
 function SubscriptionEditForm({subscription, setEdit, saveData}){
     
@@ -42,8 +42,8 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
     }, [])
 
     return(
-        <div className="flex flex-col gap-3">
-            <form className="grid grid-cols-2 text-center md:text-start gap-x-3 gap-y-3 max-w-2xs">
+        <div className="flex flex-col items-center gap-3">
+            <form className="grid grid-cols-2 text-center md:text-start gap-x-3 gap-y-3 max-w-92">
                 <div className="flex flex-col gap-3">
                     <div className="flex flex-col">
                         <p>📊 Status:</p>
@@ -141,12 +141,12 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
                     </div>
                 </div>
             </form>
-            <div className="flex justify-center p-3 bg-gray-800 rounded-md text-gray-300 italic max-w-2xs max-h-32">
+            <div className="flex w-full justify-center p-3 bg-gray-800 rounded-md text-gray-300 italic max-w-2xs max-h-32">
                 {<Input type="textarea" value={subscription.notes}/> || "Sem descrição."}
             </div>
             <div className="pr-2 flex justify-around w-full">
-                <ActionButton text="Save" color="bg-green-600" Icon={Pencil} onClick={() => (saveData(), setEdit(false))}/>
-                <ActionButton text="Cancel" color="bg-red-600" Icon={Trash2} onClick={() => (setEdit(false))}/>
+                <ActionButton text="Save" color="bg-green-600" Icon={Save} onClick={() => (saveData(), setEdit(false))}/>
+                <ActionButton text="Cancel" color="bg-red-600" Icon={X} onClick={() => (setEdit(false))}/>
             </div>
         </div>
     );
