@@ -54,7 +54,7 @@ function Subscription(){
             <div className="bg-zinc-900 p-4 rounded-lg 
             shadow-[0px_10px_20px] shadow-purple-950 border-2 border-gray-800 
             text-white font-inter flex flex-col md:flex-row gap-3">
-                <div className="relative md:h-64">
+                <div className="relative flex items-center md:h-64">
                     <img className="rounded-xl w-full max-h-64 md:max-w-md select-none pointer-events-none" src={subscription.image}></img>
                     <p className="absolute bottom-4 left-4 text-3xl font-bold tracking-wide">{subscription.subscription_name}</p>
                 </div>
