@@ -30,8 +30,6 @@ function Subscription(){
         let categoryNameClean = removeEmojis(data[0].category_name);
         data[0].category_name = categoryNameClean;
 
-        data[0].notes = teste
-
         setSubscription(data[0]);
     }
 
@@ -46,9 +44,6 @@ function Subscription(){
     useEffect(() => {
         getSubscription(id);
     }, [])
-
-    const teste = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
     return(
         <section className="flex flex-col gap-5 mt-5">
             <div className="bg-zinc-900 p-4 rounded-lg 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ActionButton from "../components/ActionButton";
 import Input from "../components/Input";
-import { Pencil, Save, Trash2, X } from "lucide-react";
+import { Save, X } from "lucide-react";
 
 function SubscriptionEditForm({subscription, setEdit, saveData}){
     
@@ -15,6 +15,7 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
     const [currency, setCurrency] = useState('');
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('');
+    const [notes, setNotes] = useState('');
 
     useEffect(() => {
         setStatus(subscription.is_active);
@@ -29,6 +30,8 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
 
             setStartDate(inputDate);
         }
+
+        setNotes(subscription.notes || '')
 
         setCurrency(subscription.symbol);
         setUsers(subscription.users);
@@ -142,7 +145,11 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
                 </div>
             </form>
             <div className="flex w-full justify-center p-3 bg-gray-800 rounded-md text-gray-300 italic max-w-2xs max-h-32">
-                {<Input type="textarea" value={subscription.notes}/> || "Sem descrição."}
+                {<Input type="textarea" 
+                value={notes}
+                onChange={(event) => setNotes(event.target.value)}
+                custom={1}/>
+                }
             </div>
             <div className="pr-2 flex justify-around w-full">
                 <ActionButton text="Save" color="bg-green-600" Icon={Save} onClick={() => (saveData(), setEdit(false))}/>

@@ -23,7 +23,7 @@ function SubscriptionInfo({subscription, setEdit}){
                 </div>
             </div>
             <div className="flex justify-center p-3 bg-gray-800 rounded-md text-gray-300 italic max-w-2xs max-h-20 overflow-y-scroll">
-                <p>{subscription.notes || "Sem descrição."}</p>
+                <p>{subscription.notes || "No notes."}</p>
             </div>
             <div className="pr-2 flex justify-around w-full">
                 <ActionButton text="Edit" color="bg-green-600" Icon={Pencil} onClick={() => (setEdit(true))}/>
