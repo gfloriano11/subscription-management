@@ -19,6 +19,8 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
     useEffect(() => {
         setStatus(subscription.is_active);
         setPlan(subscription.plan);
+        setPaymentMethod(subscription.payment_method);
+        setPrice(subscription.price)
 
         if(subscription.start_date){
             const [days, month, year] = subscription.start_date.split('/');
@@ -93,8 +95,11 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
                             value={paymentMethod}
                             custom={1}
                             onChange={(event) => setPaymentMethod(event.target.value)}>
-                                <option>Credit Card</option>
-                                <option>Debit Card</option>
+                                <option value="Credit Card">Credit Card</option>
+                                <option value="Debit Card">Debit Card</option>
+                                <option value="Paypal">PayPal</option>
+                                <option value="Apple Pay">Apple Pay</option>
+                                <option value="Google Pay">Google Pay</option>
                             </Input>
                         </div>
                     </div>
