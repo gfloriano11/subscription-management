@@ -21,7 +21,12 @@ function Input({type, name, value, custom, onChange, children}){
 
     if(type === "textarea"){
       return(
-        <textarea value={value} className={`${permission} p-1.5 flex items-center text-black rounded-lg outline-none w-full resize-none`}>
+        <textarea 
+        name={name} 
+        value={value}
+        readOnly={!custom}
+        onChange={onChange} 
+        className={`${permission} p-1.5 flex items-center text-black rounded-lg outline-none w-full resize-none`}>
 
         </textarea>
       )
