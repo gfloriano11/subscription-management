@@ -9,6 +9,7 @@ function Subscription(){
     const [edit, setEdit] = useState(false);
 
     const [subscription, setSubscription] = useState({});
+    const [notes, setNotes] = useState(null);
 
     const { pathname } = useLocation()
 
@@ -38,7 +39,22 @@ function Subscription(){
     }
 
     async function saveData(){
-        console.log('salvando...')
+        setSubscription((prev) => ({
+            ...prev,
+            notes: notes
+        }))
+
+        console.log(subscription)
+
+        const response = await fetch(`http://localhost:8000/my-subscriptions/edit/${subscription.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: {
+                subscription
+            }
+        })
     }
 
     useEffect(() => {
@@ -56,7 +72,7 @@ function Subscription(){
                 <div className="flex flex-col justify-center items-center gap-3">
                     {edit 
                     ? 
-                    <SubscriptionEditForm subscription={subscription} setEdit={setEdit} saveData={saveData}/>
+                    <SubscriptionEditForm subscription={subscription} setEdit={setEdit} saveData={saveData} notes={notes} setNotes={setNotes}/>
                     :
                     <SubscriptionInfo subscription={subscription} setEdit={setEdit}/>
                     }
