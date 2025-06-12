@@ -71,10 +71,9 @@ function addSubscription(req, res){
     
     path = path.replace(/\s/g, '-');
 
-
     let image = '/src/assets/subscription_image/'+path+'.png';
 
-    if(path === 'paramount' || path === 'prime-video'){
+    if(path === 'paramount+' || path === 'prime-video'){
         image = '/src/assets/subscription_image/'+path+'.svg';
     }
 
