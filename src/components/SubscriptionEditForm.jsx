@@ -3,7 +3,7 @@ import ActionButton from "../components/ActionButton";
 import Input from "../components/Input";
 import { Save, X } from "lucide-react";
 
-function SubscriptionEditForm({subscription, setEdit, saveData}){
+function SubscriptionEditForm({subscription, setEdit, saveData, notes, setNotes}){
     
     const [isCustom, setIsCustom] = useState(1);
 
@@ -15,7 +15,6 @@ function SubscriptionEditForm({subscription, setEdit, saveData}){
     const [currency, setCurrency] = useState('');
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('');
-    const [notes, setNotes] = useState('');
 
     useEffect(() => {
         setStatus(subscription.is_active);
