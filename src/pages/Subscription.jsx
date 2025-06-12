@@ -38,7 +38,7 @@ function Subscription(){
         return str.replace(/[\p{Emoji_Presentation}\p{Emoji}\uFE0F]/gu, '').trim();
     }
 
-    async function saveData(){
+    async function editData(){
         setSubscription((prev) => ({
             ...prev,
             notes: notes
