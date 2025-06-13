@@ -72,7 +72,7 @@ function Subscription(){
                 <div className="flex flex-col justify-center items-center gap-3">
                     {edit 
                     ? 
-                    <SubscriptionEditForm subscription={subscription} setEdit={setEdit} saveData={saveData} notes={notes} setNotes={setNotes}/>
+                    <SubscriptionEditForm subscription={subscription} setEdit={setEdit} editData={editData} notes={notes} setNotes={setNotes}/>
                     :
                     <SubscriptionInfo subscription={subscription} setEdit={setEdit}/>
                     }
