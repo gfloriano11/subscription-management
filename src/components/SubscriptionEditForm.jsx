@@ -3,7 +3,7 @@ import ActionButton from "../components/ActionButton";
 import Input from "../components/Input";
 import { Save, X } from "lucide-react";
 
-function SubscriptionEditForm({subscription, setEdit, saveData, notes, setNotes}){
+function SubscriptionEditForm({subscription, setEdit, editData, notes, setNotes}){
     
     const [isCustom, setIsCustom] = useState(1);
 
@@ -145,7 +145,7 @@ function SubscriptionEditForm({subscription, setEdit, saveData, notes, setNotes}
             </form>
             <div className="flex w-full justify-center p-3 bg-gray-800 rounded-md text-gray-300 italic max-w-2xs max-h-32">
                 {<Input type="textarea" 
-                value={notes}
+                value={notes || ''}
                 onChange={(event) => setNotes(event.target.value)}
                 custom={1}/>
                 }
