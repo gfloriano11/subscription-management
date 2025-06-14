@@ -46,14 +46,14 @@ function Subscription(){
 
         console.log(subscription)
 
-        const response = await fetch(`http://localhost:8000/my-subscriptions/edit/${subscription.id}`, {
+        const response = await fetch(`http://localhost:8000/my-subscriptions/${subscription.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: {
-                subscription
-            }
+            body: JSON.stringify({
+                subscription: subscription
+            })
         })
     }
 
