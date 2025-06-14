@@ -151,7 +151,7 @@ function SubscriptionEditForm({subscription, setEdit, editData, notes, setNotes}
                 }
             </div>
             <div className="pr-2 flex justify-around w-full">
-                <ActionButton text="Save" color="bg-green-600" Icon={Save} onClick={() => (saveData(), setEdit(false))}/>
+                <ActionButton text="Save" color="bg-green-600" Icon={Save} onClick={() => (editData(), setEdit(false))}/>
                 <ActionButton text="Cancel" color="bg-red-600" Icon={X} onClick={() => (setEdit(false))}/>
             </div>
         </div>
