@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import connect from "../connection/connection.js";
-import subscription from "./subscription.js";
 
 function getSubscriptions(req, res){
 
@@ -104,7 +103,15 @@ function getSubscriptionById(req, res){
     connect.endConnection(connection);
 }
 
+function editSubscriptionById(req, res){
+
+    const subscription = req.body.subscription;
+    console.log(subscription);
+    const connection = connect.getConnection();
+}
+
 export default {
     getSubscriptions,
-    getSubscriptionById
+    getSubscriptionById,
+    editSubscriptionById
 }
