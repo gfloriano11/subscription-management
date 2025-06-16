@@ -106,8 +106,11 @@ function getSubscriptionById(req, res){
 function editSubscriptionById(req, res){
 
     const subscription = req.body.subscription;
-    console.log(subscription);
     const connection = connect.getConnection();
+
+    const query = `UPDATE my_subscriptions
+    SET subscription_name = ?,
+    subscription_notes = ?`
 }
 
 export default {
