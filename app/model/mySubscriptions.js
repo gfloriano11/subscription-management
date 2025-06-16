@@ -110,7 +110,20 @@ function editSubscriptionById(req, res){
 
     const query = `UPDATE my_subscriptions
     SET subscription_name = ?,
-    subscription_notes = ?`
+    subscription_path = ?,
+    price = ?,
+    payment_method = ?,
+    users = ?,
+    due_date = ?,
+    start_date = ?,
+    plan = ?,
+    is_active = ?,
+    is_custom = ?,
+    notes = ?,
+    image = ?,
+    logo = ?,
+    category_id = ?,
+    currency_id = ?`
 }
 
 export default {
