@@ -10,6 +10,7 @@ function SubscriptionEditForm({subscription, setSubscription, setEdit}){
     const [status, setStatus] = useState('')
     const [plan, setPlan] = useState('');
     const [startDate, setStartDate] = useState('');
+    const [dueDate, setDueDate] = useState('');
     const [users, setUsers] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('');
     const [currency, setCurrency] = useState('');
@@ -18,6 +19,29 @@ function SubscriptionEditForm({subscription, setSubscription, setEdit}){
     const [notes, setNotes] = useState(null);
 
     let updatedSubscription = '';
+
+    function planChange(value) {
+    setPlan(value);
+    calculateDueDate(startDate, value);
+    }
+
+    function startDateChange(value) {
+        setStartDate(value);
+        calculateDueDate(value, plan);
+    }
+
+    function calculateDueDate(startDate, plan){
+        if (!startDate || !plan) return;
+
+        const date = new Date(startDate);
+        date.setMonth(date.getMonth() + parseInt(plan));
+
+        const day = String(date.getDate() + 1).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+
+        setDueDate(`${day}/${month}/${year}`);
+    }
 
     async function editData(){
 
@@ -31,6 +55,7 @@ function SubscriptionEditForm({subscription, setSubscription, setEdit}){
             is_active: status,
             symbol: currency,
             start_date: startDate,
+            due_date: dueDate,
             category_name: category
         };
 
@@ -54,6 +79,7 @@ function SubscriptionEditForm({subscription, setSubscription, setEdit}){
     useEffect(() => {
         setStatus(subscription.is_active);
         setPlan(subscription.plan)
+        setDueDate(subscription.due_date);
         setPaymentMethod(subscription.payment_method);
         setPrice(subscription.price)
 
@@ -98,7 +124,7 @@ function SubscriptionEditForm({subscription, setSubscription, setEdit}){
                         <Input type="select"
                         value={plan}
                         custom={1}
-                        onChange={(event) => setPlan(event.target.value)}>
+                        onChange={(event) => planChange(event.target.value)}>
                             <option value="1">1 Month</option>
                             <option value="3">3 Months</option>
                             <option value="6">6 Months</option>
@@ -147,12 +173,12 @@ function SubscriptionEditForm({subscription, setSubscription, setEdit}){
                         <Input
                         type="date"
                         value={startDate}
-                        onChange={(event) => setStartDate(event.target.value)}
+                        onChange={(event) => startDateChange(event.target.value)}
                         custom={1}/>
                     </div>
                     <div className="flex flex-col gap-2">
                         <p>📅 End:</p>
-                        <p>{subscription.due_date}</p>
+                        <p>{dueDate}</p>
                     </div>
                 </div>
                 <div className="flex flex-col gap-3">
