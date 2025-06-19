@@ -9,7 +9,6 @@ function Subscription(){
     const [edit, setEdit] = useState(false);
 
     const [subscription, setSubscription] = useState({});
-    const [notes, setNotes] = useState(null);
 
     const { pathname } = useLocation()
 
@@ -38,23 +37,6 @@ function Subscription(){
         return str.replace(/[\p{Emoji_Presentation}\p{Emoji}\uFE0F]/gu, '').trim();
     }
 
-    async function editData(){
-
-        subscription.notes = notes;
-
-        const response = await fetch(`http://localhost:8000/my-subscriptions/${subscription.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                subscription: subscription
-            })
-        })
-
-        console.log(response);
-    }
-
     useEffect(() => {
         getSubscription(id);
     }, [])
@@ -70,7 +52,7 @@ function Subscription(){
                 <div className="flex flex-col justify-center items-center gap-3">
                     {edit 
                     ? 
-                    <SubscriptionEditForm subscription={subscription} setEdit={setEdit} editData={editData} notes={notes} setNotes={setNotes}/>
+                    <SubscriptionEditForm subscription={subscription} setSubscription={setSubscription} setEdit={setEdit}/>
                     :
                     <SubscriptionInfo subscription={subscription} setEdit={setEdit}/>
                     }
