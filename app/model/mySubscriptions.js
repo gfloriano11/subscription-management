@@ -108,6 +108,27 @@ function editSubscriptionById(req, res){
     const subscription = req.body.subscription;
     const connection = connect.getConnection();
 
+    const values = [
+        subscription.subscription_name,
+        subscription.subscription_path,
+        subscription.price,
+        subscription.payment_method,
+        subscription.users,
+        subscription.due_date,
+        subscription.start_date,
+        subscription.plan,
+        subscription.is_active,
+        subscription.is_custom,
+        subscription.notes,
+        subscription.image,
+        subscription.logo,
+        subscription.category_id,
+        subscription.currency_id,
+        subscription.id
+    ]
+
+    console.log(values);
+
     const query = `UPDATE my_subscriptions
     SET subscription_name = ?,
     subscription_path = ?,
@@ -123,7 +144,21 @@ function editSubscriptionById(req, res){
     image = ?,
     logo = ?,
     category_id = ?,
-    currency_id = ?`
+    currency_id = ?
+    WHERE
+        id = ?`
+
+    connection.query(query, [values], (error, data) => {
+
+        if(error){
+            return res.status(500).json(error);
+        }
+
+        res.status(200).json(data);
+    });
+
+
+    connect.endConnection(connection);
 }
 
 export default {
