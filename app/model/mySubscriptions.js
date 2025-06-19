@@ -105,11 +105,24 @@ function getSubscriptionById(req, res){
 
 function editSubscriptionById(req, res){
 
+    
     const subscription = req.body.subscription;
+    console.log('subscription atualizada: ', subscription);
     const connection = connect.getConnection();
 
     const plan = subscription.plan.split(' ');
     console.log(plan[0]);
+
+    subscription.currency_id = 2;
+
+    if(subscription.symbol = 'R$'){
+        subscription.currency_id = 1;
+    }
+
+    if(subscription.subscription_name == 'Netflix' || subscription.subscription_name == 'Disney+' || subscription.subscription_name == 'Paramount+' || subscription.subscription_name == 'Prime Video' || subscription.subscription_name == 'Max' || subscription.subscription_name == 'Crunchyroll'){
+        subscription.category_id = 1;
+    }
+    
 
     const values = [
         subscription.subscription_name,
@@ -119,7 +132,7 @@ function editSubscriptionById(req, res){
         subscription.users,
         subscription.due_date,
         subscription.start_date,
-        subscription.plan,
+        plan[0],
         subscription.is_active,
         subscription.is_custom,
         subscription.notes,
@@ -130,28 +143,27 @@ function editSubscriptionById(req, res){
         subscription.id
     ]
 
-    console.log(values);
-
     const query = `UPDATE my_subscriptions
-    SET subscription_name = ?,
-    subscription_path = ?,
-    price = ?,
-    payment_method = ?,
-    users = ?,
-    due_date = ?,
-    start_date = ?,
-    plan = ?,
-    is_active = ?,
-    is_custom = ?,
-    notes = ?,
-    image = ?,
-    logo = ?,
-    category_id = ?,
-    currency_id = ?
+    SET 
+        subscription_name = ?,
+        subscription_path = ?,
+        price = ?,
+        payment_method = ?,
+        users = ?,
+        due_date = ?,
+        start_date = ?,
+        plan = ?,
+        is_active = ?,
+        is_custom = ?,
+        notes = ?,
+        image = ?,
+        logo = ?,
+        category_id = ?,
+        currency_id = ?
     WHERE
         id = ?`
 
-    connection.query(query, [values], (error, data) => {
+    connection.query(query, values, (error, data) => {
 
         if(error){
             return res.status(500).json(error);
