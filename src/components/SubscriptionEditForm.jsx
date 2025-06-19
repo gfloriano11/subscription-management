@@ -73,7 +73,7 @@ function SubscriptionEditForm({subscription, setSubscription, setEdit}){
             })
         })
 
-        console.log(response);
+        window.location.reload(true);
     }
 
     useEffect(() => {

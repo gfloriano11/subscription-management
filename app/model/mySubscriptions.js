@@ -122,7 +122,12 @@ function editSubscriptionById(req, res){
     if(subscription.subscription_name == 'Netflix' || subscription.subscription_name == 'Disney+' || subscription.subscription_name == 'Paramount+' || subscription.subscription_name == 'Prime Video' || subscription.subscription_name == 'Max' || subscription.subscription_name == 'Crunchyroll'){
         subscription.category_id = 1;
     }
-    
+
+    let dueDate = subscription.due_date.split('/');
+    const day = dueDate[0];
+    const month = dueDate[1];
+    const year = dueDate[2];
+    subscription.due_date = `${year}-${month}-${day}`;
 
     const values = [
         subscription.subscription_name,
