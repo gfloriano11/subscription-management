@@ -39,12 +39,8 @@ function Subscription(){
     }
 
     async function editData(){
-        setSubscription((prev) => ({
-            ...prev,
-            notes: notes
-        }))
 
-        console.log(subscription)
+        subscription.notes = notes;
 
         const response = await fetch(`http://localhost:8000/my-subscriptions/${subscription.id}`, {
             method: 'PUT',
@@ -55,6 +51,8 @@ function Subscription(){
                 subscription: subscription
             })
         })
+
+        console.log(response);
     }
 
     useEffect(() => {
