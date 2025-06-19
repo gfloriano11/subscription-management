@@ -108,6 +108,9 @@ function editSubscriptionById(req, res){
     const subscription = req.body.subscription;
     const connection = connect.getConnection();
 
+    const plan = subscription.plan.split(' ');
+    console.log(plan[0]);
+
     const values = [
         subscription.subscription_name,
         subscription.subscription_path,
