@@ -3,7 +3,7 @@ import ActionButton from "../components/ActionButton";
 import Input from "../components/Input";
 import { Save, X } from "lucide-react";
 
-function SubscriptionEditForm({subscription, setEdit, editData, notes, setNotes}){
+function SubscriptionEditForm({subscription, setSubscription, setEdit}){
     
     const [isCustom, setIsCustom] = useState(1);
 
@@ -15,6 +15,41 @@ function SubscriptionEditForm({subscription, setEdit, editData, notes, setNotes}
     const [currency, setCurrency] = useState('');
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('');
+    const [notes, setNotes] = useState(null);
+
+    let updatedSubscription = '';
+
+    async function editData(){
+
+        updatedSubscription = {
+            ...subscription,
+            notes,
+            plan,
+            price,
+            users,
+            payment_method: paymentMethod,
+            is_active: status,
+            symbol: currency,
+            start_date: startDate,
+            category_name: category
+        };
+
+        setSubscription(updatedSubscription);
+
+        console.log(updatedSubscription);
+
+        const response = await fetch(`http://localhost:8000/my-subscriptions/${subscription.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                subscription: updatedSubscription
+            })
+        })
+
+        console.log(response);
+    }
 
     useEffect(() => {
         setStatus(subscription.is_active);
