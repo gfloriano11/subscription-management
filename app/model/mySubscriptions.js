@@ -115,7 +115,7 @@ function editSubscriptionById(req, res){
 
     subscription.currency_id = 2;
 
-    if(subscription.symbol = 'R$'){
+    if(subscription.symbol === 'R$'){
         subscription.currency_id = 1;
     }
 
@@ -181,8 +181,31 @@ function editSubscriptionById(req, res){
     connect.endConnection(connection);
 }
 
+function deleteSubscriptionById(req, res){
+
+    const id = req.params.id;
+
+    const connection = connect.getConnection();
+
+    const query = `
+    DELETE FROM
+        my_subscriptions
+    WHERE
+        id = ?`;
+
+    connection.query(query, [id], (error, data) => {
+
+        if(error){
+            return res.status(500).json(error);
+        }
+
+        res.status(200).json(data);
+    });
+}
+
 export default {
     getSubscriptions,
     getSubscriptionById,
-    editSubscriptionById
+    editSubscriptionById,
+    deleteSubscriptionById
 }
