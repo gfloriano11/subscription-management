@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import GoBackButton from "../components/GoBackButton";
 import SubscriptionInfo from "../components/SubscriptionInfo";
