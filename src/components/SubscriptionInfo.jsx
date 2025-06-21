@@ -2,6 +2,16 @@ import ActionButton from "../components/ActionButton";
 import { Pencil, Trash2 } from "lucide-react";
 
 function SubscriptionInfo({subscription, setEdit}){
+
+    async function deleteSubscription(id){
+        const response = await fetch(`http://localhost:8000/my-subscriptions/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+    }
+
     return(
         <div className="flex flex-col items-center gap-4">
             <div className="grid grid-cols-2 text-center md:text-start gap-x-3 gap-y-3">
@@ -27,7 +37,7 @@ function SubscriptionInfo({subscription, setEdit}){
             </div>
             <div className="pr-2 flex justify-around w-full">
                 <ActionButton text="Edit" color="bg-green-600" Icon={Pencil} onClick={() => (setEdit(true))}/>
-                <ActionButton text="Delete" color="bg-red-600" Icon={Trash2}/>
+                <ActionButton text="Delete" color="bg-red-600" Icon={Trash2} onClick={() => (deleteSubscription(subscription.id))}/>
             </div>
         </div>
     );
