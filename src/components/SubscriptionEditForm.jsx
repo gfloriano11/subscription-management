@@ -58,11 +58,7 @@ function SubscriptionEditForm({subscription, setSubscription, setEdit}){
             due_date: dueDate,
             category_name: category
         };
-
-        setSubscription(updatedSubscription);
-
-        console.log(updatedSubscription);
-
+        
         const response = await fetch(`http://localhost:8000/my-subscriptions/${subscription.id}`, {
             method: 'PUT',
             headers: {
@@ -72,7 +68,12 @@ function SubscriptionEditForm({subscription, setSubscription, setEdit}){
                 subscription: updatedSubscription
             })
         })
+        
+        if(!response.ok){
+            throw new Error('Error to edit subscription', response);
+        }
 
+        setSubscription(updatedSubscription);        
         window.location.reload(true);
     }
 
