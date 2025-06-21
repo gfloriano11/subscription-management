@@ -107,11 +107,9 @@ function editSubscriptionById(req, res){
 
     
     const subscription = req.body.subscription;
-    console.log('subscription atualizada: ', subscription);
     const connection = connect.getConnection();
 
     const plan = subscription.plan.split(' ');
-    console.log(plan[0]);
 
     subscription.currency_id = 2;
 
