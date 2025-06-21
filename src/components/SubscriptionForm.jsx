@@ -242,6 +242,7 @@ function SubscriptionForm({subscription}){
             </div>
             {submit !== '' && (
                 <PopUp
+                text="Ouch! Something went wrong :("
                 error={submit}
                 onClick={() => closePopUp()}/>
             )}

@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 
-function PopUp({error, onClick}){
+function PopUp({text, error, onClick}){
 
     return(
         <div className="absolute top-10 z-20 bg-zinc-900 p-4 rounded-lg 
@@ -10,7 +10,7 @@ function PopUp({error, onClick}){
             </div>
             <div className="p-3 text-white">
                 <div>
-                    <p className="text-2xl">Ouch! Something went wrong :(</p>
+                    <p className="text-2xl">{text}</p>
                 </div>
                 <div className="text-center">
                     <p>{error}</p>
