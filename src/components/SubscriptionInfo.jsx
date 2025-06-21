@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import ActionButton from "../components/ActionButton";
 import { Pencil, Trash2 } from "lucide-react";
 
 function SubscriptionInfo({subscription, setEdit}){
+
+    const navigate = useNavigate();
 
     async function deleteSubscription(id){
         const response = await fetch(`http://localhost:8000/my-subscriptions/${id}`, {
@@ -10,6 +13,12 @@ function SubscriptionInfo({subscription, setEdit}){
                 'Content-Type': 'application/json'
             }
         })
+
+        if(!response.ok){
+            throw new Error('error to delete subscription', response);
+        }
+
+        navigate('/home');
     }
 
     return(

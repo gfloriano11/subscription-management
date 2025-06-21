@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import ActionButton from "../components/ActionButton";
 import Input from "../components/Input";
 import { Save, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function SubscriptionEditForm({subscription, setSubscription, setEdit}){
+
+    const navigate = useNavigate();
     
     const [isCustom, setIsCustom] = useState(1);
 
@@ -74,7 +77,7 @@ function SubscriptionEditForm({subscription, setSubscription, setEdit}){
         }
 
         setSubscription(updatedSubscription);        
-        window.location.reload(true);
+        navigate({state: {updated: true}});
     }
 
     useEffect(() => {
