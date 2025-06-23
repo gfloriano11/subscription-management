@@ -1,12 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import ActionButton from "../components/ActionButton";
 import { Pencil, Trash2 } from "lucide-react";
+import { useState } from "react";
 
 function SubscriptionInfo({subscription, setEdit}){
+
+    const [delete, setDelete] = useState('');
 
     const navigate = useNavigate();
 
     async function deleteSubscription(id){
+
+        if(confirmDelete === false){
+            return console.log('cancelou deleção');
+        }
+
         const response = await fetch(`http://localhost:8000/my-subscriptions/${id}`, {
             method: 'DELETE',
             headers: {
@@ -48,6 +56,10 @@ function SubscriptionInfo({subscription, setEdit}){
                 <ActionButton text="Edit" color="bg-green-600" Icon={Pencil} onClick={() => (setEdit(true))}/>
                 <ActionButton text="Delete" color="bg-red-600" Icon={Trash2} onClick={() => (deleteSubscription(subscription.id))}/>
             </div>
+            {confirmDelete !== '' &&(
+                <PopUpDelete
+                text="Do you really want to delete this subscription?"/>
+            )}
         </div>
     );
 }
