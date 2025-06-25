@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function SubscriptionInfo({subscription, setEdit}){
 
-    const [delete, setDelete] = useState('');
+    const [confirmDelete, setConfirmDelete] = useState('');
 
     const navigate = useNavigate();
 
