@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import ActionButton from "../components/ActionButton";
+import PopUpDelete from "../components/PopUpDelete";
 import { Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 
@@ -8,6 +9,11 @@ function SubscriptionInfo({subscription, setEdit}){
     const [confirmDelete, setConfirmDelete] = useState('');
 
     const navigate = useNavigate();
+
+    function handleDelete(){
+
+        
+    }
 
     async function deleteSubscription(id){
 
@@ -54,7 +60,7 @@ function SubscriptionInfo({subscription, setEdit}){
             </div>
             <div className="pr-2 flex justify-around w-full">
                 <ActionButton text="Edit" color="bg-green-600" Icon={Pencil} onClick={() => (setEdit(true))}/>
-                <ActionButton text="Delete" color="bg-red-600" Icon={Trash2} onClick={() => (deleteSubscription(subscription.id))}/>
+                <ActionButton text="Delete" color="bg-red-600" Icon={Trash2} onClick={() => (setConfirmDelete(true))}/>
             </div>
             {confirmDelete !== '' &&(
                 <PopUpDelete
