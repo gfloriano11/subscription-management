@@ -64,7 +64,8 @@ function SubscriptionInfo({subscription, setEdit}){
             </div>
             {confirmDelete !== '' &&(
                 <PopUpDelete
-                text="Do you really want to delete this subscription?"/>
+                text="Do you really want to delete this subscription?"
+                onClick={() => (setConfirmDelete(''))}/>
             )}
         </div>
     );
