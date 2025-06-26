@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 
-function PopUp({text, error, onClick}){
+function PopUpDelete({text, error, onClick}){
 
     return(
         <div className="absolute top-10 z-20 bg-zinc-900 p-4 rounded-lg 
@@ -20,4 +20,4 @@ function PopUp({text, error, onClick}){
     );
 }
 
-export default PopUp;
+export default PopUpDelete;
