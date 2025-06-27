@@ -10,11 +10,6 @@ function SubscriptionInfo({subscription, setEdit}){
 
     const navigate = useNavigate();
 
-    function handleDelete(){
-
-        
-    }
-
     async function deleteSubscription(id){
 
         if(confirmDelete === false){
