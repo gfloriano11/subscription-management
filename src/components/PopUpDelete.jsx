@@ -1,9 +1,10 @@
 import { X } from "lucide-react";
+import ActionButton from "./ActionButton";
 
 function PopUpDelete({text, error, onClick}){
 
     return(
-        <div className="absolute top-10 z-20 bg-zinc-900 p-4 rounded-lg 
+        <div className="absolute top-30 left-5/15 z-20 bg-zinc-900 p-4 rounded-lg 
         shadow-[0px_10px_20px] shadow-purple-950 border-2 border-gray-800">
             <div className="absolute right-2 top-2 flex justify-end cursor-pointer">
                 <X onClick={onClick}/>
@@ -14,6 +15,10 @@ function PopUpDelete({text, error, onClick}){
                 </div>
                 <div className="text-center">
                     <p>{error}</p>
+                </div>
+                <div className="flex justify-around pt-2">
+                    <ActionButton text="Delete" color="bg-red-700"/>
+                    <ActionButton text="Cancel" color="bg-indigo-900" onClick={onClick}/>
                 </div>
             </div>
         </div>
