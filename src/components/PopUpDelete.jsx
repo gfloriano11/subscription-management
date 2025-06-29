@@ -1,7 +1,17 @@
 import { X } from "lucide-react";
 import ActionButton from "./ActionButton";
 
-function PopUpDelete({text, error, onClick}){
+function PopUpDelete({id, text, error, onClick}){
+
+    async function handleDelete(id){
+        
+        const response = await fetch(`http://localhost:8000/my-subscriptions`, {
+            method: 'DELETE',
+            headers : {
+                'Content-Type': 'application/json' 
+            }
+        })
+    }
 
     return(
         <div className="absolute top-30 left-5/15 z-20 bg-zinc-900 p-4 rounded-lg 
@@ -17,7 +27,7 @@ function PopUpDelete({text, error, onClick}){
                     <p>{error}</p>
                 </div>
                 <div className="flex justify-around pt-2">
-                    <ActionButton text="Delete" color="bg-red-700"/>
+                    <ActionButton text="Delete" color="bg-red-700" onClick={handleDelete(id)}/>
                     <ActionButton text="Cancel" color="bg-indigo-900" onClick={onClick}/>
                 </div>
             </div>
