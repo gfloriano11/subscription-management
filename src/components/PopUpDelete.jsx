@@ -18,7 +18,6 @@ function PopUpDelete({id, text, error, onClick}){
         if(!response.ok){
             throw new Error(`Cannot delete subscription with id: ${id}`);
         }
-
     }
 
     return(
@@ -35,7 +34,7 @@ function PopUpDelete({id, text, error, onClick}){
                     <p>{error}</p>
                 </div>
                 <div className="flex justify-around pt-2">
-                    <ActionButton text="Delete" color="bg-red-700" onClick={handleDelete(id)}/>
+                    <ActionButton text="Delete" color="bg-red-700" onClick={() => handleDelete(id)}/>
                     <ActionButton text="Cancel" color="bg-indigo-900" onClick={onClick}/>
                 </div>
             </div>
