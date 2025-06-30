@@ -5,7 +5,7 @@ function PopUpDelete({id, text, error, onClick}){
 
     async function handleDelete(id){
         
-        const response = await fetch(`http://localhost:8000/my-subscriptions`, {
+        const response = await fetch(`http://localhost:8000/my-subscriptions/${id}`, {
             method: 'DELETE',
             headers : {
                 'Content-Type': 'application/json' 
