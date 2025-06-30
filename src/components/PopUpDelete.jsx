@@ -18,6 +18,8 @@ function PopUpDelete({id, text, error, onClick}){
         if(!response.ok){
             throw new Error(`Cannot delete subscription with id: ${id}`);
         }
+
+        navigate('/home');
     }
 
     return(
