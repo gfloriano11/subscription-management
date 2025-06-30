@@ -1,7 +1,10 @@
 import { X } from "lucide-react";
 import ActionButton from "./ActionButton";
+import { useNavigate } from "react-router-dom";
 
 function PopUpDelete({id, text, error, onClick}){
+
+    const navigate = useNavigate();
 
     async function handleDelete(id){
         
@@ -11,6 +14,11 @@ function PopUpDelete({id, text, error, onClick}){
                 'Content-Type': 'application/json' 
             }
         })
+
+        if(!response.ok){
+            throw new Error(`Cannot delete subscription with id: ${id}`);
+        }
+
     }
 
     return(
