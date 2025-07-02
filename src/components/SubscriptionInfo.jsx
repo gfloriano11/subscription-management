@@ -1,34 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import ActionButton from "../components/ActionButton";
-import PopUpDelete from "../components/PopUpDelete";
 import { Pencil, Trash2 } from "lucide-react";
-import { useState } from "react";
 
-function SubscriptionInfo({subscription, setEdit}){
-
-    const [confirmDelete, setConfirmDelete] = useState('');
-
-    const navigate = useNavigate();
-
-    async function deleteSubscription(id){
-
-        if(confirmDelete === false){
-            return console.log('cancelou deleção');
-        }
-
-        const response = await fetch(`http://localhost:8000/my-subscriptions/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-
-        if(!response.ok){
-            throw new Error('error to delete subscription', response);
-        }
-
-        navigate('/home');
-    }
+function SubscriptionInfo({subscription, setEdit, setConfirmDelete}){
 
     return(
         <div className="flex flex-col items-center gap-4">
@@ -57,12 +31,6 @@ function SubscriptionInfo({subscription, setEdit}){
                 <ActionButton text="Edit" color="bg-green-600" Icon={Pencil} onClick={() => (setEdit(true))}/>
                 <ActionButton text="Delete" color="bg-red-600" Icon={Trash2} onClick={() => (setConfirmDelete(true))}/>
             </div>
-            {confirmDelete !== '' &&(
-                <PopUpDelete
-                id={subscription.id}
-                text="Do you really want to delete this subscription?"
-                onClick={() => (setConfirmDelete(''))}/>
-            )}
         </div>
     );
 }

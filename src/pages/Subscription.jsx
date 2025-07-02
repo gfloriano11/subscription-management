@@ -3,10 +3,12 @@ import { useLocation } from "react-router-dom";
 import GoBackButton from "../components/GoBackButton";
 import SubscriptionInfo from "../components/SubscriptionInfo";
 import SubscriptionEditForm from "../components/SubscriptionEditForm";
+import PopUpDelete from "../components/PopUpDelete";
 
 function Subscription(){
 
     const [edit, setEdit] = useState(false);
+    const [confirmDelete, setConfirmDelete] = useState('');
 
     const [subscription, setSubscription] = useState({});
 
@@ -41,7 +43,7 @@ function Subscription(){
         getSubscription(id);
     }, [])
     return(
-        <section className="flex flex-col gap-5 mt-5">
+        <section className="flex flex-col items-center gap-5 mt-5">
             <div className="bg-zinc-900 p-4 rounded-lg 
             shadow-[0px_10px_20px] shadow-purple-950 border-2 border-gray-800 
             text-white font-inter flex flex-col md:flex-row gap-3">
@@ -54,10 +56,16 @@ function Subscription(){
                     ? 
                     <SubscriptionEditForm subscription={subscription} setSubscription={setSubscription} setEdit={setEdit}/>
                     :
-                    <SubscriptionInfo subscription={subscription} setEdit={setEdit}/>
+                    <SubscriptionInfo subscription={subscription} setEdit={setEdit} setConfirmDelete={setConfirmDelete}/>
                     }
                 </div>
             </div>
+            {confirmDelete !== '' &&(
+                <PopUpDelete
+                id={subscription.id}
+                text="Do you really want to delete this subscription?"
+                onClick={() => (setConfirmDelete(''))}/>
+            )}
             <div className="flex justify-center">
                 <GoBackButton/>
             </div>
