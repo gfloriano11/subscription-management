@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Menu(){
 
     return(
-        <div className="flex flex-col justify-center items-center h-dvh">
+        <div className="flex flex-col justify-center items-center h-dvh bg-slate-950 text-blue-50">
             <div>
                 <p>Welcome to Subscription Management!</p>
             </div>
