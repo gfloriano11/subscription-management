@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import LandingPageButton from "../components/LandingPageButton";
 
 function Menu(){
