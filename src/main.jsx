@@ -6,10 +6,11 @@ import './index.css'
 
 import App from './App.jsx'
 import Home from './pages/Home'
+import Menu from './pages/Menu.jsx'
+import Login from './pages/Login.jsx'
 import SelectCategory from './pages/SelectCategory.jsx'
 import AddSubscription from './pages/AddSubscription.jsx'
 import AddSubscriptionInfo from './pages/AddSubscriptionInfo.jsx'
-import Menu from './pages/Menu.jsx'
 import Subscription from './pages/Subscription.jsx'
 
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: '/menu',
     element: <Menu/>
+  },
+  {
+    path: '/login',
+    element: <Login/>
   },
   {
     path: '/home',
