@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import LandingPageButton from "../components/LandingPageButton";
 
 function Menu(){
 
@@ -15,14 +16,8 @@ function Menu(){
                 </div>
             </div>
             <div className="flex gap-2">
-                <Link
-                to={'/home'}>
-                    <p>Login</p>
-                </Link>
-                <Link
-                to={'/home'}>
-                    <p>Register</p>
-                </Link>
+                <LandingPageButton link='/login' text='Login' color='text-white' background='bg-violet-700' border='border-zinc-900'/>
+                <LandingPageButton link='/register' text='Register' color='text-black' background='bg-slate-300' border='border-black'/>
             </div>
         </div>
     )
