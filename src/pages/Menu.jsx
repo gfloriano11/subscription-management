@@ -14,7 +14,7 @@ function Menu(){
                     <p>Remember when your accounts are due.</p>
                 </div>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-5">
                 <LandingPageButton link='/login' text='Login' color='text-white' background='bg-violet-700' border='border-zinc-900'/>
                 <LandingPageButton link='/register' text='Register' color='text-black' background='bg-slate-300' border='border-black'/>
             </div>
