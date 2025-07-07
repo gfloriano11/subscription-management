@@ -1,4 +1,6 @@
+import InfoContainer from "../components/InfoContainer";
 import LandingPageButton from "../components/LandingPageButton";
+import { CreditCard } from "lucide-react";
 
 function Menu(){
 
@@ -23,7 +25,7 @@ function Menu(){
             <section>
                 <h2>What This App Has That Others Doesn't?</h2>
                 <div>
-                    <p>Insert your expanses.</p>
+                    <InfoContainer icon={<CreditCard color="black"/>} text='Manage your expanses.'/>
                     <p>Management your money</p>
                     <p>See where you are spanding money with graphics</p>
                 </div>
