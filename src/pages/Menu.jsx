@@ -21,8 +21,8 @@ function Menu(){
                     <LandingPageButton link='/register' text='Register' color='text-black' background='bg-slate-300' border='border-black'/>
                 </div>
             </section>
-            <section className="flex flex-col items-center">
-                <h2 className="text-3xl font-inter tracking-widest font-extralight">What make us different?</h2>
+            <section className="flex flex-col justify-center items-center bg-slate-900 min-h-dvh">
+                <h2 className="text-3xl text-center font-inter tracking-widest font-extralight">What make us different?</h2>
                 <div>
                     <InfoContainer icon={<CreditCard color="black"/>} text='Manage your expanses.'/>
                     <p>Management your money</p>
