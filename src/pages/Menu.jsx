@@ -22,8 +22,8 @@ function Menu(){
                     <LandingPageButton link='/register' text='Register' color='text-black' background='bg-slate-300' border='border-black'/>
                 </div>
             </section>
-            <section>
-                <h2>What This App Has That Others Doesn't?</h2>
+            <section className="flex flex-col items-center">
+                <h2 className="text-3xl font-inter tracking-widest font-extralight">What make us different?</h2>
                 <div>
                     <InfoContainer icon={<CreditCard color="black"/>} text='Manage your expanses.'/>
                     <p>Management your money</p>
