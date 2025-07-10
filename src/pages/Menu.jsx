@@ -24,7 +24,7 @@ function Menu(){
             <section className="flex flex-col justify-center items-center bg-slate-900 min-h-dvh">
                 <h2 className="text-3xl text-center font-inter tracking-widest font-extralight">What make us different?</h2>
                 <div>
-                    <InfoContainer icon={<CreditCard color="#3B82F6"/>} text='Manage your expanses.'/>
+                    <InfoContainer border='border-blue-200' shadow='shadow-blue-400' background='bg-blue-100' icon={<CreditCard color="#3B82F6"/>} text='Manage your expanses.'/>
                     <p>Management your money</p>
                     <p>See where you are spanding money with graphics</p>
                 </div>
