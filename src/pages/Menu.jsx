@@ -23,10 +23,11 @@ function Menu(){
             </section>
             <section className="flex flex-col justify-center items-center bg-slate-900 min-h-dvh">
                 <h2 className="text-3xl text-center font-inter tracking-widest font-extralight">What make us different?</h2>
-                <div>
+                <div className="flex gap-3 w-2/3">
                     <InfoContainer border='border-blue-200' shadow='shadow-blue-400' background='bg-blue-100' icon={<CreditCard color="#3B82F6"/>} text='Manage your expanses.'/>
-                    <p>Management your money</p>
-                    <p>See where you are spanding money with graphics</p>
+                    <InfoContainer border='border-fuchsia-200' shadow='shadow-fuchsia-400' background='bg-fuchsia-100' icon={<CreditCard color="#D946EF"/>} text='Manage your expanses.'/>
+                    <InfoContainer border='border-red-200' shadow='shadow-red-400' background='bg-red-100' icon={<CreditCard color="#F87171"/>} text='Manage your expanses.'/>
+                    <InfoContainer border='border-emerald-200' shadow='shadow-emerald-400' background='bg-emerald-100' icon={<CreditCard color="#34D399"/>} text='Manage your expanses.'/>
                 </div>
             </section>
         </section>
