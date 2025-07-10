@@ -21,7 +21,7 @@ function Menu(){
                     <LandingPageButton link='/register' text='Register' color='text-black' background='bg-slate-300' border='border-black'/>
                 </div>
             </section>
-            <section className="flex flex-col justify-center items-center bg-slate-900 min-h-dvh">
+            <section className="flex flex-col justify-center items-center bg-slate-800 min-h-dvh gap-20">
                 <h2 className="text-3xl text-center font-inter tracking-widest font-extralight">What make us different?</h2>
                 <div className="flex gap-3 w-2/3">
                     <InfoContainer border='border-blue-200' shadow='shadow-blue-400' background='bg-blue-100' icon={<CreditCard color="#3B82F6"/>} text='Manage your expanses.'/>
