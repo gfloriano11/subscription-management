@@ -29,7 +29,7 @@ function Menu(){
                         shadow='shadow-blue-400'
                         background='bg-blue-100'
                         icon={<Wallet color="#3B82F6" />}
-                        text='All your bank accounts in one place. Track balances effortlessly.'
+                        text='All your accounts in one place. Track balances effortlessly.'
                     />
                     <InfoContainer
                         border='border-fuchsia-200'
@@ -50,7 +50,7 @@ function Menu(){
                         shadow='shadow-emerald-400'
                         background='bg-emerald-100'
                         icon={<DollarSign color="#34D399" />}
-                        text='Set goals and track your progress towards financial freedom.'
+                        text='Set wastes and track your progress towards financial freedom.'
                     />
                     </div>
             </section>
