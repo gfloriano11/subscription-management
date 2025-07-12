@@ -23,7 +23,7 @@ function Menu(){
             </section>
             <section className="flex flex-col justify-center items-center bg-gray-800 min-h-dvh gap-20">
                 <h2 className="text-3xl text-center font-inter tracking-widest font-extralight">What make us different?</h2>
-                <div className="flex justify-center gap-3 w-2/3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 xmd:flex xmd:justify-center justify-items-center gap-3 w-2/3">
                     <InfoContainer
                         border='border-blue-200'
                         shadow='shadow-blue-400'
