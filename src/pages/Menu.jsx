@@ -1,6 +1,6 @@
 import InfoContainer from "../components/InfoContainer";
 import LandingPageButton from "../components/LandingPageButton";
-import { CreditCard } from "lucide-react";
+import { BarChart2, ChartPie, CreditCard, DollarSign, Wallet } from "lucide-react";
 
 function Menu(){
 
@@ -24,11 +24,35 @@ function Menu(){
             <section className="flex flex-col justify-center items-center bg-gray-800 min-h-dvh gap-20">
                 <h2 className="text-3xl text-center font-inter tracking-widest font-extralight">What make us different?</h2>
                 <div className="flex justify-center gap-3 w-2/3">
-                    <InfoContainer border='border-blue-200' shadow='shadow-blue-400' background='bg-blue-100' icon={<CreditCard color="#3B82F6"/>} text='Manage your expanses.'/>
-                    <InfoContainer border='border-fuchsia-200' shadow='shadow-fuchsia-400' background='bg-fuchsia-100' icon={<CreditCard color="#D946EF"/>} text='Manage your expanses.'/>
-                    <InfoContainer border='border-red-200' shadow='shadow-red-400' background='bg-red-100' icon={<CreditCard color="#F87171"/>} text='Manage your expanses.'/>
-                    <InfoContainer border='border-emerald-200' shadow='shadow-emerald-400' background='bg-emerald-100' icon={<CreditCard color="#34D399"/>} text='Manage your expanses.'/>
-                </div>
+                    <InfoContainer
+                        border='border-blue-200'
+                        shadow='shadow-blue-400'
+                        background='bg-blue-100'
+                        icon={<Wallet color="#3B82F6" />}
+                        text='All your bank accounts in one place. Track balances effortlessly.'
+                    />
+                    <InfoContainer
+                        border='border-fuchsia-200'
+                        shadow='shadow-fuchsia-400'
+                        background='bg-fuchsia-100'
+                        icon={<CreditCard color="#D946EF" />}
+                        text='Know exactly where your money goes. Cancel what you don’t use.'
+                    />
+                    <InfoContainer
+                        border='border-red-200'
+                        shadow='shadow-red-400'
+                        background='bg-red-100'
+                        icon={<ChartPie color="#F87171" />}
+                        text='Visualize your spending habits with detailed charts and reports.'
+                    />
+                    <InfoContainer
+                        border='border-emerald-200'
+                        shadow='shadow-emerald-400'
+                        background='bg-emerald-100'
+                        icon={<DollarSign color="#34D399" />}
+                        text='Set goals and track your progress towards financial freedom.'
+                    />
+                    </div>
             </section>
         </section>
     )
