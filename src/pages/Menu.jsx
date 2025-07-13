@@ -53,6 +53,9 @@ function Menu(){
                         text='Set wastes and track your progress towards financial freedom.'
                     />
                     </div>
+                    <div className="flex">
+                        <LandingPageButton link='/register' text='Try now!' color='text-white' background='bg-violet-700' border='border-zinc-900'/>
+                    </div>
             </section>
         </section>
     )
