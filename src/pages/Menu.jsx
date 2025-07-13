@@ -1,6 +1,6 @@
 import InfoContainer from "../components/InfoContainer";
 import LandingPageButton from "../components/LandingPageButton";
-import { BarChart2, ChartPie, CreditCard, DollarSign, Wallet } from "lucide-react";
+import { ChartPie, CreditCard, DollarSign, Wallet } from "lucide-react";
 
 function Menu(){
 
