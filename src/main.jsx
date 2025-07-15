@@ -7,6 +7,7 @@ import './index.css'
 import App from './App.jsx'
 import Home from './pages/Home'
 import Menu from './pages/Menu.jsx'
+import Register from './pages/Register.jsx'
 import Login from './pages/Login.jsx'
 import SelectCategory from './pages/SelectCategory.jsx'
 import AddSubscription from './pages/AddSubscription.jsx'
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: '/menu',
     element: <Menu/>
+  },
+  {
+    path: '/register',
+    element: <Register/>
   },
   {
     path: '/login',
