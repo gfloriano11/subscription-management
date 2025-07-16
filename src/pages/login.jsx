@@ -10,10 +10,12 @@ function Login(){
                     <input
                     className="p-3 rounded-md bg-slate-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-700" 
                     type="text"
+                    placeholder="Your best e-mail :)"
                     />
                     <input
                     className="p-3 rounded-md bg-slate-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-700" 
                     type="password"
+                    placeholder="Add your password"
                     />
                 </div>
                 <div className="flex flex-col gap-2">
