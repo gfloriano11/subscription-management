@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import EnterButton from "../components/Auth/EnterButton";
+import Input from "../components/Auth/Input";
 
 function Register(){
 
@@ -8,6 +9,7 @@ function Register(){
             <div className="ml-5 mr-5 flex flex-col w-full max-w-md bg-slate-900/80 backdrop-blur-md p-8 rounded-2xl border border-slate-800 shadow-xl gap-3">
                 <h2 className="text-2xl font-semibold text-white mb-3 text-center">Create your account:</h2>
                 <div className="flex flex-col gap-3">
+                    <Input placeholder="Your best e-mail" type="text"/>
                     <input
                     className="p-3 rounded-md bg-slate-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-700" 
                     type="text"
