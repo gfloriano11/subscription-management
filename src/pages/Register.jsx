@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import EnterButton from "../components/Auth/EnterButton";
 
 function Register(){
 
@@ -17,10 +18,8 @@ function Register(){
                     />
                 </div>
                 <div className="flex flex-col gap-2">
-                    <button className="w-full hover:cursor-pointer bg-violet-700 hover:bg-violet-800 text-white font-medium py-3 rounded-md transition">
-                        <p>Enter</p>
-                    </button>
-                    <Link to='/login'><p className="text-gray-200 text-center">Don't have an account? Register here</p></Link>
+                    <EnterButton text="Create Account"/>
+                    <Link to='/login'><p className="text-gray-200 text-center">Already have an account? Enter here</p></Link>
                 </div>
             </div>
         </section>
