@@ -2,7 +2,7 @@ import { Eye, EyeClosed } from "lucide-react";
 
 function Input({type, placeholder, password, showPass, setShowPass}){
 
-    if(password){
+    if(type='password'){
 
         if(showPass){
             type='text'

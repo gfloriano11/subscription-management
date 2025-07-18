@@ -12,7 +12,7 @@ function Register(){
                 <h2 className="text-2xl font-semibold text-white mb-3 text-center">Create your account:</h2>
                 <div className="flex flex-col gap-3">
                     <Input placeholder="Your best e-mail :)" type="text"/>
-                    <Input placeholder="Add your password" type="password" password showPass={showPass} setShowPass={setShowPass}/>
+                    <Input placeholder="Add your password" type="password" showPass={showPass} setShowPass={setShowPass}/>
                 </div>
                 <div className="flex flex-col gap-2">
                     <EnterButton text="Create Account"/>
