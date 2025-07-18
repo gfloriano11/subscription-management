@@ -10,14 +10,8 @@ function Register(){
                 <h2 className="text-2xl font-semibold text-white mb-3 text-center">Create your account:</h2>
                 <div className="flex flex-col gap-3">
                     <Input placeholder="Your best e-mail" type="text"/>
-                    <input
-                    className="p-3 rounded-md bg-slate-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-700" 
-                    type="text"
-                    />
-                    <input
-                    className="p-3 rounded-md bg-slate-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-700" 
-                    type="password"
-                    />
+                    <Input placeholder="Add your password" type="password"/>
+                    <Input placeholder="Confirm your password" type="password"/>
                 </div>
                 <div className="flex flex-col gap-2">
                     <EnterButton text="Create Account"/>
