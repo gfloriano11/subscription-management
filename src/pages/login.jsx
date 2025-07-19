@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import Input from "../components/Auth/Input";
 import EnterButton from "../components/Auth/EnterButton";
+import { useState } from "react";
 
 function Login(){
+    const [showPass, setShowPass] = useState(false);
 
     return(
         <section className="bg-slate-950 min-h-dvh flex justify-center items-center text-blue-50">
@@ -10,7 +12,7 @@ function Login(){
                 <h2 className="text-2xl font-semibold text-white mb-3 text-center">Enter in your account:</h2>
                 <div className="flex flex-col gap-3">
                     <Input type="text" placeholder="Your e-mail"/>
-                    <Input type="password" placeholder="Add your password"/>
+                    <Input placeholder="Password" type="password" showPass={showPass} setShowPass={setShowPass}/>
                 </div>
                 <div className="flex flex-col gap-2">
                     <EnterButton text="Login"/>
