@@ -1,6 +1,17 @@
 import { Eye, EyeClosed } from "lucide-react";
 
-function Input({type, placeholder, showPass, setShowPass, onChange}){
+function Input({type, placeholder, showPass, setShowPass, onChange, children}){
+
+    if (type === "select"){
+        return (
+          <select
+            onChange={onChange}
+            className="w-full p-3 rounded-md bg-slate-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-700" 
+          >
+            {children}
+          </select>
+        );
+    }
 
     if(type=='password'){
 
