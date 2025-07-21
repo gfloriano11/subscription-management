@@ -1,6 +1,6 @@
 import { Eye, EyeClosed } from "lucide-react";
 
-function Input({type, placeholder, showPass, setShowPass}){
+function Input({type, placeholder, showPass, setShowPass, onChange}){
 
     if(type=='password'){
 
@@ -14,6 +14,7 @@ function Input({type, placeholder, showPass, setShowPass}){
                 className="w-full text-white placeholder-gray-400 focus:outline-none"
                 type={`${type}`}
                 placeholder={`${placeholder}`}
+                onChange={onChange}
             />
             {showPass
             ?
@@ -32,6 +33,7 @@ function Input({type, placeholder, showPass, setShowPass}){
             className="w-full p-3 rounded-md bg-slate-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-700" 
             type={`${type}`}
             placeholder={`${placeholder}`}
+            onChange={onChange}
         />
     )
 }
