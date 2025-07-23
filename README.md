@@ -36,7 +36,7 @@ As demais categorias (Games, Música, Educação, etc.) já existem no sistema, 
 - ✅ Categorias de serviços (Streaming, Games, etc.)
 - ⏳ Dashboard com gráficos de gastos
 - ⏳ Filtros por data e categoria
-- ⏳ Edição e exclusão de assinaturas
+- ✅ Edição e exclusão de assinaturas
 
 > ✅ = Concluído | ⏳ = Em desenvolvimento
 
