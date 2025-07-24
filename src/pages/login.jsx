@@ -14,7 +14,7 @@ function Login(){
                     <Input type="text" placeholder="Your e-mail"/>
                     <Input placeholder="Password" type="password" showPass={showPass} setShowPass={setShowPass}/>
                 </div>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-3">
                     <EnterButton text="Login"/>
                     <Link to='/register'><p className="text-gray-200 text-center">Don't have an account? Register here</p></Link>
                 </div>
