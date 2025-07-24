@@ -16,6 +16,7 @@ function Register(){
                 <h2 className="text-2xl font-semibold text-white mb-3 text-center">Create your account:</h2>
                 <RenderFormContent
                     stage={stage}
+                    setStage={setStage}
                     setEmail={setEmail}
                     setPassword={setPassword}
                     showPass={showPass}
