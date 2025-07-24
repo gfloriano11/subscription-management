@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Input from "../../components/Auth/Input";
-import NextPageButton from "../../components/Auth/NextPageButton";
+import Input from "./Input";
+import PageButton from "./PageButton";
 import { Link } from "react-router-dom";
 
 function RenderFormContent({stage, setStage, setEmail, setPassword, showPass, setShowPass}){
@@ -11,8 +11,9 @@ function RenderFormContent({stage, setStage, setEmail, setPassword, showPass, se
                     <Input placeholder="Your best e-mail :)" type="text" onChange={(event) => setEmail(event.target.value)}/>
                     <Input placeholder="Add your password" type="password" onChange={(event) => setPassword(event.target.value)} showPass={showPass} setShowPass={setShowPass}/>
                 </div>
-                <div className="flex flex-col gap-2">
-                    <NextPageButton onClick={() => setStage(2)}/>
+                <div className="flex gap-2">
+                    <PageButton onClick={() => setStage(1)}/>
+                    <PageButton nextPage onClick={() => setStage(2)}/>
                 </div>
             </div>
         )
@@ -29,8 +30,9 @@ function RenderFormContent({stage, setStage, setEmail, setPassword, showPass, se
                     </Input>
                     <Input type="text" placeholder="Add your salary"/>
                 </div>
-                <div className="flex flex-col gap-2">
-                    <NextPageButton onClick={() => setStage(3)}/>
+                <div className="flex gap-2">
+                    <PageButton onClick={() => setStage(1)}/>
+                    <PageButton nextPage onClick={() => setStage(2)}/>
                 </div>
             </div>
         )
