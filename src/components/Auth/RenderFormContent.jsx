@@ -30,7 +30,7 @@ function RenderFormContent({stage, setStage, setEmail, setPassword, showPass, se
                     <Input type="text" placeholder="Add your salary"/>
                 </div>
                 <div className="flex flex-col gap-2">
-                    <NextPageButton onClick={() => setStage(2)}/>
+                    <NextPageButton onClick={() => setStage(3)}/>
                 </div>
             </div>
         )
