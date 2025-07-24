@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import EnterButton from "../components/Auth/EnterButton";
-import Input from "../components/Auth/Input";
 import { useState } from "react";
 import RenderFormContent from "../components/Auth/RenderFormContent";
 

@@ -1,7 +1,5 @@
-import { useState } from "react";
 import Input from "./Input";
 import PageButton from "./PageButton";
-import { Link } from "react-router-dom";
 
 function RenderFormContent({stage, setStage, setEmail, setPassword, showPass, setShowPass}){
     if(stage === 1){
