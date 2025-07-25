@@ -6,6 +6,7 @@ function Register(){
     const [stage, setStage] = useState(1);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [salary, setSalary] = useState(0);
     const [showPass, setShowPass] = useState(false);
 
     return(
@@ -17,6 +18,7 @@ function Register(){
                     setStage={setStage}
                     setEmail={setEmail}
                     setPassword={setPassword}
+                    setSalary={setSalary}
                     showPass={showPass}
                     setShowPass={setShowPass}
                 />
