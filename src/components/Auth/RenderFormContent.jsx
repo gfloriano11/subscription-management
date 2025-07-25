@@ -1,7 +1,7 @@
 import Input from "./Input";
 import PageButton from "./PageButton";
 
-function RenderFormContent({stage, setStage, setEmail, setPassword, showPass, setShowPass}){
+function RenderFormContent({stage, setStage, setEmail, setPassword, setSalary, showPass, setShowPass}){
     if(stage === 1){
         return(
             <div className="w-full flex flex-col gap-3">
@@ -26,7 +26,7 @@ function RenderFormContent({stage, setStage, setEmail, setPassword, showPass, se
                         <option>Female</option>
                         <option>Male</option>
                     </Input>
-                    <Input type="text" placeholder="Add your salary"/>
+                    <Input type="text" placeholder="Add your salary" onChange={(event) => setSalary(event.target.value)}/>
                 </div>
                 <div className="flex gap-2">
                     <PageButton onClick={() => setStage(1)}/>
