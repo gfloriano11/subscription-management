@@ -30,7 +30,26 @@ function RenderFormContent({stage, setStage, setEmail, setPassword, setSalary, s
                 </div>
                 <div className="flex gap-2">
                     <PageButton onClick={() => setStage(1)}/>
-                    <PageButton nextPage onClick={() => setStage(2)}/>
+                    <PageButton nextPage onClick={() => setStage(3)}/>
+                </div>
+            </div>
+        )
+    }
+
+    if(stage === 3){
+        return(
+            <div className="w-full flex flex-col gap-3">
+                <div className="flex flex-col gap-3">
+                    <Input type="select">
+                        <option>Select your gender</option>
+                        <option>Female</option>
+                        <option>Male</option>
+                    </Input>
+                    <Input type="text" placeholder="Add your salary" onChange={(event) => setSalary(event.target.value)}/>
+                </div>
+                <div className="flex gap-2">
+                    <PageButton onClick={() => setStage(1)}/>
+                    <PageButton nextPage onClick={() => setStage(3)}/>
                 </div>
             </div>
         )
