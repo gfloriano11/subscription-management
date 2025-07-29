@@ -4,6 +4,8 @@ import EnterButton from "../components/Auth/EnterButton";
 import { useState } from "react";
 
 function Login(){
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [showPass, setShowPass] = useState(false);
 
     return(
