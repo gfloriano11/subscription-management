@@ -45,7 +45,7 @@ function RenderFormContent({stage, setStage, setName, setAge, setEmail, setPassw
                 </div>
                 <div className="flex gap-2">
                     <PageButton onClick={() => setStage(1)}/>
-                    <PageButton nextPage onClick={() => setStage(3)}/>
+                    <PageButton register onClick={() => setStage(3)}/>
                 </div>
             </div>
         )
