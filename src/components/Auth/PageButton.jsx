@@ -4,7 +4,7 @@ function PageButton({onClick, nextPage, register}){
 
     if(nextPage){
         return(
-            <button className="w-full flex justify-center group hover:cursor-pointer bg-violet-700 hover:bg-violet-800 text-white font-medium py-3 rounded-md transition"
+            <button className="w-full flex justify-center items-center group hover:cursor-pointer bg-violet-700 hover:bg-violet-800 text-white font-medium py-3 rounded-md transition"
             onClick={onClick}>
                 <ArrowRight className="transition-transform duration-500 group-hover:translate-x-1 group-hover:scale-110"/>
             </button>
@@ -13,7 +13,7 @@ function PageButton({onClick, nextPage, register}){
 
     if(register){
         return(
-            <button className="w-full flex justify-center group hover:cursor-pointer bg-violet-700 hover:bg-violet-800 text-white font-medium py-3 rounded-md transition"
+            <button className="w-full flex justify-center items-center group hover:cursor-pointer bg-violet-700 hover:bg-violet-800 text-white font-medium py-3 rounded-md transition"
             onClick={onClick}>
                 <p className="transition-transform duration-300 group-hover:scale-105">Create Account</p>
             </button>
@@ -21,7 +21,7 @@ function PageButton({onClick, nextPage, register}){
     }
 
     return(
-        <button className="w-full flex justify-center group hover:cursor-pointer bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 rounded-md transition"
+        <button className="w-full flex justify-center items-center group hover:cursor-pointer bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 rounded-md transition"
         onClick={onClick}>
             <ArrowLeft className="transition-transform duration-500 group-hover:-translate-x-1 group-hover:scale-110 "/>
         </button>
