@@ -33,6 +33,7 @@ function Register(){
                     setName={setName}
                     setEmail={setEmail}
                     setPassword={setPassword}
+                    setAge={setAge}
                     setSalary={setSalary}
                     showPass={showPass}
                     setShowPass={setShowPass}
