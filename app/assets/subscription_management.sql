@@ -4,6 +4,15 @@ CREATE DATABASE subscription_management;
 
 USE subscription_management;
 
+CREATE TABLE users(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    fullname VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    salary DECIMAL(10, 2) NOT NULL,
+    age TINYINT UNSIGNED NOT NULL
+);
+
 CREATE TABLE currency(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     currency_code VARCHAR(2) NOT NULL,
@@ -81,9 +90,9 @@ VALUES
 
 /* SELECT m.id, m.subscription_name, m.subscription_path,
 m.price, m.users, m.due_date, m.start_date, m.payment_method, m.category_id, m.image
-FROM my_subscriptions AS m;
+FROM my_subscriptions AS m; */
 
-SELECT * FROM my_subscriptions; */
+/* SELECT * FROM my_subscriptions;
 
 SELECT 
     ms.id, ms.subscription_name, ms.subscription_path, ms.price, 
@@ -99,4 +108,4 @@ INNER JOIN
     currency AS cr
 ON ms.currency_id = cr.id
 WHERE
-	ms.id = ?;
+	ms.id = 1;
