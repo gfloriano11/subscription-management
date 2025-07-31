@@ -52,8 +52,6 @@ function getSubscriptionById(req, res){
 function addSubscription(req, res){
     const connection = connect.getConnection();
 
-    console.log(req.body);
-
     const name = req.body.name;
     const currency = Number(req.body.currency);
     const plan = Number(req.body.plan);
