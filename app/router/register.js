@@ -3,4 +3,6 @@ import register from '../model/register.js';
 
 const registerRouter = express.Router();
 
-registerRouter.post('/', register.addUser)
+registerRouter.post('/', register.addUser);
+
+export default registerRouter;
