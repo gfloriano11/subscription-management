@@ -11,6 +11,26 @@ function Register(){
     const [salary, setSalary] = useState(0);
     const [showPass, setShowPass] = useState(false);
 
+    const values = {
+        stage,
+        name,
+        age,
+        email,
+        password,
+        salary,
+        showPass
+    }
+
+    const sets = {
+        setStage,
+        setName,
+        setAge,
+        setEmail,
+        setPassword,
+        setSalary,
+        setShowPass
+    }
+
     async function registerUser(){
         const userData = { name, email, password, age, salary };
 
@@ -28,15 +48,8 @@ function Register(){
             <div className="ml-5 mr-5 flex flex-col w-full max-w-md bg-slate-900/80 backdrop-blur-md p-8 rounded-2xl border border-slate-800 shadow-xl gap-3">
                 <h2 className="text-2xl font-semibold text-white mb-3 text-center">Create your account:</h2>
                 <RenderFormContent
-                    stage={stage}
-                    setStage={setStage}
-                    setName={setName}
-                    setEmail={setEmail}
-                    setPassword={setPassword}
-                    setAge={setAge}
-                    setSalary={setSalary}
-                    showPass={showPass}
-                    setShowPass={setShowPass}
+                    values={values}
+                    sets={sets}
                     registerUser={registerUser}
                 />
                 <Link to='/login'><p className="text-gray-200 text-center">Already have an account? Enter here</p></Link>
