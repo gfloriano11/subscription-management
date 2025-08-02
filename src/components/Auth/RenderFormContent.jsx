@@ -1,8 +1,8 @@
 import Input from "./Input";
 import PageButton from "./PageButton";
 
-function RenderFormContent({stage, values, sets, registerUser}){
-    if(stage === 1){
+function RenderFormContent({values, sets, registerUser}){
+    if(values.stage === 1){
         return(
             <div className="w-full flex flex-col gap-3">
                 <div className="flex flex-col gap-3">
@@ -30,7 +30,7 @@ function RenderFormContent({stage, values, sets, registerUser}){
         )
     }
 
-    if(stage === 2){
+    if(values.stage === 2){
         return(
             <div className="w-full flex flex-col gap-3">
                 <div className="flex flex-col gap-3">
@@ -54,7 +54,7 @@ function RenderFormContent({stage, values, sets, registerUser}){
         )
     }
 
-    if(stage === 3){
+    if(values.stage === 3){
         return(
             <div className="w-full flex flex-col gap-3">
                 <div className="flex flex-col gap-3">
@@ -70,8 +70,8 @@ function RenderFormContent({stage, values, sets, registerUser}){
                     </Input>
                 </div>
                 <div className="flex gap-2">
-                    <PageButton onClick={() => sets.setStage(1)}/>
-                    <PageButton register onClick={() => sets.registerUser()}/>
+                    <PageButton onClick={() => sets.setStage(2)}/>
+                    <PageButton register onClick={() => registerUser()}/>
                 </div>
             </div>
         )
