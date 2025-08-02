@@ -1,5 +1,5 @@
 import connect from "../connection/connection.js";
-import bcrypt, { hash } from 'bcrypt';
+import bcrypt from 'bcrypt';
 
 function addUser(req, res){
 
@@ -17,8 +17,13 @@ function addUser(req, res){
 
         bcrypt.compare(userData.password, hashPass, (error, result) => {
             console.log('verificando...');
+
             if(result){
-                console.log('senha correta: ', userData.password);
+                console.log('senha descriptografa: ', userData.password);
+            }
+
+            if(error){
+                throw error;
             }
         })
     });
