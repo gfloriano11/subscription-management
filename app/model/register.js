@@ -14,18 +14,24 @@ function addUser(req, res){
         hashPass = hash;
 
         console.log('hashed pass: ', hashPass);
+        
+        if(userData.password !== ''){
+            bcrypt.compare(userData.password, hashPass, (error, result) => {
+                console.log('verificando...');
+    
+    
+                if(result){
+                    console.log('senha descriptografa: ', userData.password);
+                }
+    
+                if(error){
+                    throw error;
+                }
+            })
+        } 
 
-        bcrypt.compare(userData.password, hashPass, (error, result) => {
-            console.log('verificando...');
+        return res.status(400).send('E-mail e senha são obrigatórios.');
 
-            if(result){
-                console.log('senha descriptografa: ', userData.password);
-            }
-
-            if(error){
-                throw error;
-            }
-        })
     });
 
     
