@@ -38,11 +38,13 @@ function RenderFormContent({values, sets, registerUser}){
                         type="text"
                         placeholder="Your name"
                         name='name'
+                        value={values.name}
                         onChange={(event) => setName(event.target.value)}
                     />
                     <Input
                         type="text"
                         placeholder="Add your salary"
+                        value={values.salary}
                         onChange={(event) => setSalary(event.target.value)}
                     />
                 </div>
@@ -61,6 +63,7 @@ function RenderFormContent({values, sets, registerUser}){
                     <Input
                         type='text'
                         placeholder='Add your age'
+                        value={values.age}
                         onChange={(event) => sets.setAge(event.target.value)}
                     />
                     <Input type="select">
