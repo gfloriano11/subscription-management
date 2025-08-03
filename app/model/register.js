@@ -6,6 +6,8 @@ function addUser(req, res){
     const userData = req.body;
     let hashPass;
 
+    console.log(userData);
+
     bcrypt.hash(userData.password, 10, (error, hash) => {
         if(error){
             throw error; 
