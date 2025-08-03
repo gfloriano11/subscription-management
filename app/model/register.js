@@ -8,6 +8,10 @@ function addUser(req, res){
 
     console.log(userData);
 
+    if(userData.email == '' || userData.password == '' || userData.name == '' || userData.age == '' || userData.salary == '' || userData.gender == ''){
+        return res.status(400).send('All fields are required.');
+    }
+
     bcrypt.hash(userData.password, 10, (error, hash) => {
         if(error){
             throw error; 
