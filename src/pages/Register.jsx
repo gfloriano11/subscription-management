@@ -9,6 +9,7 @@ function Register(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [salary, setSalary] = useState('');
+    const [gender, setGender] = useState('');
     const [showPass, setShowPass] = useState(false);
 
     const values = {
@@ -18,6 +19,7 @@ function Register(){
         email,
         password,
         salary,
+        gender,
         showPass
     }
 
@@ -28,11 +30,12 @@ function Register(){
         setEmail,
         setPassword,
         setSalary,
+        setGender,
         setShowPass
     }
 
     async function registerUser(){
-        const userData = { name, email, password, age, salary };
+        const userData = { name, email, password, age, salary, gender    };
 
         const response = await fetch(`http://localhost:8000/register`, {
             method: 'POST',
