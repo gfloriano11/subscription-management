@@ -19,6 +19,7 @@ function RenderFormContent({values, sets, registerUser}){
                         name="password"
                         onChange={(event) => sets.setPassword(event.target.value)}
                         showPass={values.showPass}
+                        value={values.password}
                         setShowPass={sets.setShowPass}
                     />
                 </div>
@@ -39,13 +40,13 @@ function RenderFormContent({values, sets, registerUser}){
                         placeholder="Your name"
                         name='name'
                         value={values.name}
-                        onChange={(event) => setName(event.target.value)}
+                        onChange={(event) => sets.setName(event.target.value)}
                     />
                     <Input
                         type="text"
                         placeholder="Add your salary"
                         value={values.salary}
-                        onChange={(event) => setSalary(event.target.value)}
+                        onChange={(event) => sets.setSalary(event.target.value)}
                     />
                 </div>
                 <div className="flex gap-2">
@@ -66,10 +67,15 @@ function RenderFormContent({values, sets, registerUser}){
                         value={values.age}
                         onChange={(event) => sets.setAge(event.target.value)}
                     />
-                    <Input type="select">
-                        <option value='null'>Select your gender</option>
-                        <option value='male'>Female</option>
-                        <option value='female'>Male</option>
+                    <Input 
+                        type="select"
+                        name='gender'
+                        value={values.gender}
+                        onChange={(event) => sets.setGender(event.target.value)}
+                    >
+                        <option value=''>Select your gender</option>
+                        <option value='female'>Female</option>
+                        <option value='male'>Male</option>
                     </Input>
                 </div>
                 <div className="flex gap-2">
