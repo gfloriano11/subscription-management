@@ -6,6 +6,7 @@ function Input({type, name, value, placeholder, showPass, setShowPass, onChange,
         return (
           <select
             onChange={onChange}
+            value={value}
             className="w-full p-3 rounded-md bg-slate-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-700" 
           >
             {children}
