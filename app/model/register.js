@@ -8,6 +8,15 @@ function addUser(req, res){
 
     console.log(userData);
 
+    const values = [
+        userData.email,
+        userData.password,
+        userData.name,
+        userData.age,
+        userData.salary,
+        userData.gender
+    ];
+
     if(userData.email == '' || userData.password == '' || userData.name == '' || userData.age == '' || userData.salary == '' || userData.gender == ''){
         return res.status(400).send('All fields are required.');
     }
@@ -48,6 +57,8 @@ function addUser(req, res){
     (fullname, email, password_hash, salary, age)
     VALUES
     (?, ?, ?, ?, ?)`;
+
+    connection.query(query, )
 }
 
 export default {
