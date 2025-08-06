@@ -8,57 +8,64 @@ function addUser(req, res){
 
     console.log(userData);
 
-    const values = [
-        userData.email,
-        userData.password,
-        userData.name,
-        userData.age,
-        userData.salary,
-        userData.gender
-    ];
-
+    
     if(userData.email == '' || userData.password == '' || userData.name == '' || userData.age == '' || userData.salary == '' || userData.gender == ''){
         return res.status(400).send('All fields are required.');
     }
-
+    
     bcrypt.hash(userData.password, 10, (error, hash) => {
         if(error){
             throw error; 
         }
-
+        
         hashPass = hash;
-
+        
         console.log('hashed pass: ', hashPass);
         
         if(userData.password !== ''){
             bcrypt.compare(userData.password, hashPass, (error, result) => {
                 console.log('verificando...');
-    
-    
+                
+                
                 if(result){
                     console.log('senha descriptografa: ', userData.password);
                 }
-    
+                
                 if(error){
                     throw error;
                 }
             })
         } 
-
+        
         return res.status(400).send('E-mail e senha são obrigatórios.');
-
+        
     });
-
     
-
+    const values = [
+        userData.name,
+        userData.email,
+        hashPass,
+        userData.salary,
+        userData.age,
+        userData.gender
+    ];
+    
+    
     const connection = connect.getConnection();
-
+    
     const query = `INSERT INTO users
-    (fullname, email, password_hash, salary, age)
+    (fullname, email, password_hash, salary, age, gender)
     VALUES
     (?, ?, ?, ?, ?)`;
 
-    connection.query(query, )
+    connection.query(query, values, (error, data) => {
+
+        if(error){
+            return res.status(500).json(error);
+        }
+
+        res.status(200).json(data);
+    })
 }
 
 export default {
