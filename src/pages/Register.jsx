@@ -45,6 +45,10 @@ function Register(){
             body: JSON.stringify(userData)
         });
 
+        if(!response.ok){
+            throw new Error('Cannot register user.');
+        }
+
         const data = await response.json();
 
         console.log(data.message);
