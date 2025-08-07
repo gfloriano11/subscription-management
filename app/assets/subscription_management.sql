@@ -10,7 +10,8 @@ CREATE TABLE users(
     email VARCHAR(255) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
     salary DECIMAL(10, 2) NOT NULL,
-    age TINYINT UNSIGNED NOT NULL
+    age TINYINT UNSIGNED NOT NULL,
+    gender VARCHAR(6) NOT NULL
 );
 
 CREATE TABLE currency(
