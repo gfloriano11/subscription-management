@@ -3,6 +3,6 @@ import user from '../model/user.js';
 
 const userRouter = express.Router();
 
-userRouter.post('/', user.addUser);
+userRouter.post('/', user.register);
 
 export default userRouter;

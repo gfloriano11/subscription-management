@@ -1,7 +1,7 @@
 import connect from "../connection/connection.js";
 import bcrypt from 'bcrypt';
 
-async function addUser(req, res){
+async function register(req, res){
 
     const userData = req.body;
 
@@ -38,5 +38,5 @@ async function addUser(req, res){
 }
 
 export default {
-    addUser
+    register
 }
