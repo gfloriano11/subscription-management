@@ -33,7 +33,6 @@ async function addUser(req, res){
             return res.status(500).json(error);
         }
 
-        //call login function after the register
         return res.status(200).json(data);
     })
 }
