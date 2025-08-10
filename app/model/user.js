@@ -29,12 +29,21 @@ async function register(req, res){
 
     connection.query(query, values, (error, data) => {
 
+        connect.endConnection(connection);
+
         if(error){
             return res.status(500).json(error);
         }
 
         return res.status(200).json(data);
     })
+}
+
+async function login(req, res){
+
+    const userData = req.body;
+
+    const connection = connect.getConnection
 }
 
 export default {
