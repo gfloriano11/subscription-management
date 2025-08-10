@@ -43,7 +43,12 @@ async function login(req, res){
 
     const userData = req.body;
 
-    const connection = connect.getConnection
+    const connection = connect.getConnection();
+
+    if(userData.email == '' || userData.password == ''){
+        return res.status(500).send('All fields required.');
+    }
+
 }
 
 export default {
