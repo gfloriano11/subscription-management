@@ -37,7 +37,7 @@ function Register(){
     async function registerUser(){
         const userData = { name, email, password, age, salary, gender };
 
-        const response = await fetch(`http://localhost:8000/register`, {
+        const response = await fetch(`http://localhost:8000/user/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
