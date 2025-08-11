@@ -35,7 +35,7 @@ function Register(){
     }
 
     async function registerUser(){
-        const userData = { name, email, password, age, salary, gender    };
+        const userData = { name, email, password, age, salary, gender };
 
         const response = await fetch(`http://localhost:8000/register`, {
             method: 'POST',
