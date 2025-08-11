@@ -1,3 +1,4 @@
+import { data } from "react-router-dom";
 import connect from "../connection/connection.js";
 import bcrypt from 'bcrypt';
 
@@ -49,8 +50,24 @@ async function login(req, res){
         return res.status(500).send('All fields required.');
     }
 
+    const query = `SELECT * FROM users WHERE email = ?`;
+    
+    connection.query(query, userData.email, (error, data) => {
+
+        connect.endConnection(connection);
+
+        console.log(data);
+
+        // if(error){
+        //     return res.status(500).json(error);
+        // }
+
+        // return res.status(200).json(data);
+    })
+
 }
 
 export default {
-    register
+    register,
+    login
 }
