@@ -56,7 +56,12 @@ async function login(req, res){
 
         connect.endConnection(connection);
 
-        console.log(data);
+        bcrypt.compare(userData.password, data[0].password, (error, result) => {
+
+            if(result){
+                console.log('logged in!');
+            }
+        })
 
         // if(error){
         //     return res.status(500).json(error);
