@@ -60,20 +60,19 @@ async function login(req, res){
 
         bcrypt.compare(userData.password, data[0].password_hash, (error, result) => {
 
-            if(result){
-                console.log('logged in!');
-            }
-
             if(error){
                 console.log(error);
+
+                return res.status(500).json(error);
             }
+
+            if(result){
+                console.log('logged in!');
+            } else {
+                return response.json({success: false, message: 'passwords do not match'})
+            }
+
         })
-
-        // if(error){
-        //     return res.status(500).json(error);
-        // }
-
-        // return res.status(200).json(data);
     })
 
 }
