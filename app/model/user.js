@@ -56,8 +56,6 @@ async function login(req, res){
 
         connect.endConnection(connection);
 
-        console.log('comparando...');
-
         bcrypt.compare(userData.password, data[0].password_hash, (error, result) => {
 
             if(error){
