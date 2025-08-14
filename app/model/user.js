@@ -68,7 +68,6 @@ async function login(req, res){
         }
 
         const user = data[0];
-        console.log(user);
 
         bcrypt.compare(userData.password, user.password_hash, (error, result) => {
 
