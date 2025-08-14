@@ -78,7 +78,9 @@ async function login(req, res){
 
             if(result){
 
-                const token = jwt.sign({ id: user.id, name: user.fullname }, secretKey);
+                const token = jwt.sign({ id: user.id, name: user.fullname }, secretKey, { expiresIn: '1h' });
+
+                res.status(201).json({ success: true, message: token });
 
             } else {
                 return response.json({success: false, message: 'invalid e-mail or password'})
