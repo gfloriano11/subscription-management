@@ -1,6 +1,9 @@
 import { data } from "react-router-dom";
 import connect from "../connection/connection.js";
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
+const secretKey = process.env.JWT_SECRET;
 
 async function register(req, res){
 
