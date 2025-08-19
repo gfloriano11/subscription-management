@@ -24,6 +24,7 @@ function Login(){
 
         if(response.status === 201){
 
+            localStorage.removeItem('token');
             localStorage.setItem('token', data.message);
             navigate('/home');
         }
