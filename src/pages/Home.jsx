@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 
 import SubscriptionCard from '../components/SubscriptionCard'
 import AddSubscription from '../components/AddSubscriptionButton'
+import { useNavigate } from 'react-router-dom';
 
 function Home(){
 
+    const navigate = useNavigate();
     const [subscriptions, setSubscriptions] = useState([]);
     
     const token = localStorage.getItem('token');
@@ -19,13 +21,18 @@ function Home(){
                     'Authorization': `Bearer ${token}`
                 }
             });
-    
+            
+            console.log(response.status);
+            if(response.status !== 200){
+                navigate('/login');
+            }
+
             if(!response.ok){
                 throw new Error('Can not get your account subscriptions');
             }
     
             let data = await response.json();
-            console.log(response.status);
+
             setSubscriptions(data);
         } catch (error) {
             console.error(error);
