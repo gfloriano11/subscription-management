@@ -78,7 +78,7 @@ async function login(req, res){
 
             if(result){
 
-                const token = jwt.sign({ id: user.id, name: user.fullname }, secretKey, { expiresIn: '1h' });
+                const token = jwt.sign({ id: user.id, name: user.fullname, email: user.email }, secretKey, { expiresIn: '1h' });
 
                 res.status(201).json({ success: true, message: token });
 
