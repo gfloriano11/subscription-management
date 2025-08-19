@@ -14,7 +14,6 @@ async function authenticateUserToken(req, res, next){
     }
 
     jwt.verify(token, secretKey, (error, user) => {
-        console.log(user);
         if(error){
             return res.status(403).json({message: 'Invalid token.'});
         }
