@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function SubscriptionForm({subscription}){
 
+    const token = localStorage.getItem('token');
     const navigate = useNavigate();
 
     const [name, setName] = useState('');
@@ -101,7 +102,8 @@ function SubscriptionForm({subscription}){
             const response = await fetch(`http://localhost:8000/subscription/add`, {
                 method: 'POST',
                 headers: {
-                    'Content-type': 'application/json'
+                    'Content-type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
                     name: name,
