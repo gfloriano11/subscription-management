@@ -50,6 +50,10 @@ function getSubscriptionById(req, res){
 }
 
 function addSubscription(req, res){
+
+    const userId = req.user.id;
+    console.log(userId);
+
     const connection = connect.getConnection();
 
     const name = req.body.name;
@@ -95,15 +99,16 @@ function addSubscription(req, res){
         logo,
         req.body.categoryId,
         req.body.isCustom,
+        userId
     ];
 
 
     const query = `INSERT INTO my_subscriptions
     (subscription_name, subscription_path, price, 
     users, due_date, start_date, plan, payment_method, 
-    currency_id, image, logo, category_id, is_custom)
+    currency_id, image, logo, category_id, is_custom, user_id)
     VALUES
-    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
     connection.query(query, values, (error, data) => {
 
