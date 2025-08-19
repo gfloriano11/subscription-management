@@ -54,8 +54,10 @@ CREATE TABLE my_subscriptions(
     logo VARCHAR(255) NULL,
 	category_id INT NOT NULL,
     currency_id INT NOT NULL,
+    user_id INT NOT NULL,
     FOREIGN KEY (category_id) REFERENCES category (id),
-    FOREIGN KEY (currency_id) REFERENCES currency (id)
+    FOREIGN KEY (currency_id) REFERENCES currency (id),
+    FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
 INSERT INTO currency (currency_code, currency_name, symbol)
@@ -109,4 +111,4 @@ INNER JOIN
     currency AS cr
 ON ms.currency_id = cr.id
 WHERE
-	ms.id = 1;
+	ms.id = 1; */
