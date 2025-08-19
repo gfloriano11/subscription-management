@@ -1,11 +1,12 @@
 import express from 'express';
 import subscription from '../model/subscription.js';
+import authenticate from '../middlewares/auth.js';
 
 const subscriptionRouter = express.Router();
 
 subscriptionRouter.get('/:category', subscription.getSubscription);
 subscriptionRouter.get('/id/:id', subscription.getSubscriptionById);
 
-subscriptionRouter.post('/add', subscription.addSubscription);
+subscriptionRouter.post('/add', authenticate, subscription.addSubscription);
 
 export default subscriptionRouter;
