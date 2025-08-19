@@ -8,7 +8,6 @@ function Home(){
     const [subscriptions, setSubscriptions] = useState([]);
     
     const token = localStorage.getItem('token');
-    console.log(token);
 
     async function getSubscriptions(){
 

@@ -7,11 +7,7 @@ const secretKey = process.env.JWT_SECRET
 
 async function authenticateUserToken(req, res, next){
     const authHeader = req.headers['authorization'];
-    console.log(req.headers['authorization']);
-
     const token = authHeader.split(" ")[1];
-
-    console.log(token)
 
     if(!token){
         return res.status(401).json({success: false, message: 'Token doesnt exist. Login again.'});
