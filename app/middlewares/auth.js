@@ -6,13 +6,19 @@ dotenv.config();
 const secretKey = process.env.JWT_SECRET
 
 async function authenticateUserToken(req, res, next){
-    const token = req.headers['authorization'];
+    const authHeader = req.headers['authorization'];
+    console.log(req.headers['authorization']);
+
+    const token = authHeader.split(" ")[1];
+
+    console.log(token)
 
     if(!token){
         return res.status(401).json({success: false, message: 'Token doesnt exist. Login again.'});
     }
 
     jwt.verify(token, secretKey, (error, user) => {
+        console.log(user);
         if(error){
             return res.status(403).json({message: 'Invalid token.'});
         }
