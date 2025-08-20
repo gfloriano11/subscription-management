@@ -52,7 +52,6 @@ function getSubscriptionById(req, res){
 function addSubscription(req, res){
 
     const userId = req.user.id;
-    console.log(userId);
 
     const connection = connect.getConnection();
 
