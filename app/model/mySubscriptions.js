@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import connect from "../connection/connection.js";
 
-function getSubscriptions(req, res){
+function getSubscriptionsByUserId(req, res){
+
+    const userId = req.user.id;
+    console.log(userId);
 
     const connection = connect.getConnection();
     
@@ -17,9 +20,11 @@ function getSubscriptions(req, res){
         ms.category_id = ct.id 
     INNER JOIN 
         currency AS cr
-    ON ms.currency_id = cr.id`;
+    ON ms.currency_id = cr.id
+    WHERE
+        user_id = ?`;
 
-    connection.query(query, (error, data) => {
+    connection.query(query, userId, (error, data) => {
 
         if(error){
             return res.status(500).json(error);
@@ -202,7 +207,7 @@ function deleteSubscriptionById(req, res){
 }
 
 export default {
-    getSubscriptions,
+    getSubscriptionsByUserId,
     getSubscriptionById,
     editSubscriptionById,
     deleteSubscriptionById

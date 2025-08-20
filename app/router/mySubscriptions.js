@@ -4,7 +4,7 @@ import authenticate from '../middlewares/auth.js';
 
 const mySubscriptionsRouter = express.Router();
 
-mySubscriptionsRouter.get('/', authenticate, mySubscriptions.getSubscriptions);
+mySubscriptionsRouter.get('/', authenticate, mySubscriptions.getSubscriptionsByUserId);
 mySubscriptionsRouter.get('/:id',  mySubscriptions.getSubscriptionById);
 mySubscriptionsRouter.put('/:id', mySubscriptions.editSubscriptionById);
 mySubscriptionsRouter.delete('/:id', mySubscriptions.deleteSubscriptionById);
