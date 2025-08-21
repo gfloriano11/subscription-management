@@ -83,7 +83,7 @@ async function login(req, res){
                 res.status(201).json({ success: true, message: token });
 
             } else {
-                return response.json({success: false, message: 'invalid e-mail or password'})
+                return res.status(401).json({success: false, message: 'invalid e-mail or password'})
             }
 
         })
