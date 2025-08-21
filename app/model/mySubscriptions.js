@@ -4,7 +4,6 @@ import connect from "../connection/connection.js";
 function getSubscriptionsByUserId(req, res){
 
     const userId = req.user.id;
-    console.log(userId);
 
     const connection = connect.getConnection();
     
