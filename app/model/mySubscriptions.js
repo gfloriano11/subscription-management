@@ -38,6 +38,7 @@ function getSubscriptionsByUserId(req, res){
 function getSubscriptionById(req, res){
 
     const id = req.params.id;
+    const userId = req.user.id;
 
     const connection = connect.getConnection();
 
@@ -55,9 +56,11 @@ function getSubscriptionById(req, res){
         currency AS cr
     ON ms.currency_id = cr.id
     WHERE 
-        ms.id = ?`;
+        ms.id = ?
+    AND
+        ms.user_id = ?`;
 
-    connection.query(query, [id], (error, data) => {
+    connection.query(query, [id, userId], (error, data) => {
 
         if(error){
             return res.status(500).json(error);
