@@ -190,6 +190,7 @@ function editSubscriptionById(req, res){
 
 function deleteSubscriptionById(req, res){
 
+    const userId = req.user.id;
     const id = req.params.id;
 
     const connection = connect.getConnection();
@@ -198,9 +199,11 @@ function deleteSubscriptionById(req, res){
     DELETE FROM
         my_subscriptions
     WHERE
-        id = ?`;
+        id = ?
+    AND
+        user_id = ?`;
 
-    connection.query(query, [id], (error, data) => {
+    connection.query(query, [id, userId], (error, data) => {
 
         if(error){
             return res.status(500).json(error);
