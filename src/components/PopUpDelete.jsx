@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function PopUpDelete({id, text, error, onClick}){
 
+    const token = localStorage.getItem('token');
     const navigate = useNavigate();
 
     async function handleDelete(id){
@@ -11,7 +12,8 @@ function PopUpDelete({id, text, error, onClick}){
         const response = await fetch(`http://localhost:8000/my-subscriptions/${id}`, {
             method: 'DELETE',
             headers : {
-                'Content-Type': 'application/json' 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             }
         })
 
