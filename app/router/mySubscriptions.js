@@ -7,6 +7,6 @@ const mySubscriptionsRouter = express.Router();
 mySubscriptionsRouter.get('/', authenticate, mySubscriptions.getSubscriptionsByUserId);
 mySubscriptionsRouter.get('/:id', authenticate, mySubscriptions.getSubscriptionById);
 mySubscriptionsRouter.put('/:id', authenticate, mySubscriptions.editSubscriptionById);
-mySubscriptionsRouter.delete('/:id', mySubscriptions.deleteSubscriptionById);
+mySubscriptionsRouter.delete('/:id', authenticate, mySubscriptions.deleteSubscriptionById);
 
 export default mySubscriptionsRouter;
