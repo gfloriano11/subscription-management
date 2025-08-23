@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function SubscriptionEditForm({subscription, setSubscription, setEdit}){
 
+    const token = localStorage.getItem('token');
     const navigate = useNavigate();
     
     const [isCustom, setIsCustom] = useState(1);
@@ -65,7 +66,8 @@ function SubscriptionEditForm({subscription, setSubscription, setEdit}){
         const response = await fetch(`http://localhost:8000/my-subscriptions/${subscription.id}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({
                 subscription: updatedSubscription
@@ -76,8 +78,8 @@ function SubscriptionEditForm({subscription, setSubscription, setEdit}){
             throw new Error('Error to edit subscription', response);
         }
 
-        setSubscription(updatedSubscription);        
-        navigate({state: {updated: true}});
+        setSubscription(updatedSubscription);
+        window.location.reload();
     }
 
     useEffect(() => {

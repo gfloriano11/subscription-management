@@ -1,6 +1,12 @@
 import { data } from "react-router-dom";
 import connect from "../connection/connection.js";
 import bcrypt from 'bcrypt';
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
+
+dotenv.config();
+
+const secretKey = process.env.JWT_SECRET;
 
 async function register(req, res){
 
@@ -54,20 +60,30 @@ async function login(req, res){
     
     connection.query(query, userData.email, (error, data) => {
 
+        
         connect.endConnection(connection);
 
-        bcrypt.compare(userData.password, data[0].password_hash, (error, result) => {
+        if(!data[0]){
+            return res.status(401).json({success: false, message: 'invalid e-mail or password'});
+        }
+
+        const user = data[0];
+
+        bcrypt.compare(userData.password, user.password_hash, (error, result) => {
 
             if(error){
-                console.log(error);
 
                 return res.status(500).json(error);
             }
 
             if(result){
-                console.log('logged in!');
+
+                const token = jwt.sign({ id: user.id, name: user.fullname, email: user.email }, secretKey, { expiresIn: '1h' });
+
+                res.status(201).json({ success: true, message: token });
+
             } else {
-                return response.json({success: false, message: 'passwords do not match'})
+                return res.status(401).json({success: false, message: 'invalid e-mail or password'})
             }
 
         })

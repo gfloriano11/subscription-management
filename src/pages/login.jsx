@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../components/Auth/Input";
 import EnterButton from "../components/Auth/EnterButton";
 import { useState } from "react";
 
 function Login(){
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPass, setShowPass] = useState(false);
@@ -18,6 +19,15 @@ function Login(){
             },
             body: JSON.stringify(userData)
         })
+
+        let data = await response.json();
+
+        if(response.status === 201){
+
+            localStorage.removeItem('token');
+            localStorage.setItem('token', data.message);
+            navigate('/home');
+        }
     }
 
     return(

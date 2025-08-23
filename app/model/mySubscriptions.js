@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import connect from "../connection/connection.js";
 
-function getSubscriptions(req, res){
+function getSubscriptionsByUserId(req, res){
+
+    const userId = req.user.id;
 
     const connection = connect.getConnection();
     
@@ -17,9 +19,11 @@ function getSubscriptions(req, res){
         ms.category_id = ct.id 
     INNER JOIN 
         currency AS cr
-    ON ms.currency_id = cr.id`;
+    ON ms.currency_id = cr.id
+    WHERE
+        user_id = ?`;
 
-    connection.query(query, (error, data) => {
+    connection.query(query, userId, (error, data) => {
 
         if(error){
             return res.status(500).json(error);
@@ -34,6 +38,7 @@ function getSubscriptions(req, res){
 function getSubscriptionById(req, res){
 
     const id = req.params.id;
+    const userId = req.user.id;
 
     const connection = connect.getConnection();
 
@@ -51,9 +56,11 @@ function getSubscriptionById(req, res){
         currency AS cr
     ON ms.currency_id = cr.id
     WHERE 
-        ms.id = ?`;
+        ms.id = ?
+    AND
+        ms.user_id = ?`;
 
-    connection.query(query, [id], (error, data) => {
+    connection.query(query, [id, userId], (error, data) => {
 
         if(error){
             return res.status(500).json(error);
@@ -96,7 +103,6 @@ function getSubscriptionById(req, res){
             data[0].due_date = due_date;
         }
 
-
         return res.status(200).json(data);
     })
 
@@ -105,7 +111,7 @@ function getSubscriptionById(req, res){
 
 function editSubscriptionById(req, res){
 
-    
+    const userId = req.user.id
     const subscription = req.body.subscription;
     const connection = connect.getConnection();
 
@@ -143,7 +149,8 @@ function editSubscriptionById(req, res){
         subscription.logo,
         subscription.category_id,
         subscription.currency_id,
-        subscription.id
+        subscription.id,
+        userId
     ]
 
     const query = `UPDATE my_subscriptions
@@ -164,7 +171,9 @@ function editSubscriptionById(req, res){
         category_id = ?,
         currency_id = ?
     WHERE
-        id = ?`
+        id = ?
+    AND 
+        user_id = ?`
 
     connection.query(query, values, (error, data) => {
 
@@ -181,6 +190,7 @@ function editSubscriptionById(req, res){
 
 function deleteSubscriptionById(req, res){
 
+    const userId = req.user.id;
     const id = req.params.id;
 
     const connection = connect.getConnection();
@@ -189,9 +199,11 @@ function deleteSubscriptionById(req, res){
     DELETE FROM
         my_subscriptions
     WHERE
-        id = ?`;
+        id = ?
+    AND
+        user_id = ?`;
 
-    connection.query(query, [id], (error, data) => {
+    connection.query(query, [id, userId], (error, data) => {
 
         if(error){
             return res.status(500).json(error);
@@ -202,7 +214,7 @@ function deleteSubscriptionById(req, res){
 }
 
 export default {
-    getSubscriptions,
+    getSubscriptionsByUserId,
     getSubscriptionById,
     editSubscriptionById,
     deleteSubscriptionById

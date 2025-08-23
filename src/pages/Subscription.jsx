@@ -7,6 +7,7 @@ import PopUpDelete from "../components/PopUpDelete";
 
 function Subscription(){
 
+    const token = localStorage.getItem('token');
     const [edit, setEdit] = useState(false);
     const [confirmDelete, setConfirmDelete] = useState('');
 
@@ -23,7 +24,8 @@ function Subscription(){
         const response = await fetch(`http://localhost:8000/my-subscriptions/${id}`, {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             }
         })
 

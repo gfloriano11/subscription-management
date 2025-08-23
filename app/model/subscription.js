@@ -50,6 +50,9 @@ function getSubscriptionById(req, res){
 }
 
 function addSubscription(req, res){
+
+    const userId = req.user.id;
+
     const connection = connect.getConnection();
 
     const name = req.body.name;
@@ -63,8 +66,6 @@ function addSubscription(req, res){
     startDate = startDate.toISOString().split('T')[0];
     dueDate = dueDate.toISOString().split('T')[0];
 
-    console.log(dueDate);
-    
     let path = name.toLowerCase();
     
     path = path.replace(/\s/g, '-');
@@ -95,15 +96,16 @@ function addSubscription(req, res){
         logo,
         req.body.categoryId,
         req.body.isCustom,
+        userId
     ];
 
 
     const query = `INSERT INTO my_subscriptions
     (subscription_name, subscription_path, price, 
     users, due_date, start_date, plan, payment_method, 
-    currency_id, image, logo, category_id, is_custom)
+    currency_id, image, logo, category_id, is_custom, user_id)
     VALUES
-    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
     connection.query(query, values, (error, data) => {
 
@@ -111,7 +113,6 @@ function addSubscription(req, res){
             return res.status(500).json(error);
         }
 
-        console.log("Added subscription with success!");
         return res.status(200).json(data);
     })
 }
