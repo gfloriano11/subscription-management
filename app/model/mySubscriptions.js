@@ -103,7 +103,6 @@ function getSubscriptionById(req, res){
             data[0].due_date = due_date;
         }
 
-
         return res.status(200).json(data);
     })
 
@@ -112,7 +111,7 @@ function getSubscriptionById(req, res){
 
 function editSubscriptionById(req, res){
 
-    
+    const userId = req.user.id
     const subscription = req.body.subscription;
     const connection = connect.getConnection();
 
@@ -150,7 +149,8 @@ function editSubscriptionById(req, res){
         subscription.logo,
         subscription.category_id,
         subscription.currency_id,
-        subscription.id
+        subscription.id,
+        userId
     ]
 
     const query = `UPDATE my_subscriptions
@@ -171,7 +171,9 @@ function editSubscriptionById(req, res){
         category_id = ?,
         currency_id = ?
     WHERE
-        id = ?`
+        id = ?
+    AND 
+        user_id = ?`
 
     connection.query(query, values, (error, data) => {
 
