@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../components/Auth/Input";
 import EnterButton from "../components/Auth/EnterButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Login(){
 
