@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import RenderFormContent from "../components/Auth/RenderFormContent";
 
@@ -11,6 +11,15 @@ function Register(){
     const [salary, setSalary] = useState('');
     const [gender, setGender] = useState('');
     const [showPass, setShowPass] = useState(false);
+
+    const navigate = useNavigate();
+    const token = localStorage.getItem('token');
+
+    useEffect(() => {
+        if(token){
+            navigate('/home');
+        }
+    })
 
     const values = {
         stage,

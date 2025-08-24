@@ -1,8 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import InfoContainer from "../components/InfoContainer";
 import LandingPageButton from "../components/LandingPageButton";
 import { ChartPie, CreditCard, DollarSign, Wallet } from "lucide-react";
+import { useEffect } from "react";
 
 function Menu(){
+
+    const navigate = useNavigate();
+    const token = localStorage.getItem('token');
+
+    useEffect(() => {
+        if(token){
+            navigate('/home');
+        }
+    })
 
     return(
         <section className="bg-slate-950 text-blue-50">

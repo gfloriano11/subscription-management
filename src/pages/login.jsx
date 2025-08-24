@@ -4,7 +4,16 @@ import EnterButton from "../components/Auth/EnterButton";
 import { useState } from "react";
 
 function Login(){
+
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
+
+    useEffect(() => {
+        if(token){
+            navigate('/home');
+        }
+    })
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPass, setShowPass] = useState(false);
