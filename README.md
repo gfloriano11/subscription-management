@@ -31,7 +31,7 @@ As demais categorias (Games, Música, Educação, etc.) já existem no sistema, 
 
 ## 📚 Funcionalidades
 
-- ⏳ Cadastro e login de usuários
+- ✅ Cadastro e login de usuários
 - ✅ Cadastro de assinaturas
 - ✅ Categorias de serviços (Streaming, Games, etc.)
 - ⏳ Dashboard com gráficos de gastos
