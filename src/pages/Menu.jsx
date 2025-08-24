@@ -5,7 +5,7 @@ import { ChartPie, CreditCard, DollarSign, Wallet } from "lucide-react";
 function Menu(){
 
     return(
-        <section className="bg-gradient-to-b from-slate-950 via-slate-800 to-gray-800 text-blue-50">
+        <section className="bg-gradient-to-b bg-slate-950 to-gray-700 text-blue-50">
             <section className="flex flex-col md:items-center md:flex-row min-h-dvh justify-center px-6 py-20 gap-6 max-w-7xl mx-auto">
                 <div className="flex flex-col gap-3 max-w-xl">
                     <div className="max-w-100 text-5xl font-wf-sans font-semibold">
