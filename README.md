@@ -38,7 +38,7 @@ As demais categorias (Games, Música, Educação, etc.) já existem no sistema, 
 - ⏳ Filtros por data e categoria
 - ✅ Edição e exclusão de assinaturas
 - ⏳ Perfil do usuário
-- ⏳Ediçaõ de dados do usuário
+- ⏳ Edição de dados do usuário
 
 > ✅ = Concluído | ⏳ = Em desenvolvimento
 
