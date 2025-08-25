@@ -1,4 +1,3 @@
-import { data } from "react-router-dom";
 import connect from "../connection/connection.js";
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
