@@ -37,6 +37,8 @@ As demais categorias (Games, Música, Educação, etc.) já existem no sistema, 
 - ⏳ Dashboard com gráficos de gastos
 - ⏳ Filtros por data e categoria
 - ✅ Edição e exclusão de assinaturas
+- ⏳ Perfil do usuário
+- ⏳Ediçaõ de dados do usuário
 
 > ✅ = Concluído | ⏳ = Em desenvolvimento
 
