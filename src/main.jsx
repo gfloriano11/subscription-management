@@ -13,6 +13,7 @@ import SelectCategory from './pages/SelectCategory.jsx'
 import AddSubscription from './pages/AddSubscription.jsx'
 import AddSubscriptionInfo from './pages/AddSubscriptionInfo.jsx'
 import Subscription from './pages/Subscription.jsx'
+import Profile from './pages/Profile.jsx'
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,13 @@ const router = createBrowserRouter([
       { path: 'add/:category', element: <AddSubscription/> },
       { path: 'add/:category/:subscription', element: <AddSubscriptionInfo/> },
       { path: 'subscription/:id', element: <Subscription/>}
+    ]
+  },
+  {
+    path: '/profile',
+    element: <App/>,
+    children: [
+      { index: true, element: <Profile/> }
     ]
   }
 ])
