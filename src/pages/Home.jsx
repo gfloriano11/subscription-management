@@ -25,6 +25,7 @@ function Home(){
             
             console.log(response.status);
             if(response.status !== 200){
+                localStorage.removeItem('token');
                 navigate('/login');
             }
 
