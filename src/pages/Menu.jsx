@@ -65,7 +65,7 @@ function Menu(){
                     />
                     </div>
                     <div className="flex">
-                        <LandingPageButton link='/register' text='Try now!' color='text-white' background='bg-violet-700' border='border-zinc-900'/>
+                        <LandingPageButton link='/register' text='Try now!' color='text-white' background='bg-violet-700'/>
                     </div>
             </section>
         </section>
