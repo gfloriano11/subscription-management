@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 
 dotenv.config();
 
-const secretKey = process.env.JWT_SECRET
+const secretKey = process.env.JWT_SECRET;
 
 async function authenticateUserToken(req, res, next){
     const authHeader = req.headers['authorization'];
