@@ -58,8 +58,28 @@ function Register(){
             throw new Error('Cannot register user.');
         }
 
-        const data = await response.json();
+        if(response.status === 200){
+            const userData = { email, password };
+
+            const response = await fetch(`http://localhost:8000/user/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+
+            let data = await response.json();
+
+            if(response.status === 201){
+
+                localStorage.removeItem('token');
+                localStorage.setItem('token', data.message);
+                navigate('/home');
+            }
+        }
     }
+
 
     return(
         <section className="bg-slate-950 min-h-dvh flex justify-center items-center text-blue-50">
