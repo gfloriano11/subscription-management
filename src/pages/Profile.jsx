@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Profile(){
 
+    const [user, setUser] = useState({});
     const navigate = useNavigate();
     async function getUser(){
 
@@ -20,19 +21,17 @@ function Profile(){
             } 
         })
 
-        console.log(response.status);
-
-        const data = await response.json();
-
-        console.log(data);
+        let data = await response.json();
+        setUser(data[0]);
     }
-
+    
     useEffect(() => {
         getUser();
-    }, [])
+    }, []);
+    
     return(
         <>
-            <h1 className="text-white">Welcome, username!</h1>
+            <h1 className="text-white">{`Welcome, ${user.fullname}`}</h1>
         </>
     );
 }
