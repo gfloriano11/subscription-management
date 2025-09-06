@@ -111,5 +111,6 @@ async function getUserData(req, res){
 
 export default {
     register,
-    login
+    login,
+    getUserData
 }
