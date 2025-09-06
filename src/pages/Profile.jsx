@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Profile(){
@@ -18,7 +19,17 @@ function Profile(){
                 'Authorization': `Bearer ${token}`
             } 
         })
+
+        console.log(response.status);
+
+        const data = await response.json();
+
+        console.log(data);
     }
+
+    useEffect(() => {
+        getUser();
+    }, [])
     return(
         <>
             <h1 className="text-white">Welcome, username!</h1>
