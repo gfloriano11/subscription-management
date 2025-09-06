@@ -94,8 +94,6 @@ async function getUserData(req, res){
 
     const id = req.user.id;
 
-    console.log(id);
-
     const connection = connect.getConnection();
 
     const query = `SELECT fullname, email, salary, age FROM users WHERE id = ?`;
