@@ -90,6 +90,25 @@ async function login(req, res){
 
 }
 
+async function getUserData(req, res){
+
+    const id = req.user.id;
+
+    const connection = connect.getConnection();
+
+    const query = `SELECT fullname, email, salary, age WHERE id = ?`;
+
+    connection.query(query, id, (error, data) => {
+        if(error){
+
+            return res.status(500).json(error);
+        }
+
+        return res.status(200).json(data);
+    })
+    
+}
+
 export default {
     register,
     login
