@@ -30,9 +30,9 @@ function Profile(){
     }, []);
     
     return(
-        <>
-            <h1 className="text-white">{`Welcome, ${user.fullname}`}</h1>
-        </>
+        <section className="flex justify-center items-center">
+            <h1 className="text-white text-2xl font-inter">Welcome, <span className="font-semibold">{`${user.fullname}`}</span></h1>
+        </section>
     );
 }
 
