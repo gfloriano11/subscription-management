@@ -1,7 +1,40 @@
+import { useEffect } from "react";
 import Input from "./Input";
 import PageButton from "./PageButton";
 
 function RenderFormContent({values, sets, registerUser}){
+
+    function validateErrors(){
+
+        if(values.stage === 1){
+            console.log('etapa 1');
+        }
+        
+        if(values.stage === 1){
+            console.log('etapa 1');
+        }
+
+        if(values.stage === 1){
+            console.log('etapa 1');
+        }
+        if(!errors.email.trim()) errors.email = "Invalid name";
+
+        console.log(errors.email);
+
+    }
+    const errors = {
+        email: "",
+        pass: "",
+        name: "",
+        salary: "",
+        age: "",
+        gender: "",
+    }
+    
+    useEffect(() => {
+        validateErrors();
+    }, [values.stage])
+
     if(values.stage === 1){
         return(
             <div className="w-full flex flex-col gap-3">
@@ -13,6 +46,7 @@ function RenderFormContent({values, sets, registerUser}){
                         value={values.email}
                         onChange={(event) => sets.setEmail(event.target.value)}
                     />
+                    {errors.email === "" && (<p>erro</p>)}
                     <Input 
                         placeholder="Add your password"
                         type="password"
