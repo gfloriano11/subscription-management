@@ -18,6 +18,11 @@ function RenderFormContent({values, sets, registerUser}){
             console.log('etapa 1');
         }
         if(!errors.email.trim()) errors.email = "Invalid name";
+        if(!errors.pass.trim()) errors.pass = "Invalid password";
+        if(!errors.name.trim()) errors.name = "Invalid name";
+        if(!errors.salary.trim()) errors.salary = "Invalid salary";
+        if(!errors.age.trim()) errors.age = "Invalid age";
+        if(!errors.gender.trim()) errors.gender = "Invalid gender";
 
         console.log(errors.email);
 
