@@ -25,7 +25,7 @@ function RenderFormContent({values, sets, registerUser}){
             gender: ""
         }
 
-        if(!values.email.trim()) newErrors.email = "Invalid name";
+        if(!values.email.trim()) newErrors.email = "Invalid email"; else newErrors.email = "";
         if(!values.password.trim()) newErrors.pass = "Invalid password";
         if(!values.name.trim()) newErrors.name = "Invalid name";
         if(!values.salary.trim()) newErrors.salary = "Invalid salary";
@@ -33,6 +33,10 @@ function RenderFormContent({values, sets, registerUser}){
         if(!values.gender.trim()) newErrors.gender = "Invalid gender";
 
         setErrors(newErrors);
+
+        if(values.stage === 1 && (values.email !== "" && values.password !== "")){
+            sets.setStage(2);
+        }
     }
 
     if(values.stage === 1){
