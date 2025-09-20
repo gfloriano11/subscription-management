@@ -1,44 +1,39 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Input from "./Input";
 import PageButton from "./PageButton";
+import ErrorMessage from "../ErrorMessage";
 
 function RenderFormContent({values, sets, registerUser}){
 
-    function validateErrors(){
-
-        if(values.stage === 1){
-            console.log('etapa 1');
-        }
-        
-        if(values.stage === 1){
-            console.log('etapa 1');
-        }
-
-        if(values.stage === 1){
-            console.log('etapa 1');
-        }
-        if(!errors.email.trim()) errors.email = "Invalid name";
-        if(!errors.pass.trim()) errors.pass = "Invalid password";
-        if(!errors.name.trim()) errors.name = "Invalid name";
-        if(!errors.salary.trim()) errors.salary = "Invalid salary";
-        if(!errors.age.trim()) errors.age = "Invalid age";
-        if(!errors.gender.trim()) errors.gender = "Invalid gender";
-
-        console.log(errors.email);
-
-    }
-    const errors = {
+    const [errors, setErrors] = useState({
         email: "",
         pass: "",
         name: "",
         salary: "",
         age: "",
         gender: "",
+    })
+
+    function validateErrors(){
+        
+        const newErrors = {
+            email: "",
+            pass: "",
+            name: "",
+            salary: "",
+            age: "",
+            gender: ""
+        }
+
+        if(!values.email.trim()) newErrors.email = "Invalid name";
+        if(!values.password.trim()) newErrors.pass = "Invalid password";
+        if(!values.name.trim()) newErrors.name = "Invalid name";
+        if(!values.salary.trim()) newErrors.salary = "Invalid salary";
+        if(!values.age.trim()) newErrors.age = "Invalid age";
+        if(!values.gender.trim()) newErrors.gender = "Invalid gender";
+
+        setErrors(newErrors);
     }
-    
-    useEffect(() => {
-        validateErrors();
-    }, [values.stage])
 
     if(values.stage === 1){
         return(
@@ -51,7 +46,7 @@ function RenderFormContent({values, sets, registerUser}){
                         value={values.email}
                         onChange={(event) => sets.setEmail(event.target.value)}
                     />
-                    {errors.email === "" && (<p>erro</p>)}
+                    {errors.email !== "" && (<ErrorMessage message={errors.email}/>)}
                     <Input 
                         placeholder="Add your password"
                         type="password"
@@ -64,7 +59,8 @@ function RenderFormContent({values, sets, registerUser}){
                 </div>
                 <div className="flex gap-2">
                     <PageButton onClick={() => sets.setStage(1)}/>
-                    <PageButton nextPage onClick={() => sets.setStage(2)}/>
+                    {/* <PageButton nextPage onClick={() => sets.setStage(2)}/> */}
+                    <PageButton nextPage onClick={() => validateErrors()}/>
                 </div>
             </div>
         )
