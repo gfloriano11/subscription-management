@@ -25,15 +25,20 @@ function RenderFormContent({values, sets, registerUser}){
             gender: ""
         }
 
-        setErrors(newErrors);
+        // setErrors(newErrors);
 
         if(values.stage === 1){
-            if(values.email !== "" && values.password !== ""){
+            // if(values.email !== "" && values.password !== ""){
+            //     sets.setStage(2);
+            // }
+
+            if(!values.email.trim() || !values.email.includes("@")) newErrors.email = "Invalid email";
+            if(values.password.length < 6) newErrors.pass = "Password need to have more than 5 characters"
+            setErrors(newErrors);
+
+            if(values.email !== "" && values.password.length > 5){
                 sets.setStage(2);
             }
-
-            if(!values.email.trim()) newErrors.email = "Invalid email";
-            if(!values.password.trim()) newErrors.pass = "Invalid password";
         }
         
         if(values.stage === 2){
@@ -82,7 +87,6 @@ function RenderFormContent({values, sets, registerUser}){
                 </div>
                 <div className="flex gap-2">
                     <PageButton onClick={() => sets.setStage(1)}/>
-                    {/* <PageButton nextPage onClick={() => sets.setStage(2)}/> */}
                     <PageButton nextPage onClick={() => validateErrors()}/>
                 </div>
             </div>
