@@ -25,12 +25,7 @@ function RenderFormContent({values, sets, registerUser}){
             gender: ""
         }
 
-        // setErrors(newErrors);
-
         if(values.stage === 1){
-            // if(values.email !== "" && values.password !== ""){
-            //     sets.setStage(2);
-            // }
 
             if(!values.email.trim() || !values.email.includes("@")) newErrors.email = "Invalid email";
             if(values.password.length < 6) newErrors.pass = "Password need to have more than 5 characters"
