@@ -25,17 +25,35 @@ function RenderFormContent({values, sets, registerUser}){
             gender: ""
         }
 
-        if(!values.email.trim()) newErrors.email = "Invalid email"; else newErrors.email = "";
-        if(!values.password.trim()) newErrors.pass = "Invalid password";
-        if(!values.name.trim()) newErrors.name = "Invalid name";
-        if(!values.salary.trim()) newErrors.salary = "Invalid salary";
-        if(!values.age.trim()) newErrors.age = "Invalid age";
-        if(!values.gender.trim()) newErrors.gender = "Invalid gender";
-
         setErrors(newErrors);
 
-        if(values.stage === 1 && (values.email !== "" && values.password !== "")){
-            sets.setStage(2);
+        if(values.stage === 1){
+            if(values.email !== "" && values.password !== ""){
+                sets.setStage(2);
+            }
+
+            if(!values.email.trim()) newErrors.email = "Invalid email";
+            if(!values.password.trim()) newErrors.pass = "Invalid password";
+        }
+        
+        if(values.stage === 2){
+            if(values.name !== "" && values.salary !== ""){
+                sets.setStage(3);
+            }
+
+            if(!values.name.trim()) newErrors.name = "Invalid name";
+            if(!values.salary.trim()) newErrors.salary = "Invalid salary";
+        }
+
+        if(values.stage === 3){
+            if(values.age !== "" && values.gender !== ""){
+                sets.setStage(3);
+            }
+
+            if(!values.age.trim()) newErrors.age = "Invalid age";
+            if(!values.gender.trim()) newErrors.gender = "Invalid gender";
+
+            registerUser();
         }
     }
 
@@ -60,6 +78,7 @@ function RenderFormContent({values, sets, registerUser}){
                         value={values.password}
                         setShowPass={sets.setShowPass}
                     />
+                    {errors.pass !== "" && (<ErrorMessage message={errors.pass}/>)}
                 </div>
                 <div className="flex gap-2">
                     <PageButton onClick={() => sets.setStage(1)}/>
@@ -81,16 +100,18 @@ function RenderFormContent({values, sets, registerUser}){
                         value={values.name}
                         onChange={(event) => sets.setName(event.target.value)}
                     />
+                    {errors.name !== "" && (<ErrorMessage message={errors.name}/>)}
                     <Input
                         type="text"
                         placeholder="Add your salary"
                         value={values.salary}
                         onChange={(event) => sets.setSalary(event.target.value)}
                     />
+                    {errors.salary !== "" && (<ErrorMessage message={errors.salary}/>)}
                 </div>
                 <div className="flex gap-2">
                     <PageButton onClick={() => sets.setStage(1)}/>
-                    <PageButton nextPage onClick={() => sets.setStage(3)}/>
+                    <PageButton nextPage onClick={() => validateErrors()}/>
                 </div>
             </div>
         )
@@ -106,6 +127,7 @@ function RenderFormContent({values, sets, registerUser}){
                         value={values.age}
                         onChange={(event) => sets.setAge(event.target.value)}
                     />
+                    {errors.age !== "" && (<ErrorMessage message={errors.age}/>)}
                     <Input 
                         type="select"
                         name='gender'
@@ -116,10 +138,11 @@ function RenderFormContent({values, sets, registerUser}){
                         <option value='female'>Female</option>
                         <option value='male'>Male</option>
                     </Input>
+                    {errors.gender !== "" && (<ErrorMessage message={errors.gender}/>)}
                 </div>
                 <div className="flex gap-2">
                     <PageButton onClick={() => sets.setStage(2)}/>
-                    <PageButton register onClick={() => registerUser()}/>
+                    <PageButton register onClick={() => validateErrors()}/>
                 </div>
             </div>
         )
