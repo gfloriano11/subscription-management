@@ -104,6 +104,7 @@ function RenderFormContent({values, sets, registerUser}){
                     <Input
                         type="text"
                         placeholder="Add your salary"
+                        name="salary"
                         value={values.salary}
                         onChange={(event) => sets.setSalary(event.target.value)}
                     />
@@ -122,12 +123,13 @@ function RenderFormContent({values, sets, registerUser}){
             <div className="w-full flex flex-col gap-3">
                 <div className="flex flex-col gap-3">
                     <Input
-                        type='date'
-                        placeholder='Add your birthdate'
+                        type="date"
+                        placeholder="Add your birthdate"
+                        name="birthdate"
                         value={values.birthdate}
                         onChange={(event) => sets.setBirthdate(event.target.value)}
                     />
-                    {errors.age !== "" && (<ErrorMessage message={errors.birthdate}/>)}
+                    {errors.birthdate !== "" && (<ErrorMessage message={errors.birthdate}/>)}
                     <Input 
                         type="select"
                         name='gender'
