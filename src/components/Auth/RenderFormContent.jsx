@@ -10,7 +10,7 @@ function RenderFormContent({values, sets, registerUser}){
         pass: "",
         name: "",
         salary: "",
-        age: "",
+        birthdate: "",
         gender: "",
     })
 
@@ -21,7 +21,7 @@ function RenderFormContent({values, sets, registerUser}){
             pass: "",
             name: "",
             salary: "",
-            age: "",
+            birthdate: "",
             gender: ""
         }
 
@@ -48,11 +48,11 @@ function RenderFormContent({values, sets, registerUser}){
         }
 
         if(values.stage === 3){
-            if(!values.age.trim() || values.age == 0) newErrors.age = "Invalid age";
+            if(!values.birthdate.trim() || values.birthdate == 0) newErrors.birthdate = "Invalid age";
             if(!values.gender.trim()) newErrors.gender = "Invalid gender";
             setErrors(newErrors);
 
-            if((values.age !== "" && values.age != 0) && values.gender !== ""){
+            if((values.birthdate !== "" && values.birthdate != 0) && values.gender !== ""){
                 registerUser();
             }
         }
@@ -122,12 +122,12 @@ function RenderFormContent({values, sets, registerUser}){
             <div className="w-full flex flex-col gap-3">
                 <div className="flex flex-col gap-3">
                     <Input
-                        type='text'
-                        placeholder='Add your age'
-                        value={values.age}
-                        onChange={(event) => sets.setAge(event.target.value)}
+                        type='date'
+                        placeholder='Add your birthdate'
+                        value={values.birthdate}
+                        onChange={(event) => sets.setBirthdate(event.target.value)}
                     />
-                    {errors.age !== "" && (<ErrorMessage message={errors.age}/>)}
+                    {errors.age !== "" && (<ErrorMessage message={errors.birthdate}/>)}
                     <Input 
                         type="select"
                         name='gender'

@@ -5,7 +5,7 @@ import RenderFormContent from "../components/Auth/RenderFormContent";
 function Register(){
     const [stage, setStage] = useState(1);
     const [name, setName] = useState('');
-    const [age, setAge] = useState('');
+    const [birthdate, setBirthdate] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [salary, setSalary] = useState('');
@@ -24,7 +24,7 @@ function Register(){
     const values = {
         stage,
         name,
-        age,
+        birthdate,
         email,
         password,
         salary,
@@ -35,7 +35,7 @@ function Register(){
     const sets = {
         setStage,
         setName,
-        setAge,
+        setBirthdate,
         setEmail,
         setPassword,
         setSalary,
