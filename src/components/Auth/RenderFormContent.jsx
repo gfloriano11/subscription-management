@@ -37,23 +37,24 @@ function RenderFormContent({values, sets, registerUser}){
         }
         
         if(values.stage === 2){
+            if(!values.name.trim()) newErrors.name = "Invalid name";
+            if(!values.salary.trim()) newErrors.salary = "Invalid salary";
+            setErrors(newErrors);
+
             if(values.name !== "" && values.salary !== ""){
                 sets.setStage(3);
             }
 
-            if(!values.name.trim()) newErrors.name = "Invalid name";
-            if(!values.salary.trim()) newErrors.salary = "Invalid salary";
         }
 
         if(values.stage === 3){
-            if(values.age !== "" && values.gender !== ""){
-                sets.setStage(3);
-            }
-
-            if(!values.age.trim()) newErrors.age = "Invalid age";
+            if(!values.age.trim() || values.age == 0) newErrors.age = "Invalid age";
             if(!values.gender.trim()) newErrors.gender = "Invalid gender";
+            setErrors(newErrors);
 
-            registerUser();
+            if((values.age !== "" && values.age != 0) && values.gender !== ""){
+                registerUser();
+            }
         }
     }
 
