@@ -62,24 +62,28 @@ function RenderFormContent({values, sets, registerUser}){
         return(
             <div className="w-full flex flex-col gap-3">
                 <div className="flex flex-col gap-3">
-                    <Input
-                        placeholder="Your best e-mail :)"
-                        type="text"
-                        name="email"
-                        value={values.email}
-                        onChange={(event) => sets.setEmail(event.target.value)}
-                    />
-                    {errors.email !== "" && (<ErrorMessage message={errors.email}/>)}
-                    <Input 
-                        placeholder="Add your password"
-                        type="password"
-                        name="password"
-                        onChange={(event) => sets.setPassword(event.target.value)}
-                        showPass={values.showPass}
-                        value={values.password}
-                        setShowPass={sets.setShowPass}
-                    />
-                    {errors.pass !== "" && (<ErrorMessage message={errors.pass}/>)}
+                    <div className="flex flex-col gap-1">
+                        <Input
+                            placeholder="Your best e-mail :)"
+                            type="text"
+                            name="email"
+                            value={values.email}
+                            onChange={(event) => sets.setEmail(event.target.value)}
+                        />
+                        {errors.email !== "" && (<ErrorMessage message={errors.email}/>)}
+                    </div>
+                    <div className="flex flex-col gap-1">
+                        <Input 
+                            placeholder="Add your password"
+                            type="password"
+                            name="password"
+                            onChange={(event) => sets.setPassword(event.target.value)}
+                            showPass={values.showPass}
+                            value={values.password}
+                            setShowPass={sets.setShowPass}
+                        />
+                        {errors.pass !== "" && (<ErrorMessage message={errors.pass}/>)}
+                    </div>
                 </div>
                 <div className="flex gap-2">
                     <PageButton onClick={() => sets.setStage(1)}/>
@@ -93,22 +97,26 @@ function RenderFormContent({values, sets, registerUser}){
         return(
             <div className="w-full flex flex-col gap-3">
                 <div className="flex flex-col gap-3">
-                    <Input
-                        type="text"
-                        placeholder="Your name"
-                        name='name'
-                        value={values.name}
-                        onChange={(event) => sets.setName(event.target.value)}
-                    />
-                    {errors.name !== "" && (<ErrorMessage message={errors.name}/>)}
-                    <Input
-                        type="text"
-                        placeholder="Add your salary"
-                        name="salary"
-                        value={values.salary}
-                        onChange={(event) => sets.setSalary(event.target.value)}
-                    />
-                    {errors.salary !== "" && (<ErrorMessage message={errors.salary}/>)}
+                    <div className="flex flex-col gap-1">
+                        <Input
+                            type="text"
+                            placeholder="Your name"
+                            name='name'
+                            value={values.name}
+                            onChange={(event) => sets.setName(event.target.value)}
+                        />
+                        {errors.name !== "" && (<ErrorMessage message={errors.name}/>)}
+                    </div>
+                    <div className="flex flex-col gap-1">
+                        <Input
+                            type="text"
+                            placeholder="Add your salary"
+                            name="salary"
+                            value={values.salary}
+                            onChange={(event) => sets.setSalary(event.target.value)}
+                        />
+                        {errors.salary !== "" && (<ErrorMessage message={errors.salary}/>)}
+                    </div>
                 </div>
                 <div className="flex gap-2">
                     <PageButton onClick={() => sets.setStage(1)}/>
@@ -122,25 +130,29 @@ function RenderFormContent({values, sets, registerUser}){
         return(
             <div className="w-full flex flex-col gap-3">
                 <div className="flex flex-col gap-3">
-                    <Input
-                        type="date"
-                        placeholder="Add your birthdate"
-                        name="birthdate"
-                        value={values.birthdate}
-                        onChange={(event) => sets.setBirthdate(event.target.value)}
-                    />
-                    {errors.birthdate !== "" && (<ErrorMessage message={errors.birthdate}/>)}
-                    <Input 
-                        type="select"
-                        name='gender'
-                        value={values.gender}
-                        onChange={(event) => sets.setGender(event.target.value)}
-                    >
-                        <option value=''>Select your gender</option>
-                        <option value='female'>Female</option>
-                        <option value='male'>Male</option>
-                    </Input>
-                    {errors.gender !== "" && (<ErrorMessage message={errors.gender}/>)}
+                    <div className="flex flex-col gap-1">
+                        <Input
+                            type="date"
+                            placeholder="Add your birthdate"
+                            name="birthdate"
+                            value={values.birthdate}
+                            onChange={(event) => sets.setBirthdate(event.target.value)}
+                        />
+                        {errors.birthdate !== "" && (<ErrorMessage message={errors.birthdate}/>)}
+                    </div>
+                    <div className="flex flex-col gap-1">
+                        <Input 
+                            type="select"
+                            name='gender'
+                            value={values.gender}
+                            onChange={(event) => sets.setGender(event.target.value)}
+                        >
+                            <option value=''>Select your gender</option>
+                            <option value='female'>Female</option>
+                            <option value='male'>Male</option>
+                        </Input>
+                        {errors.gender !== "" && (<ErrorMessage message={errors.gender}/>)}
+                    </div>
                 </div>
                 <div className="flex gap-2">
                     <PageButton onClick={() => sets.setStage(2)}/>
