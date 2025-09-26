@@ -34,7 +34,7 @@ function Profile(){
         <section className="flex flex-col w-full h-dvh">
             <nav className="flex justify-between text-white p-3"> 
                 <div className="gap-3 flex items-center">
-                    <ArrowLeft size={28}/>
+                    <ArrowLeft size={28} onClick={() => navigate(-1)}/>
                     <p className="text-lg font-semibold">{user.fullname}</p>
                 </div>
                 <div>
