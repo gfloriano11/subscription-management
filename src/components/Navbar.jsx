@@ -5,7 +5,7 @@ function Navbar() {
     const navigate = useNavigate();
 
     return (
-        <nav className="w-full bg-slate-950/0 p-4 pointer-events-none flex justify-end items-center fixed top-0 left-0 z-50">
+        <nav className="w-full bg-slate-950/0 p-3 pointer-events-none flex justify-end items-center fixed top-0 left-0 z-50">
             <Link to="/profile">
                 <img
                     src="src/assets/user/user_black.svg"
