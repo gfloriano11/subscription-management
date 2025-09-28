@@ -22,6 +22,10 @@ function Profile(){
             } 
         })
 
+        if(response.status === 401){
+            navigate('/login');
+        }
+
         let data = await response.json();
         setUser(data[0]);
     }
