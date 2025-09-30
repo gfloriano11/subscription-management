@@ -82,6 +82,7 @@ function RenderFormContent({values, sets, registerUser}){
                             showPass={values.showPass}
                             value={values.password}
                             setShowPass={sets.setShowPass}
+                            error={(errors.pass !== "")}
                         />
                         {errors.pass !== "" && (<ErrorMessage message={errors.pass}/>)}
                     </div>
