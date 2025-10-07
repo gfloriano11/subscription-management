@@ -106,6 +106,7 @@ function RenderFormContent({values, sets, registerUser}){
                             name='name'
                             value={values.name}
                             onChange={(event) => sets.setName(event.target.value)}
+                            error={(errors.name !== "")}
                         />
                         {errors.name !== "" && (<ErrorMessage message={errors.name}/>)}
                     </div>
