@@ -27,7 +27,7 @@ function RenderFormContent({values, sets, registerUser}){
 
         if(values.stage === 1){
 
-            if(!values.email.trim() || !values.email.includes("@")) newErrors.email = "Invalid email";
+            if(!values.email.trim() || !values.email.includes("@")) newErrors.email = "Invalid e-mail";
             if(values.password.length < 6) newErrors.pass = "Password need to have more than 5 characters"
             setErrors(newErrors);
 
@@ -117,6 +117,7 @@ function RenderFormContent({values, sets, registerUser}){
                             name="salary"
                             value={values.salary}
                             onChange={(event) => sets.setSalary(event.target.value)}
+                            error={errors.salary !== ""}
                         />
                         {errors.salary !== "" && (<ErrorMessage message={errors.salary}/>)}
                     </div>
@@ -140,6 +141,7 @@ function RenderFormContent({values, sets, registerUser}){
                             name="birthdate"
                             value={values.birthdate}
                             onChange={(event) => sets.setBirthdate(event.target.value)}
+                            error={errors.birthdate !== ""}
                         />
                         {errors.birthdate !== "" && (<ErrorMessage message={errors.birthdate}/>)}
                     </div>
@@ -149,6 +151,7 @@ function RenderFormContent({values, sets, registerUser}){
                             name='gender'
                             value={values.gender}
                             onChange={(event) => sets.setGender(event.target.value)}
+                            error={errors.gender !== ""}
                         >
                             <option value=''>Select your gender</option>
                             <option value='female'>Female</option>
