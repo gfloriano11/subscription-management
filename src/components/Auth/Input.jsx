@@ -3,7 +3,7 @@ import { Eye, EyeClosed } from "lucide-react";
 function Input({type, name, value, placeholder, showPass, setShowPass, onChange, children, error}){
 
     const defaultStyle = `w-full p-3 rounded-md bg-slate-800 text-white outline-red-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-700`;
-    const errorStyle = `transition-all duration-500 w-full p-3 rounded-md bg-slate-800 text-white outline-1 outline-red-800 placeholder-gray-400 focus:outline-red-800`;
+    const errorStyle = `transition-all duration-500 w-full p-3 rounded-md bg-slate-800 text-white outline-2 outline-red-800 placeholder-gray-400`;
 
     if (type === "select"){
         return (
