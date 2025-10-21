@@ -49,6 +49,15 @@ function Profile(){
                     />
                 </div>
             </nav>
+            <div>
+                <h1 className="font-inter text-lg text-white font-light">Track your spending by...</h1>
+                <div className="flex gap-3 text-white">
+                    <p>Day</p>
+                    <p>Week</p>
+                    <p>Month</p>
+                    <p>Year</p>
+                </div>
+            </div>
             <div className="w-full h-full flex flex-col justify-center items-center">
                 <h1 className="text-white text-2xl font-inter">Welcome, <span className="font-semibold">{`${user.fullname}`}</span></h1>
             </div>
