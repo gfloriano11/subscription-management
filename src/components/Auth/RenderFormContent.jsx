@@ -37,19 +37,20 @@ function RenderFormContent({values, sets, registerUser}){
         }
         
         if(values.stage === 2){
-            if(!values.name.trim()) newErrors.name = "Invalid name";
-            if(!values.salary.trim()) newErrors.salary = "Invalid salary";
+            if(!values.name.trim()) newErrors.name = "Your name can't be empty!";
+            if(!values.salary.trim()) newErrors.salary = "Your salary can't be empty!";
+            if(!values.salary <= 0) newErrors.salary = "Your salary can't be that lower!";
             setErrors(newErrors);
 
-            if(values.name !== "" && values.salary !== ""){
+            if(values.name !== "" && values.salary !== "" && values.salary > 0){
                 sets.setStage(3);
             }
 
         }
 
         if(values.stage === 3){
-            if(!values.birthdate.trim() || values.birthdate == 0) newErrors.birthdate = "Invalid age";
-            if(!values.gender.trim()) newErrors.gender = "Invalid gender";
+            if(!values.birthdate.trim() || values.birthdate == 0) newErrors.birthdate = "Invalid birthdate!";
+            if(!values.gender.trim()) newErrors.gender = "You can't let your gender empty!";
             setErrors(newErrors);
 
             if((values.birthdate !== "" && values.birthdate != 0) && values.gender !== ""){
